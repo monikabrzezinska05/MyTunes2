@@ -40,19 +40,18 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
     }
 
     @Override
-    public Playlist createPlaylist(String title, int id) {
+    public Playlist createPlaylist(int id, String title) throws Exception {
         return null;
     }
 
     @Override
-    public void updatePlaylist(Playlist playlist) {
+    public void updatePlaylist(Playlist playlist) throws Exception {
 
     }
 
     @Override
-    public void deletePlaylist(Playlist playlist) {
+    public void deletePlaylist(Playlist playlist) throws Exception {
 
     }
-
 }
 
