@@ -41,9 +41,10 @@ public class SongDAO_DB implements ISongDataAccess{
     }
 
     @Override
-    public Song createSong(String title, String artist, int length) {
+    public Song createSong(int id, String title, int length) {
         return null;
     }
+
 
     @Override
     public void updateSong(Song song) {
