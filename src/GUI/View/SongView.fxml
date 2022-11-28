@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -14,7 +16,7 @@
 
 <AnchorPane prefHeight="591.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SongView">
    <children>
-      <GridPane layoutX="13.0" layoutY="99.0" prefHeight="401.0" prefWidth="288.0">
+      <GridPane layoutX="6.0" layoutY="112.0" prefHeight="401.0" prefWidth="288.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="10.0" prefWidth="340.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="121.0" minWidth="0.0" prefWidth="0.0" />
@@ -43,7 +45,7 @@
       <Text layoutX="334.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist" />
       <Text layoutX="637.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
       <TextField layoutX="746.0" layoutY="43.0" />
-      <Text layoutX="709.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FIlter:" />
+      <Text layoutX="703.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" />
       <Button layoutX="550.0" layoutY="528.0" mnemonicParsing="false" text="Delete" />
       <Button layoutX="653.0" layoutY="528.0" mnemonicParsing="false" text="New" />
       <Button layoutX="728.0" layoutY="528.0" mnemonicParsing="false" text="Edit" />
@@ -51,7 +53,7 @@
       <Button layoutX="869.0" layoutY="528.0" mnemonicParsing="false" text="Delete" />
       <Button layoutX="113.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&lt;&lt;" />
       <Button layoutX="252.0" layoutY="27.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&gt;&gt;" />
-      <Button layoutX="795.0" layoutY="528.0" mnemonicParsing="false" text="Tilføj" />
+      <Button layoutX="795.0" layoutY="528.0" mnemonicParsing="false" text="Add" />
       <Slider layoutX="131.0" layoutY="85.0" />
       <GridPane layoutX="334.0" layoutY="152.0" prefHeight="350.0" prefWidth="268.0">
         <columnConstraints>
@@ -87,5 +89,12 @@
             </TreeTableView>
          </children>
       </GridPane>
+      <TextField layoutX="394.0" layoutY="43.0" />
+      <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="82.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="97.0" layoutY="80.0">
+         <image>
+            <Image url="@../../../../../Desktop/volumeIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
