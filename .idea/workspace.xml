@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
-      <change afterPath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAL/PlaylistDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAL/SongDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAL/db/DatabaseConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SongModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/SongModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SongView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/SongViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +19,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -32,25 +30,29 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IAUlcR6btdM1ruUdcj5aYUPxgt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669624037043</updated>
       <workItem from="1669624038431" duration="592000" />
-      <workItem from="1669624735804" duration="897000" />
+      <workItem from="1669624735804" duration="1302000" />
     </task>
     <task id="LOCAL-00001" summary="MyTunes">
       <created>1669624339964</created>
@@ -90,7 +92,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669625192515</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="MyTunes">
+      <created>1669625639648</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669625639648</updated>
+    </task>
+    <task id="LOCAL-00006" summary="MyTunes">
+      <created>1669625928426</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669625928426</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
