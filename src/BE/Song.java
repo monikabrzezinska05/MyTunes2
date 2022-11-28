@@ -5,6 +5,7 @@ public class Song {
     private int id;
     private String title;
     private int lenght;
+    private String artist;
 
 
     public Song(int id, String title, int length) {
@@ -24,4 +25,8 @@ public class Song {
     public int getLenght() { return lenght; }
 
     public void setLenght(int lenght) { this.lenght = lenght; }
+
+    public String getArtist() {
+        return artist;
+    }
 }
