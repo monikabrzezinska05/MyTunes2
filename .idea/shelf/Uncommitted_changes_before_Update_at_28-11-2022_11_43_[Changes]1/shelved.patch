@@ -1,0 +1,125 @@
+Index: src/DAL/db/PlaylistDAO_DB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/DAL/db/PlaylistDAO_DB.java b/src/DAL/db/PlaylistDAO_DB.java
+--- a/src/DAL/db/PlaylistDAO_DB.java	
++++ b/src/DAL/db/PlaylistDAO_DB.java	
+@@ -1,4 +1,58 @@
+ package DAL.db;
+ 
+-public class PlaylistDAO_DB {
++import BE.Playlist;
++import DAL.IPlaylistDataAccess;
++import com.microsoft.sqlserver.jdbc.SQLServerException;
++
++import java.sql.*;
++import java.util.ArrayList;
++import java.util.List;
++
++public class PlaylistDAO_DB implements IPlaylistDataAccess {
++
++    private DatabaseConnector databaseConnector;
++    public PlaylistDAO_DB(){
++        databaseConnector = new DatabaseConnector();
++    }
++
++    public List<Playlist> getAllPlaylists() throws SQLServerException {
++        ArrayList<Playlist> allPlaylists = new ArrayList<>();
++
++        try (Connection connection = databaseConnector.getConnection())
++        {
++            String sql = "SELECT * FROM Playlist;";
++
++            Statement statement = connection.createStatement();
++            ResultSet rs = statement.executeQuery(sql);
++
++            while(rs.next()) {
++
++                int id = rs.getInt("ID");
++                String title = rs.getString("Title");
++
++                Playlist playlist = new Playlist(id, title);
++                allPlaylists.add(playlist);
++            }
++            return allPlaylists;
++        } catch (SQLException e) {
++            throw new RuntimeException(e);
++        }
++    }
++
++    @Override
++    public Playlist createPlaylist(String title, int id) {
++        return null;
++    }
++
++    @Override
++    public void updatePlaylist(Playlist playlist) {
++
++    }
++
++    @Override
++    public void deletePlaylist(Playlist playlist) {
++
++    }
++
+ }
++
+Index: src/DAL/db/SongDAO_DB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/DAL/db/SongDAO_DB.java b/src/DAL/db/SongDAO_DB.java
+--- a/src/DAL/db/SongDAO_DB.java	
++++ b/src/DAL/db/SongDAO_DB.java	
+@@ -41,10 +41,11 @@
+     }
+ 
+     @Override
+-    public Song createSong(String title, String artist, int length) {
++    public Song createSong(int id, String title, int length) {
+         return null;
+     }
+ 
++
+     @Override
+     public void updateSong(Song song) {
+ 
+Index: src/DAL/ISongDataAccess.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/DAL/ISongDataAccess.java b/src/DAL/ISongDataAccess.java
+--- a/src/DAL/ISongDataAccess.java	
++++ b/src/DAL/ISongDataAccess.java	
+@@ -8,9 +8,11 @@
+ public interface ISongDataAccess {
+     public List<Song> getAllSongs() throws SQLServerException;
+ 
+-    public Song createSong(String title, String artist, int length);
++    public Song createSong(int id, String title, int length);
+ 
+     public void updateSong(Song song);
+ 
+     public void deleteSong(Song song);
++
++
+ }
+Index: src/BE/Playlist.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/BE/Playlist.java b/src/BE/Playlist.java
+--- a/src/BE/Playlist.java	
++++ b/src/BE/Playlist.java	
+@@ -1,4 +1,6 @@
+ package BE;
+ 
+ public class Playlist {
++    public Playlist(int id, String title) {
++    }
+ }
