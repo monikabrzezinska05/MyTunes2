@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/pngwing.com.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/volumeIcon.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
