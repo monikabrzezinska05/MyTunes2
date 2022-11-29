@@ -14,48 +14,44 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="591.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SongView">
+<AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SongView">
    <children>
-      <GridPane layoutX="6.0" layoutY="104.0" prefHeight="401.0" prefWidth="297.0">
+      <GridPane layoutX="6.0" layoutY="155.0" prefHeight="350.0" prefWidth="297.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="10.0" prefWidth="340.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="121.0" minWidth="0.0" prefWidth="0.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="74.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="351.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="220.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView prefHeight="321.0" prefWidth="315.0" GridPane.rowIndex="2" />
-            <TreeTableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <ListView prefHeight="378.0" prefWidth="297.0" />
+            <TreeTableView prefHeight="533.0" prefWidth="297.0">
               <columns>
-                <TreeTableColumn prefWidth="97.0" text="Name" />
-                <TreeTableColumn prefWidth="101.0" text="Songs" />
-                  <TreeTableColumn prefWidth="98.0" text="Time" />
+                <TreeTableColumn prefWidth="121.0" text="Name" />
+                <TreeTableColumn prefWidth="69.0" text="Songs" />
+                  <TreeTableColumn prefWidth="106.0" text="Time" />
               </columns>
             </TreeTableView>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Playlists" wrappingWidth="41.6015625" />
          </children>
       </GridPane>
-      <Button layoutX="23.0" layoutY="540.0" mnemonicParsing="false" text="New" />
-      <Button layoutX="113.0" layoutY="540.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="201.0" layoutY="540.0" mnemonicParsing="false" text="Delete" />
-      <ListView layoutX="637.0" layoutY="152.0" prefHeight="350.0" prefWidth="297.0" />
+      <Button layoutX="14.0" layoutY="516.0" mnemonicParsing="false" text="New" />
+      <Button layoutX="91.0" layoutY="516.0" mnemonicParsing="false" text="Edit" />
+      <Button layoutX="252.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
       <Text layoutX="334.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist" />
       <Text layoutX="637.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
       <TextField layoutX="746.0" layoutY="43.0" />
       <Text layoutX="703.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" />
-      <Button layoutX="550.0" layoutY="528.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="653.0" layoutY="528.0" mnemonicParsing="false" text="New" />
-      <Button layoutX="728.0" layoutY="528.0" mnemonicParsing="false" text="Edit" />
+      <Button layoutX="534.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="617.0" layoutY="516.0" mnemonicParsing="false" text="New" />
+      <Button layoutX="703.0" layoutY="516.0" mnemonicParsing="false" text="Edit" />
       <Button layoutX="175.0" layoutY="16.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="52.0" style="-fx-background-radius: 100;" text="Play" />
-      <Button layoutX="869.0" layoutY="528.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="870.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
       <Button layoutX="113.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&lt;&lt;" />
       <Button layoutX="252.0" layoutY="27.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&gt;&gt;" />
-      <Button layoutX="795.0" layoutY="528.0" mnemonicParsing="false" text="Add" />
+      <Button layoutX="783.0" layoutY="516.0" mnemonicParsing="false" text="Add" />
       <Slider layoutX="131.0" layoutY="85.0" />
-      <GridPane layoutX="334.0" layoutY="152.0" prefHeight="350.0" prefWidth="268.0">
+      <GridPane layoutX="317.0" layoutY="155.0" prefHeight="350.0" prefWidth="268.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="268.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="0.0" prefWidth="0.0" />
@@ -66,27 +62,7 @@
           <RowConstraints maxHeight="350.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView prefHeight="350.0" prefWidth="268.0" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="638.0" layoutY="152.0" prefHeight="350.0" prefWidth="297.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="297.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="0.0" prefWidth="0.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="350.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="116.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="67.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <TreeTableView prefHeight="200.0" prefWidth="200.0">
-              <columns>
-                <TreeTableColumn prefWidth="108.0" text="Title" />
-                <TreeTableColumn prefWidth="91.0" text="Artist" />
-                  <TreeTableColumn prefWidth="97.0" text="Time" />
-              </columns>
-            </TreeTableView>
+            <ListView prefHeight="283.0" prefWidth="268.0" />
          </children>
       </GridPane>
       <TextField blendMode="COLOR_BURN" layoutX="394.0" layoutY="43.0" />
@@ -96,5 +72,23 @@
             <Image url="@../../../../../Desktop/volumeIcon.png" />
          </image>
       </ImageView>
+      <Text layoutX="10.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlists" wrappingWidth="41.6015625" />
+      <GridPane layoutX="601.0" layoutY="155.0" prefHeight="350.0" prefWidth="327.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TreeTableView prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TreeTableColumn prefWidth="122.0" text="Title" />
+                <TreeTableColumn prefWidth="122.0" text="Artist" />
+                  <TreeTableColumn text="Time" />
+              </columns>
+            </TreeTableView>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
