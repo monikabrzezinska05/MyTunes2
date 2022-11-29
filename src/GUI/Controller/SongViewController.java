@@ -6,6 +6,7 @@ import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Slider;
 
 import java.awt.*;
 import java.net.URL;
@@ -21,11 +22,11 @@ public class SongViewController implements Initializable {
     private TextField playingSong;
 
     //public ListView<Songs> lstSongs;
-   // public ListView<SongsInPlaylist> lstSongsInPlaylist;
-   // public ListView<Playlists> lstPlaylists;
+    //public ListView<SongsInPlaylist> lstSongsInPlaylist;
+    //public ListView<Playlists> lstPlaylists;
 
     public Button newPlaylist;
-    public Button editPLaylist;
+    public Button editPlaylist;
     public Button deletePlaylist;
 
     public Button deleteSongInPlaylist;
@@ -36,6 +37,7 @@ public class SongViewController implements Initializable {
     public Button reverseBtn;
     public Button forwardBtn;
     public Button addSong;
+    public Slider volumeslider;
 
     private SongModel songModel;
 
