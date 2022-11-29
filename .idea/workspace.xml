@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="PlaylistDAO_DB">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2022_09_20__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2022_09_20__Changes_.xml" afterDir="false" />
+    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BE/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BLL/SongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/SongManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/IPlaylistDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/IPlaylistDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

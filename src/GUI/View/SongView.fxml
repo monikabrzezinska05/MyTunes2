@@ -26,31 +26,31 @@
         </rowConstraints>
          <children>
             <ListView prefHeight="378.0" prefWidth="297.0" />
-            <TreeTableView prefHeight="533.0" prefWidth="297.0">
+            <TreeTableView fx:id="treeTablePlaylist" prefHeight="533.0" prefWidth="297.0">
               <columns>
-                <TreeTableColumn prefWidth="121.0" text="Name" />
-                <TreeTableColumn prefWidth="69.0" text="Songs" />
-                  <TreeTableColumn prefWidth="106.0" text="Time" />
+                <TreeTableColumn fx:id="playlistName" prefWidth="121.0" text="Name" />
+                <TreeTableColumn fx:id="playlistSongs" prefWidth="69.0" text="Songs" />
+                  <TreeTableColumn fx:id="playlistsTime" prefWidth="106.0" text="Time" />
               </columns>
             </TreeTableView>
          </children>
       </GridPane>
-      <Button layoutX="14.0" layoutY="516.0" mnemonicParsing="false" text="New" />
-      <Button layoutX="91.0" layoutY="516.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="252.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="newPlaylist" layoutX="14.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewPlaylist" text="New" />
+      <Button fx:id="editPlaylist" layoutX="91.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditPlaylist" text="Edit" />
+      <Button fx:id="deletePlaylist" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeletePlaylist" text="Delete" />
       <Text layoutX="334.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist" />
       <Text layoutX="637.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
-      <TextField layoutX="746.0" layoutY="43.0" />
+      <TextField fx:id="searchBar" layoutX="746.0" layoutY="43.0" />
       <Text layoutX="703.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" />
-      <Button layoutX="534.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="617.0" layoutY="516.0" mnemonicParsing="false" text="New" />
-      <Button layoutX="703.0" layoutY="516.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="175.0" layoutY="16.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="52.0" style="-fx-background-radius: 100;" text="Play" />
-      <Button layoutX="870.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
-      <Button layoutX="113.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&lt;&lt;" />
-      <Button layoutX="252.0" layoutY="27.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&gt;&gt;" />
-      <Button layoutX="783.0" layoutY="516.0" mnemonicParsing="false" text="Add" />
-      <Slider layoutX="131.0" layoutY="85.0" />
+      <Button fx:id="deleteSongInPlaylist" layoutX="534.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSongsInPlaylist" text="Delete" />
+      <Button fx:id="newSong" layoutX="617.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewSongs" text="New" />
+      <Button fx:id="editSong" layoutX="703.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditSongs" text="Edit" />
+      <Button fx:id="playBtn" layoutX="175.0" layoutY="16.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="52.0" style="-fx-background-radius: 100;" text="Play" />
+      <Button fx:id="deleteSong" layoutX="870.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSong" text="Delete" />
+      <Button fx:id="reverseBtn" layoutX="113.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&lt;&lt;" />
+      <Button fx:id="forwardBtn" layoutX="252.0" layoutY="27.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&gt;&gt;" />
+      <Button fx:id="addSong" layoutX="783.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleAddSongs" text="Add" />
+      <Slider fx:id="volumeSlider" layoutX="131.0" layoutY="85.0" />
       <GridPane layoutX="317.0" layoutY="155.0" prefHeight="350.0" prefWidth="268.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="268.0" />
@@ -62,7 +62,7 @@
           <RowConstraints maxHeight="350.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView prefHeight="283.0" prefWidth="268.0" />
+            <ListView fx:id="listview" prefHeight="283.0" prefWidth="268.0" />
          </children>
       </GridPane>
       <TextField blendMode="COLOR_BURN" layoutX="394.0" layoutY="43.0" />
@@ -81,11 +81,11 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TreeTableView prefHeight="200.0" prefWidth="200.0">
+            <TreeTableView fx:id="treeTableSongs" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TreeTableColumn prefWidth="122.0" text="Title" />
-                <TreeTableColumn prefWidth="122.0" text="Artist" />
-                  <TreeTableColumn text="Time" />
+                <TreeTableColumn fx:id="songsTitle" prefWidth="122.0" text="Title" />
+                <TreeTableColumn fx:id="songsArtist" prefWidth="122.0" text="Artist" />
+                  <TreeTableColumn fx:id="songsTime" text="Time" />
               </columns>
             </TreeTableView>
          </children>
