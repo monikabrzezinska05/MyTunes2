@@ -9,7 +9,7 @@ public interface IPlaylistDataAccess {
 
     public List<Playlist> getAllPlaylists() throws Exception;
 
-    public Playlist createPlaylist (int id, String title) throws Exception;
+    public Playlist createPlaylist (String title) throws Exception;
 
     public void updatePlaylist(Playlist playlist) throws Exception;
 
