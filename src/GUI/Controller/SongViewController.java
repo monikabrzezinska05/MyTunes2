@@ -1,5 +1,10 @@
 package GUI.Controller;
 
+import BE.Playlist;
+import GUI.Model.SongModel;
+import javafx.beans.Observable;
+import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.awt.*;
@@ -9,7 +14,12 @@ import java.util.ResourceBundle;
 
 public class SongViewController implements Initializable {
 
-    public TextField txtSongSearch;
+    @FXML
+    private TextField searchBar;
+
+    @FXML
+    private TextField playingSong;
+
     public ListView<Songs> lstSongs;
     public ListView<SongsInPlaylist> lstSongsInPlaylist;
     public ListView<Playlists> lstPlaylists;
@@ -27,13 +37,23 @@ public class SongViewController implements Initializable {
     public Button forwardBtn;
     public Button addSong;
 
-    public TextField searchBar;
-    public TextField
+    private SongModel songModel;
 
+    public SongViewController()  {
 
+        try {
+            songModel = new SongModel();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    
+
+
 }
