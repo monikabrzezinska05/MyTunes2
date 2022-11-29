@@ -53,7 +53,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
             ResultSet rs = statement.getGeneratedKeys();
             int id = 0;
 
-            if (rs.next()) ;
+            if (rs.next())
             {
                 id = rs.getInt(1);
             }
