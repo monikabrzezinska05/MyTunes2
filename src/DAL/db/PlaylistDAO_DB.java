@@ -41,17 +41,63 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
 
     @Override
     public Playlist createPlaylist(int id, String title) throws Exception {
-        return null;
+        String sql = "INSERT INTO Playlist (title)VALUES (?);";
+
+        try(Connection connection = databaseConnector.getConnection()){
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            statement.setString(1,title);
+
+            statement.executeUpdate();
+
+            ResultSet rs = statement.getGeneratedKeys();
+            int id = 0;
+
+            if(rs.next());{
+                id = rs.getInt(1);
+            }
+            Playlist playlist = new Playlist(id, title);
+        }
+        catch(SQLException exc){
+            exc.printStackTrace();
+            throw new Exception("Could not create playlist", exc);
+
+
+        }
     }
 
     @Override
     public void updatePlaylist(Playlist playlist) throws Exception {
+        try(Connection connection = databaseConnector.getConnection()){
+
+            String sql ="UPDATE Playlist SET title = ? WHERE ID = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setString(1, playlist.getTitle());
+
+            statement.executeUpdate();
+        }
+        catch(SQLException exc){
+            exc.printStackTrace();
+            throw new Exception("Could not update playlist", exc);
+        }
 
     }
 
     @Override
     public void deletePlaylist(Playlist playlist) throws Exception {
+        try(Connection connection = databaseConnector.getConnection()){
+            String sql = "DELETE FROM Playlist WHERE ID = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
 
+            statement.setInt(1, playlist.getId());
+
+            statement.executeUpdate();
+        }
+        catch (SQLException exc){
+            exc.printStackTrace();
+            throw new Exception("Could not delete playlist", exc);
+        }
     }
 }
 
