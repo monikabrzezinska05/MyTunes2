@@ -55,7 +55,7 @@ public class SongDAO_DB implements ISongDataAccess{
             ResultSet rs = statement.getGeneratedKeys();
             int id = 0;
 
-            if(rs.next()){
+            if(rs.next());{
                 id = rs.getInt(1);
             }
 
