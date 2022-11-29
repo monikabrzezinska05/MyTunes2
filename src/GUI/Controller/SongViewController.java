@@ -38,7 +38,7 @@ public class SongViewController implements Initializable {
     public Button reverseBtn;
     public Button forwardBtn;
     public Button addSong;
-    public Slider volumeslider;
+    public Slider volumeSlider;
 
     private SongModel songModel;
 
