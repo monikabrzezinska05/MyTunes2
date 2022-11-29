@@ -65,7 +65,7 @@
             <ListView fx:id="listview" prefHeight="283.0" prefWidth="268.0" />
          </children>
       </GridPane>
-      <TextField blendMode="COLOR_BURN" layoutX="394.0" layoutY="43.0" />
+      <TextField fx:id="playingSong" blendMode="COLOR_BURN" layoutX="394.0" layoutY="43.0" />
       <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="82.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="97.0" layoutY="80.0">
          <image>
