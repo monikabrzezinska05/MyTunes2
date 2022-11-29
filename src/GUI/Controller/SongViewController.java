@@ -20,9 +20,9 @@ public class SongViewController implements Initializable {
     @FXML
     private TextField playingSong;
 
-    public ListView<Songs> lstSongs;
-    public ListView<SongsInPlaylist> lstSongsInPlaylist;
-    public ListView<Playlists> lstPlaylists;
+    //public ListView<Songs> lstSongs;
+   // public ListView<SongsInPlaylist> lstSongsInPlaylist;
+   // public ListView<Playlists> lstPlaylists;
 
     public Button newPlaylist;
     public Button editPLaylist;
