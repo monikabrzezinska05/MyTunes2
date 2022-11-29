@@ -11,21 +11,21 @@ import java.util.List;
 public class PlaylistDAO_DB implements IPlaylistDataAccess {
 
     private DatabaseConnector databaseConnector;
-    public PlaylistDAO_DB(){
+
+    public PlaylistDAO_DB() {
         databaseConnector = new DatabaseConnector();
     }
 
     public List<Playlist> getAllPlaylists() throws SQLServerException {
         ArrayList<Playlist> allPlaylists = new ArrayList<>();
 
-        try (Connection connection = databaseConnector.getConnection())
-        {
+        try (Connection connection = databaseConnector.getConnection()) {
             String sql = "SELECT * FROM Playlist;";
 
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(sql);
 
-            while(rs.next()) {
+            while (rs.next()) {
 
                 int id = rs.getInt("ID");
                 String title = rs.getString("Title");
@@ -40,29 +40,28 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
     }
 
     @Override
-    public Playlist createPlaylist(int id, String title) throws Exception {
+    public Playlist createPlaylist(String title) throws Exception {
         String sql = "INSERT INTO Playlist (title)VALUES (?);";
 
-        try(Connection connection = databaseConnector.getConnection()){
+        try (Connection connection = databaseConnector.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            statement.setString(1,title);
+            statement.setString(1, title);
 
             statement.executeUpdate();
 
             ResultSet rs = statement.getGeneratedKeys();
             int id = 0;
 
-            if(rs.next());{
+            if (rs.next()) ;
+            {
                 id = rs.getInt(1);
             }
             Playlist playlist = new Playlist(id, title);
-        }
-        catch(SQLException exc){
+            return playlist;
+        } catch (SQLException exc) {
             exc.printStackTrace();
             throw new Exception("Could not create playlist", exc);
-
-
         }
     }
 
