@@ -1,0 +1,53 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,7 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
++    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="PlaylistDAO_DB">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -61,7 +62,7 @@
+       <updated>1669624037043</updated>
+       <workItem from="1669624038431" duration="592000" />
+       <workItem from="1669624735804" duration="1302000" />
+-      <workItem from="1669708573480" duration="807000" />
++      <workItem from="1669708573480" duration="1860000" />
+     </task>
+     <task id="LOCAL-00001" summary="MyTunes">
+       <created>1669624339964</created>
+@@ -112,7 +113,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1669627552271</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="PlaylistDAO_DB">
++      <created>1669709409676</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1669709409676</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -131,6 +139,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="MyTunes" />
+-    <option name="LAST_COMMIT_MESSAGE" value="MyTunes" />
++    <MESSAGE value="PlaylistDAO_DB" />
++    <option name="LAST_COMMIT_MESSAGE" value="PlaylistDAO_DB" />
+   </component>
+ </project>
+\ No newline at end of file

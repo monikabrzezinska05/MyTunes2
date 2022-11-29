@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface ISongDataAccess {
-    public List<Song> getAllSongs() throws SQLServerException;
+    public List<Song> getSongs() throws SQLServerException;
 
     public Song createSong(String title, int length) throws Exception;
 

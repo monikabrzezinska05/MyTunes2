@@ -15,7 +15,7 @@ public class SongDAO_DB implements ISongDataAccess{
         databaseConnector = new DatabaseConnector();
     }
 
-    public List<Song> getAllSongs() throws SQLServerException {
+    public List<Song> getSongs() throws SQLServerException {
         ArrayList<Song> allSongs = new ArrayList<>();
 
         try (Connection connection = databaseConnector.getConnection())
@@ -55,7 +55,7 @@ public class SongDAO_DB implements ISongDataAccess{
             ResultSet rs = statement.getGeneratedKeys();
             int id = 0;
 
-            if(rs.next());{
+            if(rs.next()){
                 id = rs.getInt(1);
             }
 
