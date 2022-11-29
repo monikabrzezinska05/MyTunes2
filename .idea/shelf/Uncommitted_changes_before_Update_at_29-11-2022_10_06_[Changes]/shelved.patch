@@ -1,0 +1,168 @@
+Index: src/BLL/util/SongSearcher.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/BLL/util/SongSearcher.java b/src/BLL/util/SongSearcher.java
+--- a/src/BLL/util/SongSearcher.java	
++++ b/src/BLL/util/SongSearcher.java	
+@@ -1,4 +1,24 @@
+ package BLL.util;
+ 
++import BE.Song;
++import java.util.ArrayList;
++import java.util.List;
++
+ public class SongSearcher {
++
++    public List<Song> search(List<Song> searchBase, String query){
++        List<Song> searchResult = new ArrayList<>();
++
++        for(Song song : searchBase){
++            if(compareToSongTitle(query, song))
++            {
++                searchResult.add(song);
++            }
++        }
++        return searchResult;
++    }
++
++    private boolean compareSongTitle(String query, Song song){
++        return song.getTitle().toLowerCase().contains(query.toLowerCase());
++    }
+ }
+Index: src/DAL/db/PlaylistDAO_DB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/DAL/db/PlaylistDAO_DB.java b/src/DAL/db/PlaylistDAO_DB.java
+--- a/src/DAL/db/PlaylistDAO_DB.java	
++++ b/src/DAL/db/PlaylistDAO_DB.java	
+@@ -53,7 +53,7 @@
+             ResultSet rs = statement.getGeneratedKeys();
+             int id = 0;
+ 
+-            if (rs.next()) ;
++            if (rs.next())
+             {
+                 id = rs.getInt(1);
+             }
+Index: src/DAL/db/SongDAO_DB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/DAL/db/SongDAO_DB.java b/src/DAL/db/SongDAO_DB.java
+--- a/src/DAL/db/SongDAO_DB.java	
++++ b/src/DAL/db/SongDAO_DB.java	
+@@ -41,14 +41,15 @@
+     }
+ 
+     @Override
+-    public Song createSong(String title, int length) throws Exception {
++    public Song createSong(String title, String artist, int length) throws Exception {
+         String sql = "INSERT INTO Song (title, length)VALUES (?,?);";
+ 
+         try(Connection connection = databaseConnector.getConnection()){
+             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+ 
+             statement.setString(1, title);
+-            statement.setInt(2, length);
++            statement.setString(2,artist);
++            statement.setInt(3, length);
+ 
+             statement.executeUpdate();
+ 
+Index: src/DAL/ISongDataAccess.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/DAL/ISongDataAccess.java b/src/DAL/ISongDataAccess.java
+--- a/src/DAL/ISongDataAccess.java	
++++ b/src/DAL/ISongDataAccess.java	
+@@ -3,13 +3,12 @@
+ import BE.Song;
+ import com.microsoft.sqlserver.jdbc.SQLServerException;
+ 
+-import java.sql.SQLException;
+ import java.util.List;
+ 
+ public interface ISongDataAccess {
+     public List<Song> getAllSongs() throws SQLServerException;
+ 
+-    public Song createSong(String title, int length) throws Exception;
++    public Song createSong(String title, String artist, int length) throws Exception;
+ 
+     public void updateSong(Song song) throws Exception;
+ 
+Index: src/BLL/SongManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/BLL/SongManager.java b/src/BLL/SongManager.java
+--- a/src/BLL/SongManager.java	
++++ b/src/BLL/SongManager.java	
+@@ -5,8 +5,36 @@
+ import DAL.ISongDataAccess;
+ import DAL.SongDAO;
+ import DAL.db.SongDAO_DB;
++
++import java.util.List;
++
+ public class SongManager {
+     private SongSearcher ss = new SongSearcher();
+ 
+     private ISongDataAccess songDAO;
++
++    public SongManager(){
++        songDAO = new SongDAO_DB();
++    }
++    public List<Song> getAllSongs() throws Exception {
++        return songDAO.getAllSongs();
++    }
++
++    public List<Song> searchSongs(String query) throws Exception{
++        List<Song> allSongs = getAllSongs();
++        List<Song> searchResult = ss.search(allSongs, query);
++        return searchResult;
++    }
++    public Song createNewSong(String title, String artist, int length) throws Exception{
++        return songDAO.createSong(title, artist, length);
++    }
++
++    public void updateSong(Song updatedSong) throws Exception{
++        songDAO.updateSong(updatedSong);
++    }
++
++    public void deleteSong(Song deletedSong) throws Exception{
++        songDAO.deleteSong(deletedSong);
++
++    }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,9 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
++    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/BLL/SongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/SongManager.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/BLL/util/SongSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/util/SongSearcher.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
