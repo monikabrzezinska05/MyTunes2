@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class SongViewController implements Initializable {
+public class SongViewController extends BaseController implements Initializable {
 
     @FXML
     private TextField searchBar;
@@ -57,4 +57,8 @@ public class SongViewController implements Initializable {
     }
 
 
+    @Override
+    public void setup() {
+
+    }
 }

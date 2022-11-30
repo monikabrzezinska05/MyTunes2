@@ -8,7 +8,7 @@ public class Song {
     private String artist;
 
 
-    public Song(int id, String title, int length) {
+    public Song(int id, String title, String category, int length) {
         this.id = id;
         this.title = title;
         this.lenght = length;

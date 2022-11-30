@@ -24,11 +24,12 @@ public class SongDAO {
 
                 int id = Integer.parseInt(separatedLine[0]);
                 String title = separatedLine[1];
-                int length = Integer.parseInt(separatedLine[2]);
+                String category = separatedLine[2];
+                int length = Integer.parseInt(separatedLine[3]);
 
 
                 //Create a new Song.be
-                Song newSong = new Song(id, title, length);
+                Song newSong = new Song(id, title, category, length);
                 songs.add(newSong);
             }
                 songs.sort(Comparator.comparingInt(Song::getId));

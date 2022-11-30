@@ -29,9 +29,10 @@ public class SongDAO_DB implements ISongDataAccess{
 
                 int id = rs.getInt("ID");
                 String title = rs.getString("Title");
+                String category = rs.getString("Category");
                 int length = rs.getInt("Length");
 
-                Song song = new Song(id, title, length);
+                Song song = new Song(id, title, category, length);
                 allSongs.add(song);
             }
             return allSongs;
@@ -41,14 +42,15 @@ public class SongDAO_DB implements ISongDataAccess{
     }
 
     @Override
-    public Song createSong(String title, int length) throws Exception {
-        String sql = "INSERT INTO Song (title, length)VALUES (?,?);";
+    public Song createSong(String title, String category, int length) throws Exception {
+        String sql = "INSERT INTO Song (title, category, length)VALUES (?,?,?);";
 
         try(Connection connection = databaseConnector.getConnection()){
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             statement.setString(1, title);
-            statement.setInt(2, length);
+            statement.setString(2, category);
+            statement.setInt(3, length);
 
             statement.executeUpdate();
 
@@ -59,7 +61,7 @@ public class SongDAO_DB implements ISongDataAccess{
                 id = rs.getInt(1);
             }
 
-            Song song = new Song(id, title, length);
+            Song song = new Song(id, title, category, length);
             return song;
         }
         catch (SQLException exc){
