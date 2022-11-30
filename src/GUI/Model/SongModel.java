@@ -1,14 +1,12 @@
 package GUI.Model;
 
 // Java imports
-import BE.Playlist;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 // Project imports
 import BLL.SongManager;
 import BE.Song;
-import BE.Playlist;
 
 import java.util.List;
 
