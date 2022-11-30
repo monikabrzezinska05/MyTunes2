@@ -53,7 +53,7 @@ public class SongModel {
         songs.addAll(songManager.getSongs());
     }
 
-    public void deleteSong() throws  Exception {
+    public void deleteSong() throws Exception {
 
     }
 }

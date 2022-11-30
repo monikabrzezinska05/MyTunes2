@@ -4,6 +4,7 @@ import BE.Playlist;
 import GUI.Model.SongModel;
 import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -60,5 +61,30 @@ public class SongViewController extends BaseController implements Initializable 
     @Override
     public void setup() {
 
+    }
+
+
+    public void handleNewPlaylist(ActionEvent actionEvent) {
+    }
+
+    public void handleEditPlaylist(ActionEvent actionEvent) {
+    }
+
+    public void handleDeletePlaylist(ActionEvent actionEvent) {
+    }
+
+    public void handleDeleteSongsInPlaylist(ActionEvent actionEvent) {
+    }
+
+    public void handleNewSongs(ActionEvent actionEvent) {
+    }
+
+    public void handleEditSongs(ActionEvent actionEvent) {
+    }
+
+    public void handleDeleteSong(ActionEvent actionEvent) {
+    }
+
+    public void handleAddSongs(ActionEvent actionEvent) {
     }
 }
