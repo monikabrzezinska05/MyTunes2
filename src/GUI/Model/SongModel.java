@@ -30,22 +30,13 @@ public class SongModel {
         return songs;
     }
 
-    public ObservableList<Playlist> getObservablePlaylist() {
-        return playlist;
-    }
+
 
     public void searchSong(String query) throws Exception {
         List<Song> searchResults = songManager.search(query);
         songs.clear();
         songs.addAll(searchResults);
     }
-
-    /*public void searchPlaylist(String query) throws Exception {
-        List<Playlist> searchResults = songManager.search(query);
-        playlist.clear();
-        playlist.clear;
-        playlist.addAll(searchResults);
-    }*/
 
     public void updateSong(Song updatedSong) throws Exception {
         songManager.updateSong(updatedSong);

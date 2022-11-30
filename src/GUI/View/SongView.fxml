@@ -35,21 +35,21 @@
             </TreeTableView>
          </children>
       </GridPane>
-      <Button fx:id="newPlaylist" layoutX="14.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewPlaylist" text="New" />
-      <Button fx:id="editPlaylist" layoutX="91.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditPlaylist" text="Edit" />
-      <Button fx:id="deletePlaylist" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeletePlaylist" text="Delete" />
+      <Button fx:id="newPlaylist" layoutX="14.0" layoutY="516.0" mnemonicParsing="false" text="New" />
+      <Button fx:id="editPlaylist" layoutX="91.0" layoutY="516.0" mnemonicParsing="false" text="Edit" />
+      <Button fx:id="deletePlaylist" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
       <Text layoutX="334.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist" />
       <Text layoutX="637.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
       <TextField fx:id="searchBar" layoutX="746.0" layoutY="43.0" />
       <Text layoutX="703.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" />
-      <Button fx:id="deleteSongInPlaylist" layoutX="534.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSongsInPlaylist" text="Delete" />
-      <Button fx:id="newSong" layoutX="617.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewSongs" text="New" />
-      <Button fx:id="editSong" layoutX="703.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditSongs" text="Edit" />
+      <Button fx:id="deleteSongInPlaylist" layoutX="534.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="newSong" layoutX="617.0" layoutY="516.0" mnemonicParsing="false" text="New" />
+      <Button fx:id="editSong" layoutX="703.0" layoutY="516.0" mnemonicParsing="false" text="Edit" />
       <Button fx:id="playBtn" layoutX="175.0" layoutY="16.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="52.0" style="-fx-background-radius: 100;" text="Play" />
-      <Button fx:id="deleteSong" layoutX="870.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSong" text="Delete" />
+      <Button fx:id="deleteSong" layoutX="870.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
       <Button fx:id="reverseBtn" layoutX="113.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&lt;&lt;" />
       <Button fx:id="forwardBtn" layoutX="252.0" layoutY="27.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&gt;&gt;" />
-      <Button fx:id="addSong" layoutX="783.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleAddSongs" text="Add" />
+      <Button fx:id="addSong" layoutX="783.0" layoutY="516.0" mnemonicParsing="false" text="Add" />
       <Slider fx:id="volumeSlider" layoutX="131.0" layoutY="85.0" />
       <GridPane layoutX="317.0" layoutY="155.0" prefHeight="350.0" prefWidth="268.0">
         <columnConstraints>
