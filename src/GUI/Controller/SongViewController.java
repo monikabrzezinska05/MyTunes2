@@ -64,7 +64,6 @@ public class SongViewController extends BaseController implements Initializable 
 
     }
 
-
     public void handleNewPlaylist(ActionEvent actionEvent) {
     }
 
