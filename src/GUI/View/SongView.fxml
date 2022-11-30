@@ -40,7 +40,7 @@
       <Button fx:id="editPlaylist" layoutX="91.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditPlaylist" text="Edit" />
       <Button fx:id="deletePlaylist" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeletePlaylist" text="Delete" />
       <Text layoutX="334.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist" />
-      <Text layoutX="637.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
+      <Text layoutX="572.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
       <TextField fx:id="searchBar" layoutX="709.0" layoutY="44.0" />
       <Button fx:id="deleteSongInPlaylist" layoutX="489.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSongsInPlaylist" text="Delete" />
       <Button fx:id="newSong" layoutX="565.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewSongs" text="New" />
@@ -71,7 +71,7 @@
             <Image url="@Images/pngwing.com.png" />
          </image>
       </ImageView>
-      <Text layoutX="10.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlists" wrappingWidth="41.6015625" />
+      <Text layoutX="14.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlists" wrappingWidth="60.6015625" />
       <GridPane layoutX="558.0" layoutY="155.0" prefHeight="350.0" prefWidth="360.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
