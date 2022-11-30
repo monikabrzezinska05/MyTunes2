@@ -4,9 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,14 +26,13 @@
           <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="220.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView prefHeight="378.0" prefWidth="297.0" />
-            <TreeTableView fx:id="treeTablePlaylist" prefHeight="533.0" prefWidth="297.0">
+            <TableView prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TreeTableColumn fx:id="playlistName" prefWidth="121.0" text="Name" />
-                <TreeTableColumn fx:id="playlistSongs" prefWidth="69.0" text="Songs" />
-                  <TreeTableColumn fx:id="playlistsTime" prefWidth="106.0" text="Time" />
+                <TableColumn prefWidth="93.0" text="Playlist" />
+                <TableColumn prefWidth="97.0" text="Songs" />
+                  <TableColumn prefWidth="106.0" text="Time" />
               </columns>
-            </TreeTableView>
+            </TableView>
          </children>
       </GridPane>
       <Button fx:id="newPlaylist" layoutX="14.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewPlaylist" text="New" />
@@ -80,14 +79,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TreeTableView fx:id="treeTableSongs" prefHeight="350.0" prefWidth="261.0">
+            <TableView prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TreeTableColumn fx:id="songsTitle" prefWidth="111.0" text="Title" />
-                <TreeTableColumn fx:id="songsArtist" prefWidth="109.0" text="Artist" />
-                  <TreeTableColumn fx:id="songsTime" prefWidth="76.0" text="Category" />
-                  <TreeTableColumn prefWidth="61.0" text="Time" />
+                <TableColumn prefWidth="96.0" text="Title" />
+                <TableColumn prefWidth="82.0" text="Artist" />
+                  <TableColumn prefWidth="106.0" text="Category" />
+                  <TableColumn minWidth="1.0" prefWidth="75.0" text="Time" />
               </columns>
-            </TreeTableView>
+            </TableView>
          </children>
       </GridPane>
       <Label layoutX="392.0" layoutY="39.0" prefHeight="34.0" prefWidth="193.0" />
