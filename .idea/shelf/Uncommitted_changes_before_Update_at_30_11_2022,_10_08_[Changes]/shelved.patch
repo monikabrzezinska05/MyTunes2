@@ -1,0 +1,250 @@
+Index: src/GUI/Controller/SongViewController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI.Controller;\n\nimport BE.Playlist;\nimport GUI.Model.SongModel;\nimport javafx.beans.Observable;\nimport javafx.beans.value.ObservableValue;\nimport javafx.fxml.FXML;\nimport javafx.fxml.Initializable;\nimport javafx.scene.control.Button;\nimport javafx.scene.control.Slider;\nimport javafx.scene.control.TextField;\n\nimport java.net.URL;\nimport java.util.List;\nimport java.util.ResourceBundle;\n\npublic class SongViewController extends BaseController implements Initializable {\n\n    @FXML\n    private TextField searchBar;\n\n    @FXML\n    private TextField playingSong;\n\n    //public ListView<Songs> lstSongs;\n    //public ListView<SongsInPlaylist> lstSongsInPlaylist;\n    //public ListView<Playlists> lstPlaylists;\n\n    public Button newPlaylist;\n    public Button editPlaylist;\n    public Button deletePlaylist;\n\n    public Button deleteSongInPlaylist;\n    public Button newSong;\n    public Button editSong;\n    public Button playBtn;\n    public Button deleteSong;\n    public Button reverseBtn;\n    public Button forwardBtn;\n    public Button addSong;\n    public Slider volumeSlider;\n\n    private SongModel songModel;\n\n    public SongViewController()  {\n\n        try {\n            songModel = new SongModel();\n        } catch (Exception e) {\n            e.printStackTrace();\n        }\n    }\n\n    @Override\n    public void initialize(URL url, ResourceBundle resourceBundle) {\n\n    }\n\n\n    @Override\n    public void setup() {\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/Controller/SongViewController.java b/src/GUI/Controller/SongViewController.java
+--- a/src/GUI/Controller/SongViewController.java	(revision bcbafc79c763593b020552217b17b15b2756395e)
++++ b/src/GUI/Controller/SongViewController.java	(date 1669797612147)
+@@ -9,6 +9,7 @@
+ import javafx.scene.control.Button;
+ import javafx.scene.control.Slider;
+ import javafx.scene.control.TextField;
++import javafx.scene.control.TreeTableColumn;
+ 
+ import java.net.URL;
+ import java.util.List;
+Index: src/GUI/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\n\nimport GUI.Controller.SongViewController;\nimport GUI.Model.SongModel;\nimport javafx.application.Application;\nimport javafx.fxml.FXMLLoader;\nimport javafx.scene.Parent;\nimport javafx.scene.Scene;\nimport javafx.stage.Stage;\n\npublic class Main extends Application {\n\n    @Override\n    public void start(Stage primaryStage) throws Exception {\n        FXMLLoader loader = new FXMLLoader();\n        loader.setLocation(getClass().getResource(\"View/SongView.fxml\"));\n        Parent root = loader.load();\n\n        SongViewController controller = loader.getController();\n        controller.setModel(new SongModel());\n        controller.setup();\n\n        primaryStage.setTitle(\"MyTunes\");\n        primaryStage.setScene(new Scene(root));\n        primaryStage.show();\n    }\n    public static void main(String[] args) { launch(args); }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/Main.java b/src/GUI/Main.java
+--- a/src/GUI/Main.java	(revision bcbafc79c763593b020552217b17b15b2756395e)
++++ b/src/GUI/Main.java	(date 1669797868124)
+@@ -1,7 +1,5 @@
+ package GUI;
+ 
+-import GUI.Controller.SongViewController;
+-import GUI.Model.SongModel;
+ import javafx.application.Application;
+ import javafx.fxml.FXMLLoader;
+ import javafx.scene.Parent;
+@@ -12,15 +10,8 @@
+ 
+     @Override
+     public void start(Stage primaryStage) throws Exception {
+-        FXMLLoader loader = new FXMLLoader();
+-        loader.setLocation(getClass().getResource("View/SongView.fxml"));
+-        Parent root = loader.load();
+-
+-        SongViewController controller = loader.getController();
+-        controller.setModel(new SongModel());
+-        controller.setup();
+-
+-        primaryStage.setTitle("MyTunes");
++        Parent root = FXMLLoader.load(getClass().getResource("View/SongView.fxml"));
++        primaryStage.setTitle("Hello World");
+         primaryStage.setScene(new Scene(root));
+         primaryStage.show();
+     }
+Index: .idea/libraries/javax_xml_bind_jaxb_api.xml
+===================================================================
+diff --git a/.idea/libraries/javax_xml_bind_jaxb_api.xml b/.idea/libraries/javax_xml_bind_jaxb_api.xml
+deleted file mode 100644
+--- a/.idea/libraries/javax_xml_bind_jaxb_api.xml	(revision bcbafc79c763593b020552217b17b15b2756395e)
++++ /dev/null	(revision bcbafc79c763593b020552217b17b15b2756395e)
+@@ -1,11 +0,0 @@
+-<component name="libraryTable">
+-  <library name="javax.xml.bind.jaxb.api" type="repository">
+-    <properties maven-id="javax.xml.bind:jaxb-api:2.4.0-b180830.0359" />
+-    <CLASSES>
+-      <root url="jar://$PROJECT_DIR$/lib/jaxb-api-2.4.0-b180830.0359.jar!/" />
+-      <root url="jar://$PROJECT_DIR$/lib/javax.activation-api-1.2.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC />
+-    <SOURCES />
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_29-11-2022_11_06__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2022_11_06__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2022_11_06__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2022_11_06__Changes_.xml	(revision bcbafc79c763593b020552217b17b15b2756395e)
++++ /dev/null	(revision bcbafc79c763593b020552217b17b15b2756395e)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_29-11-2022_11_06_[Changes]" date="1669716406600" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2022_11_06_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 29-11-2022 11:06 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: src/GUI/View/SongView.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<?import javafx.scene.control.Button?>\n<?import javafx.scene.control.ListView?>\n<?import javafx.scene.control.Slider?>\n<?import javafx.scene.control.TextField?>\n<?import javafx.scene.control.TreeTableColumn?>\n<?import javafx.scene.control.TreeTableView?>\n<?import javafx.scene.image.Image?>\n<?import javafx.scene.image.ImageView?>\n<?import javafx.scene.layout.AnchorPane?>\n<?import javafx.scene.layout.ColumnConstraints?>\n<?import javafx.scene.layout.GridPane?>\n<?import javafx.scene.layout.RowConstraints?>\n<?import javafx.scene.text.Text?>\n\n<AnchorPane prefHeight=\"591.0\" prefWidth=\"937.0\" xmlns=\"http://javafx.com/javafx/18\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"GUI.Controller.SongViewController\">\n   <children>\n      <GridPane layoutX=\"6.0\" layoutY=\"155.0\" prefHeight=\"350.0\" prefWidth=\"297.0\">\n        <columnConstraints>\n          <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"340.0\" minWidth=\"10.0\" prefWidth=\"340.0\" />\n          <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"121.0\" minWidth=\"0.0\" prefWidth=\"0.0\" />\n        </columnConstraints>\n        <rowConstraints>\n          <RowConstraints maxHeight=\"355.0\" minHeight=\"10.0\" prefHeight=\"220.0\" vgrow=\"SOMETIMES\" />\n        </rowConstraints>\n         <children>\n            <ListView prefHeight=\"378.0\" prefWidth=\"297.0\" />\n            <TreeTableView fx:id=\"treeTablePlaylist\" prefHeight=\"533.0\" prefWidth=\"297.0\">\n              <columns>\n                <TreeTableColumn fx:id=\"playlistName\" prefWidth=\"121.0\" text=\"Name\" />\n                <TreeTableColumn fx:id=\"playlistSongs\" prefWidth=\"69.0\" text=\"Songs\" />\n                  <TreeTableColumn fx:id=\"playlistsTime\" prefWidth=\"106.0\" text=\"Time\" />\n              </columns>\n            </TreeTableView>\n         </children>\n      </GridPane>\n      <Button fx:id=\"newPlaylist\" layoutX=\"14.0\" layoutY=\"516.0\" mnemonicParsing=\"false\" onAction=\"#handleNewPlaylist\" text=\"New\" />\n      <Button fx:id=\"editPlaylist\" layoutX=\"91.0\" layoutY=\"516.0\" mnemonicParsing=\"false\" onAction=\"#handleEditPlaylist\" text=\"Edit\" />\n      <Button fx:id=\"deletePlaylist\" layoutX=\"252.0\" layoutY=\"516.0\" mnemonicParsing=\"false\" onAction=\"#handleDeletePlaylist\" text=\"Delete\" />\n      <Text layoutX=\"334.0\" layoutY=\"134.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Songs in playlist\" />\n      <Text layoutX=\"637.0\" layoutY=\"134.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Songs\" />\n      <TextField fx:id=\"searchBar\" layoutX=\"746.0\" layoutY=\"43.0\" />\n      <Text layoutX=\"703.0\" layoutY=\"60.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Search:\" />\n      <Button fx:id=\"deleteSongInPlaylist\" layoutX=\"534.0\" layoutY=\"516.0\" mnemonicParsing=\"false\" onAction=\"#handleDeleteSongsInPlaylist\" text=\"Delete\" />\n      <Button fx:id=\"newSong\" layoutX=\"617.0\" layoutY=\"516.0\" mnemonicParsing=\"false\" onAction=\"#handleNewSongs\" text=\"New\" />\n      <Button fx:id=\"editSong\" layoutX=\"703.0\" layoutY=\"516.0\" mnemonicParsing=\"false\" onAction=\"#handleEditSongs\" text=\"Edit\" />\n      <Button fx:id=\"playBtn\" layoutX=\"175.0\" layoutY=\"16.0\" mnemonicParsing=\"false\" prefHeight=\"53.0\" prefWidth=\"52.0\" style=\"-fx-background-radius: 100;\" text=\"Play\" />\n      <Button fx:id=\"deleteSong\" layoutX=\"870.0\" layoutY=\"516.0\" mnemonicParsing=\"false\" onAction=\"#handleDeleteSong\" text=\"Delete\" />\n      <Button fx:id=\"reverseBtn\" layoutX=\"113.0\" layoutY=\"26.0\" mnemonicParsing=\"false\" prefHeight=\"34.0\" prefWidth=\"37.0\" style=\"-fx-background-radius: 100;\" text=\"&lt;&lt;\" />\n      <Button fx:id=\"forwardBtn\" layoutX=\"252.0\" layoutY=\"27.0\" mnemonicParsing=\"false\" prefHeight=\"34.0\" prefWidth=\"37.0\" style=\"-fx-background-radius: 100;\" text=\"&gt;&gt;\" />\n      <Button fx:id=\"addSong\" layoutX=\"783.0\" layoutY=\"516.0\" mnemonicParsing=\"false\" onAction=\"#handleAddSongs\" text=\"Add\" />\n      <Slider fx:id=\"volumeSlider\" layoutX=\"131.0\" layoutY=\"85.0\" />\n      <GridPane layoutX=\"317.0\" layoutY=\"155.0\" prefHeight=\"350.0\" prefWidth=\"268.0\">\n        <columnConstraints>\n          <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"268.0\" minWidth=\"10.0\" prefWidth=\"268.0\" />\n          <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"129.0\" minWidth=\"0.0\" prefWidth=\"0.0\" />\n        </columnConstraints>\n        <rowConstraints>\n          <RowConstraints maxHeight=\"350.0\" minHeight=\"0.0\" prefHeight=\"350.0\" vgrow=\"SOMETIMES\" />\n          <RowConstraints maxHeight=\"350.0\" minHeight=\"0.0\" prefHeight=\"0.0\" vgrow=\"SOMETIMES\" />\n          <RowConstraints maxHeight=\"350.0\" minHeight=\"0.0\" prefHeight=\"0.0\" vgrow=\"SOMETIMES\" />\n        </rowConstraints>\n         <children>\n            <ListView fx:id=\"listview\" prefHeight=\"283.0\" prefWidth=\"268.0\" />\n         </children>\n      </GridPane>\n      <TextField fx:id=\"playingSong\" blendMode=\"COLOR_BURN\" layoutX=\"394.0\" layoutY=\"43.0\" />\n      <ImageView fitHeight=\"34.0\" fitWidth=\"42.0\" layoutX=\"82.0\" layoutY=\"75.0\" pickOnBounds=\"true\" preserveRatio=\"true\" />\n      <ImageView fitHeight=\"25.0\" fitWidth=\"24.0\" layoutX=\"97.0\" layoutY=\"80.0\">\n         <image>\n            <Image url=\"@Images/pngwing.com.png\" />\n         </image>\n      </ImageView>\n      <Text layoutX=\"10.0\" layoutY=\"134.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" text=\"Playlists\" wrappingWidth=\"41.6015625\" />\n      <GridPane layoutX=\"601.0\" layoutY=\"155.0\" prefHeight=\"350.0\" prefWidth=\"327.0\">\n        <columnConstraints>\n          <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\n        </columnConstraints>\n        <rowConstraints>\n          <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\" />\n        </rowConstraints>\n         <children>\n            <TreeTableView fx:id=\"treeTableSongs\" prefHeight=\"200.0\" prefWidth=\"200.0\">\n              <columns>\n                <TreeTableColumn fx:id=\"songsTitle\" prefWidth=\"122.0\" text=\"Title\" />\n                <TreeTableColumn fx:id=\"songsArtist\" prefWidth=\"122.0\" text=\"Artist\" />\n                  <TreeTableColumn fx:id=\"songsTime\" text=\"Time\" />\n              </columns>\n            </TreeTableView>\n         </children>\n      </GridPane>\n   </children>\n</AnchorPane>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/View/SongView.fxml b/src/GUI/View/SongView.fxml
+--- a/src/GUI/View/SongView.fxml	(revision bcbafc79c763593b020552217b17b15b2756395e)
++++ b/src/GUI/View/SongView.fxml	(date 1669799124892)
+@@ -35,21 +35,21 @@
+             </TreeTableView>
+          </children>
+       </GridPane>
+-      <Button fx:id="newPlaylist" layoutX="14.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewPlaylist" text="New" />
+-      <Button fx:id="editPlaylist" layoutX="91.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditPlaylist" text="Edit" />
+-      <Button fx:id="deletePlaylist" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeletePlaylist" text="Delete" />
++      <Button fx:id="newPlaylist" layoutX="14.0" layoutY="516.0" mnemonicParsing="false" text="New" />
++      <Button fx:id="editPlaylist" layoutX="91.0" layoutY="516.0" mnemonicParsing="false" text="Edit" />
++      <Button fx:id="deletePlaylist" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
+       <Text layoutX="334.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist" />
+       <Text layoutX="637.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
+       <TextField fx:id="searchBar" layoutX="746.0" layoutY="43.0" />
+       <Text layoutX="703.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" />
+-      <Button fx:id="deleteSongInPlaylist" layoutX="534.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSongsInPlaylist" text="Delete" />
+-      <Button fx:id="newSong" layoutX="617.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewSongs" text="New" />
+-      <Button fx:id="editSong" layoutX="703.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditSongs" text="Edit" />
++      <Button fx:id="deleteSongInPlaylist" layoutX="534.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
++      <Button fx:id="newSong" layoutX="617.0" layoutY="516.0" mnemonicParsing="false" text="New" />
++      <Button fx:id="editSong" layoutX="703.0" layoutY="516.0" mnemonicParsing="false" text="Edit" />
+       <Button fx:id="playBtn" layoutX="175.0" layoutY="16.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="52.0" style="-fx-background-radius: 100;" text="Play" />
+-      <Button fx:id="deleteSong" layoutX="870.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSong" text="Delete" />
++      <Button fx:id="deleteSong" layoutX="870.0" layoutY="516.0" mnemonicParsing="false" text="Delete" />
+       <Button fx:id="reverseBtn" layoutX="113.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&lt;&lt;" />
+       <Button fx:id="forwardBtn" layoutX="252.0" layoutY="27.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&gt;&gt;" />
+-      <Button fx:id="addSong" layoutX="783.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleAddSongs" text="Add" />
++      <Button fx:id="addSong" layoutX="783.0" layoutY="516.0" mnemonicParsing="false" text="Add" />
+       <Slider fx:id="volumeSlider" layoutX="131.0" layoutY="85.0" />
+       <GridPane layoutX="317.0" layoutY="155.0" prefHeight="350.0" prefWidth="268.0">
+         <columnConstraints>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"c7eae06d-a500-4b3c-a733-5a74e0eaeca9\" name=\"Changes\" comment=\"Håber det virker\">\n      <change afterPath=\"$PROJECT_DIR$/src/GUI/Controller/BaseController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__11_52__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__11_52__Changes_.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__12_29__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__12_29__Changes_.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__12_39__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__12_39__Changes_.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2022__09_20__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2022__09_20__Changes_.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2022__09_24__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2022__09_24__Changes_.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/BE/Song.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/BE/Song.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/DAL/ISongDataAccess.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/DAL/ISongDataAccess.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/DAL/SongDAO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/DAL/SongDAO.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/Controller/SongViewController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/Controller/SongViewController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/Main.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"FxmlFile\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2IAUlcR6btdM1ruUdcj5aYUPxgt\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"GUI.Main\" />\n      <module name=\"MyTunes2\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"GUI.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"c7eae06d-a500-4b3c-a733-5a74e0eaeca9\" name=\"Changes\" comment=\"\" />\n      <created>1669624037043</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1669624037043</updated>\n      <workItem from=\"1669624038431\" duration=\"592000\" />\n      <workItem from=\"1669624735804\" duration=\"1302000\" />\n      <workItem from=\"1669635607676\" duration=\"37000\" />\n      <workItem from=\"1669708816919\" duration=\"675000\" />\n      <workItem from=\"1669714652902\" duration=\"1087000\" />\n      <workItem from=\"1669795032695\" duration=\"188000\" />\n      <workItem from=\"1669795271938\" duration=\"2270000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"MyTunes\">\n      <created>1669624339964</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669624339964</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"MyTunes\">\n      <created>1669625073988</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625073988</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"MyTunes\">\n      <created>1669625100757</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625100757</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"MyTunes\">\n      <created>1669625192515</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625192515</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"MyTunes\">\n      <created>1669625639648</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625639648</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"MyTunes\">\n      <created>1669625928426</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625928426</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"MyTunes\">\n      <created>1669627552271</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669627552271</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"MyTunes\">\n      <created>1669714918744</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669714918744</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Håber det virker\">\n      <created>1669716819764</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669716819764</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"10\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"MyTunes\" />\n    <MESSAGE value=\"Håber det virker\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Håber det virker\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <breakpoint enabled=\"true\" type=\"java-exception\">\n          <properties class=\"java.lang.reflect.InvocationTargetException\" package=\"java.lang.reflect\" />\n          <option name=\"timeStamp\" value=\"1\" />\n        </breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision bcbafc79c763593b020552217b17b15b2756395e)
++++ b/.idea/workspace.xml	(date 1669799275423)
+@@ -4,20 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="Håber det virker">
+-      <change afterPath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__11_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__11_52__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__12_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__12_29__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__12_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2022__12_39__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2022__09_20__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2022__09_20__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2022__09_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2022__09_24__Changes_.xml" afterDir="false" />
++    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_xml_bind_jaxb_api.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2022_11_06__Changes_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/BE/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Song.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/DAL/SongDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/SongDAO.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/SongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/SongViewController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/GUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -28,8 +21,8 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="Interface" />
+-        <option value="FxmlFile" />
+         <option value="Class" />
++        <option value="FxmlFile" />
+       </list>
+     </option>
+   </component>
+@@ -47,22 +40,26 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "Downloaded.Files.Path.Enabled": "false",
++    "Repository.Attach.Annotations": "false",
++    "Repository.Attach.JavaDocs": "false",
++    "Repository.Attach.Sources": "false",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "project.structure.last.edited": "Libraries",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2639665"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="GUI.Main" />
+@@ -96,8 +93,9 @@
+       <workItem from="1669635607676" duration="37000" />
+       <workItem from="1669708816919" duration="675000" />
+       <workItem from="1669714652902" duration="1087000" />
+-      <workItem from="1669795032695" duration="188000" />
+-      <workItem from="1669795271938" duration="2270000" />
++      <workItem from="1669798596389" duration="4000" />
++      <workItem from="1669798755394" duration="8000" />
++      <workItem from="1669798780979" duration="492000" />
+     </task>
+     <task id="LOCAL-00001" summary="MyTunes">
+       <created>1669624339964</created>
+@@ -155,14 +153,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1669714918744</updated>
+     </task>
+-    <task id="LOCAL-00009" summary="Håber det virker">
+-      <created>1669716819764</created>
+-      <option name="number" value="00009" />
+-      <option name="presentableId" value="LOCAL-00009" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1669716819764</updated>
+-    </task>
+-    <option name="localTasksCounter" value="10" />
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -181,8 +172,7 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="MyTunes" />
+-    <MESSAGE value="Håber det virker" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Håber det virker" />
++    <option name="LAST_COMMIT_MESSAGE" value="MyTunes" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
