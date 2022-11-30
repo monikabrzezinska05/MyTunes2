@@ -10,12 +10,12 @@ public class Song {
     private String category;
 
 
-    public Song(int id, String artist, String title, String category, int length) {
+    public Song(int id, String artist, String title, String category, int time) {
         this.id = id;
         this.artist = artist;
         this.title = title;
         this.category = category;
-        this.lenght = length;
+        this.lenght = time;
     }
 
     public int getId() { return id; }
@@ -28,7 +28,7 @@ public class Song {
 
     public int getLenght() { return lenght; }
 
-    public void setLenght(int lenght) { this.lenght = lenght; }
+    public void setLenght(int time) { this.lenght = time; }
 
     public String getCategory(String category) {return category;}
 
