@@ -7,10 +7,14 @@ public class Song {
     private int lenght;
     private String artist;
 
+    private String category;
 
-    public Song(int id, String title, String category, int length) {
+
+    public Song(int id, String artist, String title, String category, int length) {
         this.id = id;
+        this.artist = artist;
         this.title = title;
+        this.category = category;
         this.lenght = length;
     }
 
@@ -26,7 +30,13 @@ public class Song {
 
     public void setLenght(int lenght) { this.lenght = lenght; }
 
-    public String getArtist() {
+    public String getCategory(String category) {return category;}
+
+    public void setCategory(){this.category = category;}
+
+    public String getArtist(String artist) {
         return artist;
     }
+
+    public void setArtist() {this.artist = artist;}
 }
