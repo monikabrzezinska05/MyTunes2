@@ -42,11 +42,8 @@ public class SongModel {
 
     /*public void searchPlaylist(String query) throws Exception {
         List<Playlist> searchResults = songManager.search(query);
-<<<<<<< Updated upstream
         playlist.clear();
-=======
         playlist.clear;
->>>>>>> Stashed changes
         playlist.addAll(searchResults);
     }*/
 
@@ -55,12 +52,8 @@ public class SongModel {
         songs.clear();
         songs.addAll(songManager.getSongs());
     }
-<<<<<<< Updated upstream
-}
-=======
 
     public void deleteSong() throws  Exception {
 
     }
 }
->>>>>>> Stashed changes
