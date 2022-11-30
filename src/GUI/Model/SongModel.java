@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 // Project imports
 import BLL.SongManager;
 import BE.Song;
+import BE.Playlist;
 
 import java.util.List;
 
@@ -25,11 +26,11 @@ public class SongModel {
         //songs.addAll(songManager.);
     }
 
-    public ObservableList<Song> getSongs() {
+    public ObservableList<Song> getObservableSongs() {
         return songs;
     }
 
-    public ObservableList<Playlist> getPlaylist() {
+    public ObservableList<Playlist> getObservablePlaylist() {
         return playlist;
     }
 
@@ -41,7 +42,11 @@ public class SongModel {
 
     /*public void searchPlaylist(String query) throws Exception {
         List<Playlist> searchResults = songManager.search(query);
+<<<<<<< Updated upstream
         playlist.clear();
+=======
+        playlist.clear;
+>>>>>>> Stashed changes
         playlist.addAll(searchResults);
     }*/
 
@@ -50,4 +55,12 @@ public class SongModel {
         songs.clear();
         songs.addAll(songManager.getSongs());
     }
+<<<<<<< Updated upstream
 }
+=======
+
+    public void deleteSong() throws  Exception {
+
+    }
+}
+>>>>>>> Stashed changes
