@@ -15,15 +15,12 @@ import java.util.List;
 public class SongModel {
 
     private ObservableList<Song> songs;
-    private ObservableList<Playlist> playlist;
     private SongManager songManager;
 
     public SongModel() throws Exception {
         songManager = new SongManager();
         songs = FXCollections.observableArrayList();
-        //songs.addAll(songManager.);
-        playlist = FXCollections.observableArrayList();
-        //songs.addAll(songManager.);
+        songs.addAll(songManager.getSongs());
     }
 
     public ObservableList<Song> getObservableSongs() {
