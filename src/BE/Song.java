@@ -4,18 +4,18 @@ public class Song {
 
     private int id;
     private String title;
-    private int lenght;
+    private int time;
     private String artist;
 
     private String category;
 
 
-    public Song(int id, String artist, String title, String category, int time) {
+    public Song(int id, String title, String artist, String category, int time) {
         this.id = id;
         this.artist = artist;
         this.title = title;
         this.category = category;
-        this.lenght = time;
+        this.time = time;
     }
 
     public int getId() { return id; }
@@ -26,17 +26,17 @@ public class Song {
 
     public void setTitle(String title) { this.title = title; }
 
-    public int getLenght() { return lenght; }
+    public int getTime() { return time; }
 
-    public void setLenght(int time) { this.lenght = time; }
+    public void setTime(int time) { this.time = time; }
 
-    public String getCategory(String category) {return category;}
+    public String getCategory() {return category;}
 
-    public void setCategory(){this.category = category;}
+    public void setCategory(String category){this.category = category;}
 
-    public String getArtist(String artist) {
+    public String getArtist() {
         return artist;
     }
 
-    public void setArtist() {this.artist = artist;}
+    public void setArtist(String artist) {this.artist = artist;}
 }

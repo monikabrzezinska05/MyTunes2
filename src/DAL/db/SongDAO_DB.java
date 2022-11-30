@@ -29,10 +29,11 @@ public class SongDAO_DB implements ISongDataAccess{
 
                 int id = rs.getInt("ID");
                 String title = rs.getString("Title");
+                String artist = rs.getString("Artist");
                 String category = rs.getString("Category");
-                int length = rs.getInt("Length");
+                int time = rs.getInt("Time");
 
-                Song song = new Song(id, title, category, length);
+                Song song = new Song(id, title, artist, category, time);
                 allSongs.add(song);
             }
             return allSongs;
@@ -42,15 +43,16 @@ public class SongDAO_DB implements ISongDataAccess{
     }
 
     @Override
-    public Song createSong(String title, String category, int length) throws Exception {
-        String sql = "INSERT INTO Song (title, category, length)VALUES (?,?,?);";
+    public Song createSong(String title, String artist, String category, int time) throws Exception {
+        String sql = "INSERT INTO Song (title, artist, category, time)VALUES (?,?,?,?);";
 
         try(Connection connection = databaseConnector.getConnection()){
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             statement.setString(1, title);
-            statement.setString(2, category);
-            statement.setInt(3, length);
+            statement.setString(2, artist);
+            statement.setString(3, category);
+            statement.setInt(4, time);
 
             statement.executeUpdate();
 
@@ -61,7 +63,7 @@ public class SongDAO_DB implements ISongDataAccess{
                 id = rs.getInt(1);
             }
 
-            Song song = new Song(id, title, category, length);
+            Song song = new Song(id, title, artist, category, time);
             return song;
         }
         catch (SQLException exc){
@@ -76,12 +78,13 @@ public class SongDAO_DB implements ISongDataAccess{
     public void updateSong(Song song) throws Exception {
         try(Connection connection = databaseConnector.getConnection()){
 
-            String sql = "UPDATE Song SET Title = ?, Artist = ?, Length = ? WHERE Id = ?;";
+            String sql = "UPDATE Song SET Title = ?, Artist = ?, Category = ?, Time = ? WHERE Id = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setString(1, song.getTitle());
             statement.setString(2, song.getArtist());
-            statement.setInt(3, song.getLenght());
+            statement.setString(3,song.getCategory());
+            statement.setInt(4, song.getTime());
 
             statement.executeUpdate();
         }
