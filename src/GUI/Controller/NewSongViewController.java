@@ -1,5 +1,8 @@
 package GUI.Controller;
 
+import BE.Song;
+import GUI.Model.PlaylistModel;
+import GUI.Model.SongModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +13,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class NewSongViewController extends BaseController implements Initializable {
+
+    public ListView<Song> lstSong;
+    private SongModel songModel;
 
     @FXML
     private Button chooseFIle;
@@ -26,12 +32,23 @@ public class NewSongViewController extends BaseController implements Initializab
     @FXML
     private TextField txtFile;
     @FXML
-    private ComboBox<String> categoryDropdown;
-    
+    private ComboBox categoryDropdown;
 
     @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        categoryDropdown.getItems().addAll("Pop", "HipHop", "Jazz", "Rap", "Rock", "Blues", "EDM",
+                "Hard Style", "Metal", "Alternative", "Classic", "Country", "R&B", "Soul");
+        categoryDropdown.getSelectionModel().selectFirst();
+    }
+
+        @Override
     public void setup() {
-        
+
+    }
+
+    public void handleCategoryDropdown(ActionEvent actionEvent) {
+        MenuButton menuButton = new MenuButton("Category");
+        menuButton.getItems().addAll(new MenuItem("Pop"), new MenuItem("HipHop"));
     }
 
     public void handleCancelSong(ActionEvent actionEvent) {
@@ -39,14 +56,18 @@ public class NewSongViewController extends BaseController implements Initializab
         stage.close();
     }
 
+
     public void handleSaveSong(ActionEvent actionEvent) {
-    }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        categoryDropdown.getItems().addAll("Pop", "HipHop", "Jazz", "Rap", "Rock", "Blues", "EDM",
-                "Hard Style", "Metal", "Alternative", "Classic", "Country", "R&B", "Soul");
-        categoryDropdown.getSelectionModel().selectFirst();
+        String title = txtTitle.getText();
+        String artist = txtArtist.getText();
+        String category = categoryDropdown.getId();
+        int time = Integer.parseInt(txtTime.getText());
 
+        try {
+            songModel.createSong(title, artist, category, time);
+        } catch (Exception e) {
+
+        }
     }
 }
