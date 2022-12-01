@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="445.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.NewSongController">
+<AnchorPane prefHeight="400.0" prefWidth="445.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.NewSongViewController">
    <children>
       <Label layoutX="63.0" layoutY="59.0" text="Title:" />
       <Label layoutX="60.0" layoutY="111.0" text="Artist:" />
@@ -17,7 +17,7 @@
       <TextField layoutX="133.0" layoutY="107.0" prefHeight="25.0" prefWidth="272.0" />
       <TextField layoutX="133.0" layoutY="214.0" prefHeight="26.0" prefWidth="122.0" />
       <TextField layoutX="133.0" layoutY="270.0" prefHeight="26.0" prefWidth="215.0" />
-      <MenuButton layoutX="133.0" layoutY="157.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="272.0" text="MenuButton">
+      <MenuButton layoutX="133.0" layoutY="157.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="272.0" text="Category">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
