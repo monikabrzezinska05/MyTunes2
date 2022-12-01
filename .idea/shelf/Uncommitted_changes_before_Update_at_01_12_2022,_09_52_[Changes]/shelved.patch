@@ -1,0 +1,87 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"c7eae06d-a500-4b3c-a733-5a74e0eaeca9\" name=\"Changes\" comment=\"MyTunes\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/View/SongView.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/View/SongView.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"FxmlFile\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2IAUlcR6btdM1ruUdcj5aYUPxgt\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"GUI.Main\" />\n      <module name=\"MyTunes2\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"GUI.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"c7eae06d-a500-4b3c-a733-5a74e0eaeca9\" name=\"Changes\" comment=\"\" />\n      <created>1669624037043</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1669624037043</updated>\n      <workItem from=\"1669624038431\" duration=\"592000\" />\n      <workItem from=\"1669624735804\" duration=\"1302000\" />\n      <workItem from=\"1669635607676\" duration=\"37000\" />\n      <workItem from=\"1669708816919\" duration=\"675000\" />\n      <workItem from=\"1669714652902\" duration=\"1087000\" />\n      <workItem from=\"1669795032695\" duration=\"188000\" />\n      <workItem from=\"1669795271938\" duration=\"2270000\" />\n      <workItem from=\"1669795257868\" duration=\"2264000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"MyTunes\">\n      <created>1669624339964</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669624339964</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"MyTunes\">\n      <created>1669625073988</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625073988</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"MyTunes\">\n      <created>1669625100757</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625100757</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"MyTunes\">\n      <created>1669625192515</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625192515</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"MyTunes\">\n      <created>1669625639648</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625639648</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"MyTunes\">\n      <created>1669625928426</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669625928426</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"MyTunes\">\n      <created>1669627552271</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669627552271</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"MyTunes\">\n      <created>1669714918744</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669714918744</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Håber det virker\">\n      <created>1669716819764</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1669716819764</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"10\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"MyTunes\" />\n    <MESSAGE value=\"Håber det virker\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Håber det virker\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <breakpoint enabled=\"true\" type=\"java-exception\">\n          <properties class=\"java.lang.reflect.InvocationTargetException\" package=\"java.lang.reflect\" />\n          <option name=\"timeStamp\" value=\"1\" />\n        </breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cb1d158366097486173b56a21bf59e047a3d894e)
++++ b/.idea/workspace.xml	(date 1669884491398)
+@@ -6,7 +6,6 @@
+   <component name="ChangeListManager">
+     <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/SongView.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -17,8 +16,8 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="Interface" />
+-        <option value="FxmlFile" />
+         <option value="Class" />
++        <option value="FxmlFile" />
+       </list>
+     </option>
+   </component>
+@@ -52,6 +51,11 @@
+     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+   }
+ }</component>
++  <component name="RecentsManager">
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/src/GUI/View" />
++    </key>
++  </component>
+   <component name="RunManager">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="GUI.Main" />
+@@ -88,6 +92,11 @@
+       <workItem from="1669795032695" duration="188000" />
+       <workItem from="1669795271938" duration="2270000" />
+       <workItem from="1669795257868" duration="2264000" />
++      <workItem from="1669807692290" duration="35000" />
++      <workItem from="1669881221328" duration="1782000" />
++      <workItem from="1669883273411" duration="782000" />
++      <workItem from="1669884219185" duration="83000" />
++      <workItem from="1669884307243" duration="153000" />
+     </task>
+     <task id="LOCAL-00001" summary="MyTunes">
+       <created>1669624339964</created>
+@@ -152,7 +161,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1669716819764</updated>
+     </task>
+-    <option name="localTasksCounter" value="10" />
++    <task id="LOCAL-00010" summary="MyTunes">
++      <created>1669803994687</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1669803994687</updated>
++    </task>
++    <task id="LOCAL-00011" summary="MyTunes">
++      <created>1669803998577</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1669803998577</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -170,9 +193,9 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="MyTunes" />
+     <MESSAGE value="Håber det virker" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Håber det virker" />
++    <MESSAGE value="MyTunes" />
++    <option name="LAST_COMMIT_MESSAGE" value="MyTunes" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>

@@ -168,9 +168,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MyTunes" />
     <MESSAGE value="Håber det virker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Håber det virker" />
+    <MESSAGE value="MyTunes" />
+    <option name="LAST_COMMIT_MESSAGE" value="MyTunes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
