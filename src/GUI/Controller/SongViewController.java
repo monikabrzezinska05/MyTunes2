@@ -90,7 +90,13 @@ public class SongViewController extends BaseController implements Initializable 
 
     }
 
-    public void handleNewPlaylist(ActionEvent actionEvent) {
+    public void handleNewPlaylist(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewPlaylistView.fxml"));
+        Parent root = loader.load();
+        stage.setScene(new Scene(root));
+        stage.setTitle("New Playlist");
+        stage.show();
     }
 
     public void handleEditPlaylist(ActionEvent actionEvent) {
