@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.SongViewController">
+<AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.SongViewController">
    <children>
       <GridPane layoutX="6.0" layoutY="155.0" prefHeight="350.0" prefWidth="297.0">
         <columnConstraints>
@@ -79,12 +79,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="96.0" text="Title" />
-                <TableColumn prefWidth="82.0" text="Artist" />
-                  <TableColumn prefWidth="106.0" text="Category" />
-                  <TableColumn minWidth="1.0" prefWidth="75.0" text="Time" />
+                <TableColumn fx:id="title" prefWidth="96.0" text="Title" />
+                <TableColumn fx:id="artist" prefWidth="82.0" text="Artist" />
+                  <TableColumn fx:id="category" prefWidth="106.0" text="Category" />
+                  <TableColumn fx:id="time" minWidth="1.0" prefWidth="75.0" text="Time" />
               </columns>
             </TableView>
          </children>
