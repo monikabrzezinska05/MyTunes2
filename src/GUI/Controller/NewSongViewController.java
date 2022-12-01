@@ -38,6 +38,9 @@ public class NewSongViewController extends BaseController{
 
     }
 
+    public void handleSaveSong(ActionEvent actionEvent) {
+    }
+
     /*public void handleSaveSong(ActionEvent actionEvent) {
         try {
         } catch
