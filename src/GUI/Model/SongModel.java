@@ -39,7 +39,9 @@ public class SongModel {
         songs.addAll(songManager.getSongs());
     }
 
-    public void deleteSong() throws Exception {
-
+    public void deleteSong(Song deletedSong) throws Exception {
+        songManager.deleteSong(deletedSong);
+        songs.clear();
+        songs.addAll(songManager.getSongs());
     }
 }

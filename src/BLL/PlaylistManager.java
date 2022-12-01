@@ -13,8 +13,8 @@ public class PlaylistManager {
         playlistDAO = new PlaylistDAO_DB();
     }
 
-    public Playlist createPlaylist(String name) throws Exception {
-        return playlistDAO.createPlaylist(name);
-    }
+    /*public List<Playlist> getAllPlaylists throws Exception {
+        return playlistDAO.getAllPlaylists();
+    }*/
 
 }
