@@ -1,6 +1,7 @@
 package GUI.Controller;
 
 import BE.Playlist;
+import BE.Song;
 import GUI.Model.SongModel;
 import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
@@ -11,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -26,6 +28,21 @@ public class SongViewController extends BaseController implements Initializable 
 
     @FXML
     private TextField playingSong;
+
+    @FXML
+    private TableView<Song> table;
+
+    @FXML
+    private TableColumn<Song, Integer> time;
+
+    @FXML
+    private TableColumn<Song, String> title;
+
+    @FXML
+    private TableColumn<Song, String> artist;
+
+    @FXML
+    private TableColumn<Song, String> category;
 
     //public ListView<Songs> lstSongs;
     //public ListView<SongsInPlaylist> lstSongsInPlaylist;
@@ -59,6 +76,12 @@ public class SongViewController extends BaseController implements Initializable 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
+        time.setCellValueFactory(new PropertyValueFactory<Song, Integer>("time"));
+        category.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
+        artist.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
+
+        table.setItems(songModel.getObservableSongs());
     }
 
 
