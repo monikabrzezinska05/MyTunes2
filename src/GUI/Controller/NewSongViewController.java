@@ -32,7 +32,7 @@ public class NewSongViewController extends BaseController implements Initializab
     @FXML
     private TextField txtFile;
     @FXML
-    private ComboBox categoryDropdown;
+    private ComboBox<String> categoryDropdown;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,11 +46,6 @@ public class NewSongViewController extends BaseController implements Initializab
 
     }
 
-    public void handleCategoryDropdown(ActionEvent actionEvent) {
-        MenuButton menuButton = new MenuButton("Category");
-        menuButton.getItems().addAll(new MenuItem("Pop"), new MenuItem("HipHop"));
-    }
-
     public void handleCancelSong(ActionEvent actionEvent) {
         Stage stage = (Stage) cancelSong.getScene().getWindow();
         stage.close();
@@ -61,7 +56,7 @@ public class NewSongViewController extends BaseController implements Initializab
 
         String title = txtTitle.getText();
         String artist = txtArtist.getText();
-        String category = categoryDropdown.getId();
+        String category = categoryDropdown.getSelectionModel().getSelectedItem();
         int time = Integer.parseInt(txtTime.getText());
 
         try {
