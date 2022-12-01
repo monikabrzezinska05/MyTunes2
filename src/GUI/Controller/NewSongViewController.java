@@ -2,13 +2,14 @@ package GUI.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-public class NewSongViewController extends BaseController{
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class NewSongViewController extends BaseController implements Initializable {
 
     @FXML
     private Button chooseFIle;
@@ -25,17 +26,12 @@ public class NewSongViewController extends BaseController{
     @FXML
     private TextField txtFile;
     @FXML
-    private MenuButton categoryDropdown;
+    private ComboBox<String> categoryDropdown;
     
 
     @Override
     public void setup() {
         
-    }
-
-    public void handleCategoryDropdown(ActionEvent actionEvent) {
-        MenuButton menuButton = new MenuButton("Category");
-        menuButton.getItems().addAll(new MenuItem("Pop"), new MenuItem("HipHop"));
     }
 
     public void handleCancelSong(ActionEvent actionEvent) {
@@ -46,11 +42,11 @@ public class NewSongViewController extends BaseController{
     public void handleSaveSong(ActionEvent actionEvent) {
     }
 
-    public void handleSaveSong(ActionEvent actionEvent) {
-    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        categoryDropdown.getItems().addAll("Pop", "HipHop", "Jazz", "Rap", "Rock", "Blues", "EDM",
+                "Hard Style", "Metal", "Alternative", "Classic", "Country", "R&B", "Soul");
+        categoryDropdown.getSelectionModel().selectFirst();
 
-    /*public void handleSaveSong(ActionEvent actionEvent) {
-        try {
-        } catch
-    }*/
+    }
 }
