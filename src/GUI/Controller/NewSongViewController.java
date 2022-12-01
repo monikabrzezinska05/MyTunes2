@@ -32,7 +32,7 @@ public class NewSongViewController extends BaseController implements Initializab
     @FXML
     private TextField txtFile;
     @FXML
-    private ComboBox categoryDropdown;
+    private ComboBox<String> categoryDropdown;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,11 +44,6 @@ public class NewSongViewController extends BaseController implements Initializab
         @Override
     public void setup() {
 
-    }
-
-    public void handleCategoryDropdown(ActionEvent actionEvent) {
-        MenuButton menuButton = new MenuButton("Category");
-        menuButton.getItems().addAll(new MenuItem("Pop"), new MenuItem("HipHop"));
     }
 
     public void handleCancelSong(ActionEvent actionEvent) {
