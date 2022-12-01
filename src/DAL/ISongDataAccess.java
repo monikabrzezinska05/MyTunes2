@@ -9,7 +9,7 @@ import java.util.List;
 public interface ISongDataAccess {
     public List<Song> getSongs() throws SQLServerException;
 
-    public Song createSong(String title, String artist, String category, int length) throws Exception;
+    public Song createSong(String title, String artist, String category, int time) throws Exception;
 
     public void updateSong(Song song) throws Exception;
 

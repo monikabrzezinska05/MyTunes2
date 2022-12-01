@@ -31,7 +31,12 @@ public class SongManager {
         songDAO.updateSong(updatedSong);
 
     }
-        public void deleteSong(Song deletedSong) throws Exception{
-            songDAO.deleteSong(deletedSong);
+
+    public void deleteSong(Song deletedSong) throws Exception{
+        songDAO.deleteSong(deletedSong);
         }
+
+    public Song createSong(String title, String artist, String category, int time) throws Exception {
+        return songDAO.createSong(title, artist, category, time);
     }
+}

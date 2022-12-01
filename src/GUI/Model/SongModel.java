@@ -25,7 +25,11 @@ public class SongModel {
         return songs;
     }
 
+    public void createSong(String title, String artist, String category, int time) throws Exception {
+        Song s = songManager.createSong(title, artist, category, time);
 
+        songs.add(s);
+    }
 
     public void searchSong(String query) throws Exception {
         List<Song> searchResults = songManager.search(query);
