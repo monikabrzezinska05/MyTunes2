@@ -1,10 +1,7 @@
 package GUI.Controller;
 
-import BE.Playlist;
 import BE.Song;
 import GUI.Model.SongModel;
-import javafx.beans.Observable;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,15 +10,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
-public class SongViewController extends BaseController implements Initializable {
+public class MyTunesViewController extends BaseController implements Initializable {
 
     @FXML
     private TextField searchBar;
@@ -64,7 +59,7 @@ public class SongViewController extends BaseController implements Initializable 
 
     private SongModel songModel;
 
-    public SongViewController()  {
+    public MyTunesViewController()  {
 
         try {
             songModel = new SongModel();
