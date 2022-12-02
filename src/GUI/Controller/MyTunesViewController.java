@@ -3,6 +3,8 @@ package GUI.Controller;
 import BE.Song;
 import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -87,7 +89,31 @@ public class MyTunesViewController extends BaseController implements Initializab
 
     @Override
     public void setup() {
-        //songModel = getModel().;
+        //songModel = getModel().getSongModel();
+
+        editSong.setDisable(true);
+
+        table.setItems(songModel.getObservableSongs());
+
+        searchBar.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            try {
+                songModel.searchSong(newValue);
+            } catch (Exception e) {
+                displayError(e);
+            }
+        });
+
+        table.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>() {
+            @Override
+            public void changed(ObservableValue<? extends Song> observable, Song oldValue, Song newValue) {
+                if (newValue != null) {
+                    editSong.setDisable(false);
+
+                }
+                else
+                    editSong.setDisable(false);
+            }
+        });
     }
 
     private void displayError(Throwable t) {
