@@ -70,7 +70,7 @@ public class MyTunesViewController extends BaseController implements Initializab
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //editSong.setDisable(true);
         title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         time.setCellValueFactory(new PropertyValueFactory<Song, Integer>("time"));
         category.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
@@ -83,6 +83,13 @@ public class MyTunesViewController extends BaseController implements Initializab
     @Override
     public void setup() {
 
+    }
+
+    private void displayError(Throwable t) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Something went wrong");
+        alert.setHeaderText(t.getMessage());
+        alert.showAndWait();
     }
 
     public void handleNewPlaylist(ActionEvent actionEvent) throws IOException {
@@ -114,6 +121,13 @@ public class MyTunesViewController extends BaseController implements Initializab
     }
 
     public void handleEditSongs(ActionEvent actionEvent) {
+        try {
+            Song editedSong = table.getSelectionModel().getSelectedItem();
+
+            //editedSong.setTitle(txtTitle);
+        } catch (Exception e) {
+            displayError(e);
+        }
     }
 
     public void handleDeleteSong(ActionEvent actionEvent) {
