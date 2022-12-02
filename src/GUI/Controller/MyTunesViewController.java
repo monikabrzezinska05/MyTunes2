@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import BE.Playlist;
 import BE.Song;
 import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
@@ -41,6 +42,19 @@ public class MyTunesViewController extends BaseController implements Initializab
     @FXML
     private TableColumn<Song, String> category;
 
+    @FXML
+    private TableView<Playlist> plTable;
+
+    @FXML
+    private TableColumn<Playlist, String> plTitle;
+
+    @FXML
+    private TableColumn<Playlist, Integer> plSongs;
+
+    @FXML
+    private TableColumn<Playlist, Integer> plTime;
+
+
     //public ListView<Songs> lstSongs;
     //public ListView<SongsInPlaylist> lstSongsInPlaylist;
     //public ListView<Playlists> lstPlaylists;
@@ -80,6 +94,14 @@ public class MyTunesViewController extends BaseController implements Initializab
         artist.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
 
         table.setItems(songModel.getObservableSongs());
+
+
+        plTitle.setCellValueFactory(new PropertyValueFactory<Playlist, String>("plTitle"));
+        plTime.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plTime"));
+        plSongs.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plSongs"));
+
+        plTable.setItems(playlistModel.getObservablePlaylist());
+
     }
 
 

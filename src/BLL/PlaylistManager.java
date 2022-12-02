@@ -20,8 +20,8 @@ public class PlaylistManager {
     public void updatePlaylist(Playlist updatedplaylist) throws Exception {
         playlistDAO.updatePlaylist(updatedplaylist);
     }
-    public Playlist createPlaylist(String title) throws Exception {
-        return playlistDAO.createPlaylist(title);
+    public Playlist createPlaylist(String plTitle) throws Exception {
+        return playlistDAO.createPlaylist(plTitle);
     }
 
     public List<Playlist> getPlaylist() throws Exception {
