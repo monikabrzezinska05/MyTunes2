@@ -114,6 +114,13 @@ public class MyTunesViewController extends BaseController implements Initializab
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewSongView.fxml"));
         Parent root = loader.load();
+
+        NewSongViewController controller = loader.getController();
+        controller.setModel(songModel);
+        controller.setup();
+
+
+
         stage.setScene(new Scene(root));
         stage.setTitle("New / Edit Song");
         stage.show();

@@ -36,6 +36,7 @@ public class NewSongViewController extends BaseController implements Initializab
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         categoryDropdown.getItems().addAll("Pop", "HipHop", "Jazz", "Rap", "Rock", "Blues", "EDM",
                 "Hard Style", "Metal", "Alternative", "Classic", "Country", "R&B", "Soul");
         categoryDropdown.getSelectionModel().selectFirst();
@@ -43,7 +44,7 @@ public class NewSongViewController extends BaseController implements Initializab
 
         @Override
     public void setup() {
-
+        songModel = getModel();
     }
 
     public void handleCancelSong(ActionEvent actionEvent) {
@@ -62,7 +63,7 @@ public class NewSongViewController extends BaseController implements Initializab
         try {
             songModel.createSong(title, artist, category, time);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 }

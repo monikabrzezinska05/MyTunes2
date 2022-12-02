@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
+    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="Playlistmanager">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewPlaylistViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewPlaylistViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +94,7 @@
       <workItem from="1669881785134" duration="3282000" />
       <workItem from="1669889337774" duration="2269000" />
       <workItem from="1669968813552" duration="3483000" />
+      <workItem from="1669973161332" duration="2244000" />
     </task>
     <task id="LOCAL-00001" summary="MyTunes">
       <created>1669624339964</created>
@@ -228,6 +232,11 @@
           <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

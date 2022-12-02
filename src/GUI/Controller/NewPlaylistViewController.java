@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import GUI.Model.PlaylistModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,7 +18,7 @@ public class NewPlaylistViewController extends BaseController implements Initial
     public Button savePlaylist;
 
     @FXML
-    private TextField txtField;
+    private TextField txtPlaylistTitle;
 
     @Override
     public void setup() {
@@ -33,6 +35,16 @@ public class NewPlaylistViewController extends BaseController implements Initial
         stage.close();
     }
 
-    public void handleSavePlaylist(ActionEvent actionEvent) {
+    public void handleSavePlaylist(ActionEvent actionEvent) throws Exception {
+        try {
+            PlaylistModel playlistModel = new PlaylistModel();
+            playlistModel.createPlaylist(txtPlaylistTitle.getText());
+
+            Stage stage = (Stage) savePlaylist.getScene().getWindow();
+            stage.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }
