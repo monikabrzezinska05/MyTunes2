@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
+
+
 public class PlaylistModel {
 
     private ObservableList<Playlist> playlist;
@@ -29,8 +31,8 @@ public class PlaylistModel {
         playlist.addAll(searchResults);
     }
 
-    public void createPlaylist(String title) throws Exception {
-        Playlist p = plm.createPlaylist(title);
+    public void createPlaylist(String plTitle) throws Exception {
+        Playlist p = plm.createPlaylist(plTitle);
 
         playlist.add(p);
     }

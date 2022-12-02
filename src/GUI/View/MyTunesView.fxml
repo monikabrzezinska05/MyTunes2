@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MyTunesViewController">
+<AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MyTunesViewController">
    <children>
       <GridPane layoutX="6.0" layoutY="155.0" prefHeight="350.0" prefWidth="297.0">
         <columnConstraints>
@@ -28,7 +18,7 @@
          <children>
             <TableView fx:id="plTable" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="playlist" prefWidth="93.0" text="Playlist" />
+                <TableColumn fx:id="plTitle" prefWidth="93.0" text="Playlist" />
                 <TableColumn fx:id="plSongs" prefWidth="97.0" text="Songs" />
                   <TableColumn fx:id="plTime" prefWidth="106.0" text="Time" />
               </columns>
