@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="model">
+    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BE/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Playlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BLL/PlaylistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/PlaylistManager.java" afterDir="false" />

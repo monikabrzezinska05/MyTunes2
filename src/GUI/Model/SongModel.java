@@ -14,6 +14,7 @@ public class SongModel {
 
     private ObservableList<Song> songs;
     private SongManager songManager;
+    private Song selectedSong;
 
     public SongModel() throws Exception {
         songManager = new SongManager();
@@ -47,5 +48,13 @@ public class SongModel {
         songManager.deleteSong(deletedSong);
         songs.clear();
         songs.addAll(songManager.getSongs());
+    }
+
+    public Song getSelectedSong() {
+        return selectedSong;
+    }
+
+    public void setSelectedSong(Song selectedSong) {
+        this.selectedSong = selectedSong;
     }
 }

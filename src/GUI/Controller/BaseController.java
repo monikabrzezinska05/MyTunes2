@@ -20,5 +20,4 @@ public abstract class BaseController {
     public PlaylistModel getPlaylistModel(){ return playlistModel; }
 
     public abstract void setup();
-
 }

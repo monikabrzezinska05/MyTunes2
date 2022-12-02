@@ -4,19 +4,23 @@ import BE.Playlist;
 import BE.Song;
 import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class MyTunesViewController extends BaseController implements Initializable {
@@ -107,7 +111,31 @@ public class MyTunesViewController extends BaseController implements Initializab
 
     @Override
     public void setup() {
+        //songModel = getModel().getSongModel();
 
+        editSong.setDisable(true);
+
+        table.setItems(songModel.getObservableSongs());
+
+        searchBar.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            try {
+                songModel.searchSong(newValue);
+            } catch (Exception e) {
+                displayError(e);
+            }
+        });
+
+        table.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>() {
+            @Override
+            public void changed(ObservableValue<? extends Song> observable, Song oldValue, Song newValue) {
+                if (newValue != null) {
+                    editSong.setDisable(false);
+
+                }
+                else
+                    editSong.setDisable(false);
+            }
+        });
     }
 
     private void displayError(Throwable t) {
@@ -155,14 +183,27 @@ public class MyTunesViewController extends BaseController implements Initializab
 
     }
 
-    public void handleEditSongs(ActionEvent actionEvent) {
-        try {
-            Song editedSong = table.getSelectionModel().getSelectedItem();
+    public void handleEditSongs(ActionEvent actionEvent) throws IOException{
 
-            //editedSong.setTitle(txtTitle);
-        } catch (Exception e) {
-            displayError(e);
-        }
+        Song selectedSong = table.getSelectionModel().getSelectedItem();
+        songModel.setSelectedSong(selectedSong);
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("GUI/View/NewSongView.fxml"));
+        AnchorPane pane = (AnchorPane) loader.load();
+
+        NewSongViewController controller = loader.getController();
+        controller.setModel(super.getModel());
+        controller.setup();
+
+        Stage dialogWindow = new Stage();
+        dialogWindow.setTitle("New / Edit song");
+        dialogWindow.initModality(Modality.WINDOW_MODAL);
+        dialogWindow.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
+        Scene scene = new Scene(pane);
+        dialogWindow.setScene(scene);
+
+        dialogWindow.show();
     }
 
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
