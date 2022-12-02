@@ -26,11 +26,11 @@
           <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="220.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="plTable" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="93.0" text="Playlist" />
-                <TableColumn prefWidth="97.0" text="Songs" />
-                  <TableColumn prefWidth="106.0" text="Time" />
+                <TableColumn fx:id="playlist" prefWidth="93.0" text="Playlist" />
+                <TableColumn fx:id="plSongs" prefWidth="97.0" text="Songs" />
+                  <TableColumn fx:id="plTime" prefWidth="106.0" text="Time" />
               </columns>
             </TableView>
          </children>
