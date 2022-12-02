@@ -25,8 +25,25 @@ public class PlaylistModel {
 
     public void searchPlaylist(String query) throws Exception {
         List<Playlist> searchResults = plm.search(query);
-        playlist.clear();  
+        playlist.clear();
         playlist.addAll(searchResults);
+    }
+
+    public void createPlaylist(String title) throws Exception {
+        Playlist p = plm.createPlaylist(title);
+
+        playlist.add(p);
+    }
+
+    public void updatePlaylist(Playlist updatedPlaylist) throws Exception {
+        plm.updatePlaylist(updatedPlaylist);
+        playlist.clear();
+        playlist.addAll(plm.getPlaylist());
+    }
+    public void deletePlaylist(Playlist deletedPlaylist) throws Exception {
+        plm.deletePlaylist(deletedPlaylist);
+        playlist.clear();
+        playlist.addAll(plm.getPlaylist());
     }
 
 }

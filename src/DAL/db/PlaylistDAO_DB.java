@@ -16,7 +16,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
         databaseConnector = new DatabaseConnector();
     }
 
-    public List<Playlist> getPlaylists() throws SQLServerException {
+    public List<Playlist> getPlaylist() throws SQLServerException {
         ArrayList<Playlist> allPlaylists = new ArrayList<>();
 
         try (Connection connection = databaseConnector.getConnection()) {
@@ -37,11 +37,6 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    public List<Playlist> getPlaylist() throws Exception {
-        return null;
     }
 
     @Override

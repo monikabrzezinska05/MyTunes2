@@ -83,7 +83,7 @@ public class SongDAO_DB implements ISongDataAccess{
 
             statement.setString(1, song.getTitle());
             statement.setString(2, song.getArtist());
-            statement.setString(3,song.getCategory());
+            statement.setString(3, song.getCategory());
             statement.setInt(4, song.getTime());
 
             statement.executeUpdate();
