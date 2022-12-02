@@ -15,6 +15,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -29,6 +32,8 @@ public class MyTunesViewController extends BaseController implements Initializab
 
     @FXML
     private TextField playingSong;
+    @FXML
+    private MediaView mediaView;
 
     @FXML
     private TableView<Song> table;
@@ -62,8 +67,10 @@ public class MyTunesViewController extends BaseController implements Initializab
     public Button forwardBtn;
     public Button addSong;
     public Slider volumeSlider;
+    public MediaPlayer mediaPlayer;
 
-    private SongModel songModel;
+
+
 
     public MyTunesViewController()  {
 
@@ -84,6 +91,7 @@ public class MyTunesViewController extends BaseController implements Initializab
         artist.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
 
         table.setItems(songModel.getObservableSongs());
+
     }
 
 
@@ -114,6 +122,15 @@ public class MyTunesViewController extends BaseController implements Initializab
                     editSong.setDisable(false);
             }
         });
+    }
+    private void playSong(String songPath){
+        Media mSong = new Media("file:///" + songPath.replace("\\", "/"));
+        if(mediaPlayer != null) {mediaPlayer.pause();
+            mediaPlayer.stop();
+        }
+            mediaPlayer = new MediaPlayer(mSong);
+            mediaView.setMediaPlayer(mediaPlayer);
+            mediaPlayer.play();
     }
 
     private void displayError(Throwable t) {
@@ -196,5 +213,18 @@ public class MyTunesViewController extends BaseController implements Initializab
     }
 
     public void handleAddSongs(ActionEvent actionEvent) {
+    }
+
+    public void handlePlayBtn(ActionEvent actionEvent) {
+        /**if (mediaPlayer != null && mediaPlayer.getStatus().equals(MediaPlayer.Status.PLAYING) == false) {
+            mediaPlayer.play();}
+            else{
+                mediaPlayer.pause();
+            }*/
+
+        Song songToPlay = table.getSelectionModel().getSelectedItem();
+        playSong(songToPlay.getFPath());
+
+
     }
 }

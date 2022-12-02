@@ -13,9 +13,10 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MyTunesViewController">
+<AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MyTunesViewController">
    <children>
       <GridPane layoutX="6.0" layoutY="155.0" prefHeight="350.0" prefWidth="297.0">
         <columnConstraints>
@@ -44,7 +45,7 @@
       <Button fx:id="deleteSongInPlaylist" layoutX="489.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSongsInPlaylist" text="Delete" />
       <Button fx:id="newSong" layoutX="565.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewSongs" text="New" />
       <Button fx:id="editSong" layoutX="669.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditSongs" text="Edit" />
-      <Button fx:id="playBtn" layoutX="175.0" layoutY="16.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="52.0" style="-fx-background-radius: 100;" text="Play" />
+      <Button fx:id="playBtn" layoutX="175.0" layoutY="16.0" mnemonicParsing="false" onAction="#handlePlayBtn" prefHeight="53.0" prefWidth="52.0" style="-fx-background-radius: 100;" text="Play" />
       <Button fx:id="deleteSong" layoutX="858.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSong" text="Delete" />
       <Button fx:id="reverseBtn" layoutX="113.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&lt;&lt;" />
       <Button fx:id="forwardBtn" layoutX="252.0" layoutY="27.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&gt;&gt;" />
@@ -91,5 +92,6 @@
       </GridPane>
       <Label layoutX="392.0" layoutY="39.0" prefHeight="34.0" prefWidth="193.0" />
       <Button layoutX="870.0" layoutY="44.0" mnemonicParsing="false" text="Search" />
+      <MediaView fx:id="mediaView" fitHeight="50.0" fitWidth="200.0" layoutX="369.0" layoutY="31.0" />
    </children>
 </AnchorPane>

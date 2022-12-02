@@ -26,8 +26,8 @@ public class SongModel {
         return songs;
     }
 
-    public void createSong(String title, String artist, String category, int time) throws Exception {
-        Song s = songManager.createSong(title, artist, category, time);
+    public void createSong(String title, String artist, String category, int time, String fPath) throws Exception {
+        Song s = songManager.createSong(title, artist, category, time, fPath);
 
         songs.add(s);
     }
@@ -49,6 +49,7 @@ public class SongModel {
         songs.clear();
         songs.addAll(songManager.getSongs());
     }
+
 
     public Song getSelectedSong() {
         return selectedSong;
