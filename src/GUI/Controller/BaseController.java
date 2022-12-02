@@ -12,5 +12,4 @@ public abstract class BaseController {
     }
 
     public abstract void setup();
-
 }
