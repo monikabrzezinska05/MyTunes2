@@ -60,9 +60,6 @@ public class NewSongViewController extends BaseController implements Initializab
         String category = categoryDropdown.getSelectionModel().getSelectedItem();
         int time = Integer.parseInt(txtTime.getText());
 
-        Stage stage = (Stage) saveSong.getScene().getWindow();
-        stage.close();
-
         try {
             songModel.createSong(title, artist, category, time);
         } catch (Exception e) {
