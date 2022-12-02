@@ -1,5 +1,7 @@
 package BE;
 
+import java.util.List;
+
 //constructer for Song class.
 public class Playlist {
     private int id;
@@ -10,6 +12,10 @@ public class Playlist {
         this.id = id;
         this.title = title;
 
+    }
+
+    public static List<Playlist> search(List<Playlist> allPlaylists, String query) {
+        return allPlaylists;
     }
 
     public int getId() {

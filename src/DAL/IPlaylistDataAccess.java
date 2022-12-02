@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IPlaylistDataAccess {
 
-    public List<Playlist> getAllPlaylists() throws Exception;
+    public List<Playlist> getPlaylist() throws Exception;
 
     public Playlist createPlaylist (String title) throws Exception;
 

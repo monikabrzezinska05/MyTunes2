@@ -11,23 +11,22 @@ import java.util.List;
 public class PlaylistModel {
 
     private ObservableList<Playlist> playlist;
-    private PlaylistManager playlistManager;
+    private PlaylistManager plm;
 
-    /*public PlaylistModel() throws Exception {
-        playlistManager = new PlaylistManager();
+    public PlaylistModel() throws Exception {
+        plm = new PlaylistManager();
         playlist = FXCollections.observableArrayList();
-        playlist.addAll(playlistManager.getPlaylist());
-    }*/
+        playlist.addAll(plm.getPlaylist());
+    }
 
     public ObservableList<Playlist> getObservablePlaylist() {
         return playlist;
     }
 
-   /* public void searchPlaylist(String query) throws Exception {
-        List<Playlist> searchResults = songManager.search(query);
-        playlist.clear();
-        playlist.clear;
+    public void searchPlaylist(String query) throws Exception {
+        List<Playlist> searchResults = plm.search(query);
+        playlist.clear();  
         playlist.addAll(searchResults);
-    }*/
+    }
 
 }
