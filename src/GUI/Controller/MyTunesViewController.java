@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class MyTunesViewController extends BaseController implements Initializable {
@@ -130,7 +131,15 @@ public class MyTunesViewController extends BaseController implements Initializab
         }
     }
 
-    public void handleDeleteSong(ActionEvent actionEvent) {
+    public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
+      try {
+        Song deletedSong = table.getSelectionModel().getSelectedItem();
+        songModel.deleteSong(deletedSong);
+    }
+      catch (Exception exc){
+          exc.printStackTrace();
+          throw new Exception("Could not delete song", exc);
+      }
     }
 
     public void handleAddSongs(ActionEvent actionEvent) {
