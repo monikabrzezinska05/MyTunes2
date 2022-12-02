@@ -17,12 +17,14 @@ public class NewPlaylistViewController extends BaseController implements Initial
     public Button cancelPlaylist;
     public Button savePlaylist;
 
+    private PlaylistModel playlistModel;
+
     @FXML
     private TextField txtPlaylistTitle;
 
     @Override
     public void setup() {
-
+        playlistModel = getPlaylistModel();
     }
 
     @Override
@@ -37,7 +39,6 @@ public class NewPlaylistViewController extends BaseController implements Initial
 
     public void handleSavePlaylist(ActionEvent actionEvent) throws Exception {
         try {
-            PlaylistModel playlistModel = new PlaylistModel();
             playlistModel.createPlaylist(txtPlaylistTitle.getText());
 
             Stage stage = (Stage) savePlaylist.getScene().getWindow();

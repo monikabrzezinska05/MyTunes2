@@ -1,6 +1,7 @@
 package GUI.Controller;
 
 import BE.Song;
+import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -64,6 +65,7 @@ public class MyTunesViewController extends BaseController implements Initializab
 
         try {
             songModel = new SongModel();
+            playlistModel = new PlaylistModel();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,6 +99,11 @@ public class MyTunesViewController extends BaseController implements Initializab
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewPlaylistView.fxml"));
         Parent root = loader.load();
+
+        NewPlaylistViewController controller = loader.getController();
+        controller.setPlaylistModelModel(playlistModel);
+        controller.setup();
+
         stage.setScene(new Scene(root));
         stage.setTitle("New Playlist");
         stage.show();
@@ -119,8 +126,6 @@ public class MyTunesViewController extends BaseController implements Initializab
         NewSongViewController controller = loader.getController();
         controller.setModel(songModel);
         controller.setup();
-
-
 
         stage.setScene(new Scene(root));
         stage.setTitle("New / Edit Song");

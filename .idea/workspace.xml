@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
+    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="model">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewPlaylistViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewPlaylistViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/NewPlaylistView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/NewPlaylistView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +95,7 @@
       <workItem from="1669881785134" duration="3282000" />
       <workItem from="1669889337774" duration="2269000" />
       <workItem from="1669968813552" duration="3483000" />
+      <workItem from="1669976145765" duration="1091000" />
     </task>
     <task id="LOCAL-00001" summary="MyTunes">
       <created>1669624339964</created>
@@ -197,7 +202,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669971568806</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Playlist">
+      <created>1669975654035</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1669975654035</updated>
+    </task>
+    <task id="LOCAL-00017" summary="model">
+      <created>1669975662397</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669975662397</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,9 +236,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Håber det virker" />
     <MESSAGE value="MyTunes" />
-    <MESSAGE value="Playlist" />
     <MESSAGE value="Playlistmanager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Playlistmanager" />
+    <MESSAGE value="Playlist" />
+    <MESSAGE value="model" />
+    <option name="LAST_COMMIT_MESSAGE" value="model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -228,6 +248,11 @@
           <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/GUI/Controller/NewPlaylistViewController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
