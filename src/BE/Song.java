@@ -8,14 +8,16 @@ public class Song {
     private String artist;
 
     private String category;
+    private String fPath;
 
 
-    public Song(int id, String title, String artist, String category, int time) {
+    public Song(int id, String title, String artist, String category, int time, String fPath) {
         this.id = id;
         this.artist = artist;
         this.title = title;
         this.category = category;
         this.time = time;
+        this.fPath = fPath;
     }
 
     public int getId() { return id; }
@@ -39,4 +41,12 @@ public class Song {
     }
 
     public void setArtist(String artist) {this.artist = artist;}
+
+    public String getFPath() {
+        return fPath;
+    }
+
+    public void setFPath(String fPath) {
+        this.fPath = fPath;
+    }
 }

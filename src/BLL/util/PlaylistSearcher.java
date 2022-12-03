@@ -20,6 +20,6 @@ public class PlaylistSearcher {
 }
 
     private boolean comparePlaylistTitles(String query, Playlist playlist){
-        return playlist.getPlTitle().toLowerCase().contains(query.toLowerCase());
+        return playlist.getTitle().toLowerCase().contains(query.toLowerCase());
     }
 }

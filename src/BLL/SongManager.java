@@ -36,7 +36,7 @@ public class SongManager {
         songDAO.deleteSong(deletedSong);
         }
 
-    public Song createSong(String title, String artist, String category, int time) throws Exception {
-        return songDAO.createSong(title, artist, category, time);
+    public Song createSong(String title, String artist, String category, int time, String fPath) throws Exception {
+        return songDAO.createSong(title, artist, category, time, fPath);
     }
 }
