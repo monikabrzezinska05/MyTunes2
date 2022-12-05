@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -29,46 +30,7 @@ import java.util.ResourceBundle;
 
 public class MyTunesViewController<songPath> extends BaseController implements Initializable {
 
-    @FXML
-    private TextField searchBar;
-
-    @FXML
-    private TextField playingSong;
-
-    @FXML
-    private TableView<Song> table;
-
-    @FXML
-    private TableColumn<Song, Integer> time;
-
-    @FXML
-    private TableColumn<Song, String> title;
-
-    @FXML
-    private TableColumn<Song, String> artist;
-
-    @FXML
-    private TableColumn<Song, String> category;
-
     public ListView<Song> lstSongs;
-
-    @FXML
-    private TableView<Playlist> plTable;
-
-    @FXML
-    private TableColumn<Playlist, String> plTitle;
-
-    @FXML
-    private TableColumn<Playlist, Integer> plSongs;
-
-    @FXML
-    private TableColumn<Playlist, Integer> plTime;
-
-
-    //public ListView<Songs> lstSongs;
-    //public ListView<SongsInPlaylist> lstSongsInPlaylist;
-    //public ListView<Playlists> lstPlaylists;
-
     public Button newPlaylist;
     public Button editPlaylist;
     public Button deletePlaylist;
@@ -80,10 +42,37 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public Button reverseBtn;
     public Button forwardBtn;
     public Button addSong;
+
+
+    //public ListView<Songs> lstSongs;
+    //public ListView<SongsInPlaylist> lstSongsInPlaylist;
+    //public ListView<Playlists> lstPlaylists;
     public Slider volumeSlider;
+    public MediaPlayer mediaPlayer;
+    @FXML
+    private TextField searchBar;
+    @FXML
+    private TextField playingSong;
+    @FXML
+    private TableView<Song> table;
+    @FXML
+    private TableColumn<Song, Integer> time;
+    @FXML
+    private TableColumn<Song, String> title;
+    @FXML
+    private TableColumn<Song, String> artist;
+    @FXML
+    private TableColumn<Song, String> category;
+    @FXML
+    private TableView<Playlist> plTable;
+    @FXML
+    private TableColumn<Playlist, String> plTitle;
+    @FXML
+    private TableColumn<Playlist, Integer> plSongs;
+    @FXML
+    private TableColumn<Playlist, Integer> plTime;
     private SongModel songModel;
     private MediaView mediaView;
-    public MediaPlayer mediaPlayer;
 
 
     public MyTunesViewController() {
@@ -177,7 +166,14 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handleEditPlaylist(ActionEvent actionEvent) {
     }
 
-    public void handleDeletePlaylist(ActionEvent actionEvent) {
+    public void handleDeletePlaylist(ActionEvent actionEvent) throws Exception {
+        try {
+            Playlist deletedPlaylist = plTable.getSelectionModel().getSelectedItem();
+            playlistModel.deletePlaylist(deletedPlaylist);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+            throw new Exception("Could not delete playlist", exc);
+        }
     }
 
     public void handleDeleteSongsInPlaylist(ActionEvent actionEvent) {
@@ -200,27 +196,25 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
 
     public void handleEditSongs(ActionEvent actionEvent) throws IOException {
+        Song selectedSong = table.getSelectionModel().getSelectedItem();
+        songModel.setSelectedSong(selectedSong);
 
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("GUI/View/NewSongView.fxml"));
+        AnchorPane pane = (AnchorPane) loader.load();
 
-            Song selectedSong = table.getSelectionModel().getSelectedItem();
-            songModel.setSelectedSong(selectedSong);
+        NewSongViewController controller = loader.getController();
+        controller.setModel(super.getModel());
+        controller.setup();
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("GUI/View/NewSongView.fxml"));
-            AnchorPane pane = (AnchorPane) loader.load();
+        Stage dialogWindow = new Stage();
+        dialogWindow.setTitle("New / Edit song");
+        dialogWindow.initModality(Modality.WINDOW_MODAL);
+        dialogWindow.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
+        Scene scene = new Scene(pane);
+        dialogWindow.setScene(scene);
 
-            NewSongViewController controller = loader.getController();
-            controller.setModel(super.getModel());
-            controller.setup();
-
-            Stage dialogWindow = new Stage();
-            dialogWindow.setTitle("New / Edit song");
-            dialogWindow.initModality(Modality.WINDOW_MODAL);
-            dialogWindow.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
-            Scene scene = new Scene(pane);
-            dialogWindow.setScene(scene);
-
-            dialogWindow.show();
+        dialogWindow.show();
     }
 
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
@@ -241,4 +235,13 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         playSong(songToPlay.getFPath());
     }
 
+    /*public void search(KeyEvent keyEvent) {
+        try {
+            String query = Search.getText().trim();
+            songModel.search(query);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
 }

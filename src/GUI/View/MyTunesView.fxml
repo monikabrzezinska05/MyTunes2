@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MyTunesViewController">
+<AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MyTunesViewController">
    <children>
       <GridPane layoutX="6.0" layoutY="155.0" prefHeight="350.0" prefWidth="297.0">
         <columnConstraints>
@@ -30,7 +40,7 @@
       <Button fx:id="deletePlaylist" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeletePlaylist" text="Delete" />
       <Text layoutX="334.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist" />
       <Text layoutX="572.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
-      <TextField fx:id="searchBar" layoutX="709.0" layoutY="44.0" />
+      <TextField fx:id="searchBar" layoutX="709.0" layoutY="44.0" onKeyPressed="#search" />
       <Button fx:id="deleteSongInPlaylist" layoutX="489.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSongsInPlaylist" text="Delete" />
       <Button fx:id="newSong" layoutX="565.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewSongs" text="New" />
       <Button fx:id="editSong" layoutX="669.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditSongs" text="Edit" />
@@ -80,6 +90,6 @@
          </children>
       </GridPane>
       <Label layoutX="392.0" layoutY="39.0" prefHeight="34.0" prefWidth="193.0" />
-      <Button layoutX="870.0" layoutY="44.0" mnemonicParsing="false" text="Search" />
+      <Button fx:id="searchButton" layoutX="870.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleSearch" text="Search" />
    </children>
 </AnchorPane>
