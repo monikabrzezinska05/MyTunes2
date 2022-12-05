@@ -177,7 +177,14 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handleEditPlaylist(ActionEvent actionEvent) {
     }
 
-    public void handleDeletePlaylist(ActionEvent actionEvent) {
+    public void handleDeletePlaylist(ActionEvent actionEvent) throws Exception {
+        try {
+             Playlist deletedPlaylist = plTable.getFocusModel().getFocusedItem();
+             playlistModel.deletePlaylist(deletedPlaylist);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+            throw new Exception("Could not delete song", exc);
+        }
     }
 
     public void handleDeleteSongsInPlaylist(ActionEvent actionEvent) {
@@ -198,10 +205,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     }
 
-
     public void handleEditSongs(ActionEvent actionEvent) throws IOException {
-
-
             Song selectedSong = table.getSelectionModel().getSelectedItem();
             songModel.setSelectedSong(selectedSong);
 
