@@ -41,10 +41,6 @@ public class NewPlaylistViewController extends BaseController implements Initial
 
     public void handleSavePlaylist(ActionEvent actionEvent) throws Exception {
         try {
-
-            playlistModel.createPlaylist(txtPlaylistTitle.getText());
-
-            PlaylistModel playlistModel = new PlaylistModel();
             playlistModel.createPlaylist(txtPlaylistTitle.getText());
 
             Stage stage = (Stage) savePlaylist.getScene().getWindow();

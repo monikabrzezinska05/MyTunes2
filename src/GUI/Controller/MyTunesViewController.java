@@ -143,7 +143,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         });
     }
     private void playSong(String songPath){
-        Media mSong = new Media("file:///" + songPath.replace("\\", "/"));
+        Media mSong = new Media("file://" + songPath);
         if(mediaPlayer != null) {mediaPlayer.pause();
             mediaPlayer.stop();
         }
@@ -237,14 +237,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     public void handlePlayBtn(ActionEvent actionEvent) {
-        /**if (mediaPlayer != null && mediaPlayer.getStatus().equals(MediaPlayer.Status.PLAYING) == false) {
-         mediaPlayer.play();}
-         else{
-         mediaPlayer.pause();
-         }*/
-
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         playSong(songToPlay.getFPath());
-
     }
+
 }

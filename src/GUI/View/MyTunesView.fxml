@@ -57,7 +57,7 @@
       <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="82.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="97.0" layoutY="80.0">
          <image>
-            <Image url="@Images/pngwing.com.png" />
+            <Image url="@../../../Resource/Images/pngwing.com.png" />
          </image>
       </ImageView>
       <Text layoutX="14.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlists" wrappingWidth="60.6015625" />
