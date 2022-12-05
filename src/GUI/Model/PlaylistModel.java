@@ -14,6 +14,7 @@ public class PlaylistModel {
 
     private ObservableList<Playlist> playlist;
     private PlaylistManager plm;
+    private Playlist selectedPlaylist;
 
     public PlaylistModel() throws Exception {
         plm = new PlaylistManager();
@@ -46,6 +47,9 @@ public class PlaylistModel {
         plm.deletePlaylist(deletedPlaylist);
         playlist.clear();
         playlist.addAll(plm.getPlaylist());
+    }
+    public void setSelectedPlaylist(Playlist selectedPlaylist) {
+        this.selectedPlaylist = selectedPlaylist;
     }
 
 }

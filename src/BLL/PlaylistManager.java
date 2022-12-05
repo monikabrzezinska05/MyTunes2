@@ -17,8 +17,8 @@ public class PlaylistManager {
     public void deletePlaylist(Playlist deletedPlaylist) throws Exception {
         playlistDAO.deletePlaylist(deletedPlaylist);
     }
-    public void updatePlaylist(Playlist updatedplaylist) throws Exception {
-        playlistDAO.updatePlaylist(updatedplaylist);
+    public void updatePlaylist(Playlist updatedPlaylist) throws Exception {
+        playlistDAO.updatePlaylist(updatedPlaylist);
     }
     public Playlist createPlaylist(String plTitle) throws Exception {
         return playlistDAO.createPlaylist(plTitle);
