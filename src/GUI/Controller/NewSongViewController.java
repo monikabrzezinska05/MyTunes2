@@ -42,7 +42,7 @@ public class NewSongViewController extends BaseController implements Initializab
     public void initialize(URL location, ResourceBundle resources) {
 
         categoryDropdown.getItems().addAll("Pop", "HipHop", "Jazz", "Rap", "Rock", "Blues", "EDM",
-                "Hard Style", "Metal", "Alternative", "Classic", "Country", "R&B", "Soul");
+                "Hard Style", "Metal", "Alternative", "Classic", "Country", "R&B", "Soul", "Dødstramp");
         categoryDropdown.getSelectionModel().selectFirst();
     }
 
@@ -72,10 +72,13 @@ public class NewSongViewController extends BaseController implements Initializab
         }
     }
 
+<<<<<<< Updated upstream
     public void handleChooseFile(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
         Stage stage = (Stage) cancelSong.getScene().getWindow();
         File f = fc.showOpenDialog(stage);
         txtFile.setText(f.getPath());
     }
+=======
+>>>>>>> Stashed changes
 }

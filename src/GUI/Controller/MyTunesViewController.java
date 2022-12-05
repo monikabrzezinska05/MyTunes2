@@ -1,7 +1,12 @@
 package GUI.Controller;
 
+import BE.Playlist;
 import BE.Song;
+<<<<<<< Updated upstream
 import GUI.Model.PlaylistModel;
+=======
+import BLL.PlaylistManager;
+>>>>>>> Stashed changes
 import GUI.Model.SongModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -50,7 +55,7 @@ public class MyTunesViewController extends BaseController implements Initializab
     @FXML
     private TableColumn<Song, String> category;
 
-    //public ListView<Songs> lstSongs;
+    public ListView<Song> lstSongs;
     //public ListView<SongsInPlaylist> lstSongsInPlaylist;
     //public ListView<Playlists> lstPlaylists;
 
@@ -178,6 +183,7 @@ public class MyTunesViewController extends BaseController implements Initializab
 
     }
 
+<<<<<<< Updated upstream
     public void handleEditSongs(ActionEvent actionEvent) throws IOException{
 
         Song selectedSong = table.getSelectionModel().getSelectedItem();
@@ -199,6 +205,22 @@ public class MyTunesViewController extends BaseController implements Initializab
         dialogWindow.setScene(scene);
 
         dialogWindow.show();
+=======
+    public void handleEditSongs(ActionEvent actionEvent) {
+        try {
+            Song updatedSong = lstSongs.getSelectionModel().getSelectedItem();
+
+            updatedSong.setTitle(title.getText());
+            updatedSong.setArtist(artist.getText());
+            updatedSong.setCategory(category.getText());
+            updatedSong.setTime(Integer.parseInt(time.getText()));
+
+            songModel.updateSong(updatedSong);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+>>>>>>> Stashed changes
     }
 
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
@@ -215,6 +237,7 @@ public class MyTunesViewController extends BaseController implements Initializab
     public void handleAddSongs(ActionEvent actionEvent) {
     }
 
+<<<<<<< Updated upstream
     public void handlePlayBtn(ActionEvent actionEvent) {
         /**if (mediaPlayer != null && mediaPlayer.getStatus().equals(MediaPlayer.Status.PLAYING) == false) {
             mediaPlayer.play();}
@@ -227,4 +250,15 @@ public class MyTunesViewController extends BaseController implements Initializab
 
 
     }
+=======
+    /*public void addPlaylist(Playlist playlist) {
+        try {
+            PlaylistManager.createPlaylist(playlist.getPlayListName());
+            reloadPlaylistTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
+
+>>>>>>> Stashed changes
 }

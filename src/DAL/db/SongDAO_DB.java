@@ -44,8 +44,13 @@ public class SongDAO_DB implements ISongDataAccess{
     }
 
     @Override
+<<<<<<< Updated upstream
     public Song createSong(String title, String artist, String category, int time, String fPath) throws Exception {
         String sql = "INSERT INTO Song (title, artist, category, time, songPath)VALUES (?,?,?,?,?);";
+=======
+    public Song createSong(String title, String artist, String category, int time) throws Exception {
+        String sql = "INSERT INTO Song (title, artist, category, time)VALUES ?,?,?,?;";
+>>>>>>> Stashed changes
 
         try(Connection connection = databaseConnector.getConnection()){
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
