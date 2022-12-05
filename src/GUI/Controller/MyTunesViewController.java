@@ -5,6 +5,7 @@ import BE.Song;
 import GUI.Model.PlaylistModel;
 import BLL.PlaylistManager;
 import GUI.Model.SongModel;
+import javafx.beans.binding.StringBinding;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -26,8 +27,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class MyTunesViewController<songPath> extends BaseController implements Initializable {
+    @FXML
+    private Label label;
 
     @FXML
     private TextField searchBar;
@@ -143,7 +147,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         });
     }
     private void playSong(String songPath){
-        Media mSong = new Media("file://" + songPath);
+        Media mSong = new Media(songPath);
         if(mediaPlayer != null) {mediaPlayer.pause();
             mediaPlayer.stop();
         }
@@ -241,4 +245,28 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         playSong(songToPlay.getFPath());
     }
 
+    private void insertnamehere()
+    {
+        label.textProperty().bind(
+                new StringBinding()
+                {
+                    {
+                        super.bind(mediaPlayer.currentTimeProperty());
+                    }
+
+                    @Override
+                    protected String computeValue() {
+                        String times = String.format("%d min, %d sec",
+                                TimeUnit.MILLISECONDS.toMinutes((long)mediaPlayer.getCurrentTime().toMillis()),
+                                TimeUnit.MILLISECONDS.toSeconds((long)mediaPlayer.getCurrentTime().toMillis()) -
+                                        TimeUnit.MINUTES.toSeconds(
+                                                TimeUnit.MILLISECONDS.toMinutes(
+                                                        (long)mediaPlayer.getCurrentTime().toMillis()
+                                                )
+                                        )
+                        );
+                        return times;
+                    }
+                });
+    }
 }
