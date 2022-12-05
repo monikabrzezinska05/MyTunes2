@@ -16,6 +16,8 @@ public class SongModel {
     private SongManager songManager;
     private Song selectedSong;
 
+    private String fPath;
+
     public SongModel() throws Exception {
         songManager = new SongManager();
         songs = FXCollections.observableArrayList();
@@ -49,7 +51,6 @@ public class SongModel {
         songs.clear();
         songs.addAll(songManager.getSongs());
     }
-
 
     public Song getSelectedSong() {
         return selectedSong;

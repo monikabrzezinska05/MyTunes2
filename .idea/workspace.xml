@@ -4,274 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-=======
-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="">
+    <list default="true" id="a706a967-bfa9-4633-ba52-c83bc62c876b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_xml_bind_jaxb_api.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BE/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BE/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BLL/PlaylistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/PlaylistManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BLL/util/PlaylistSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/util/PlaylistSearcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAL/IPlaylistDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/IPlaylistDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Model/PlaylistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/PlaylistModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" afterDir="false" />
-=======
-    <list default="true" id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="MyTunes">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewPlaylistViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewPlaylistViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/src/GUI/Model/PlaylistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/PlaylistModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Model/SongModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/SongModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/NewSongView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/NewSongView.fxml" afterDir="false" />
     </list>
->>>>>>> parent of 056520a (model)
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="FxmlFile" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2IAUlcR6btdM1ruUdcj5aYUPxgt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
-=======
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX"
->>>>>>> parent of 056520a (model)
-  }
-}</component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.Main" />
-      <module name="MyTunes2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="GUI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c7eae06d-a500-4b3c-a733-5a74e0eaeca9" name="Changes" comment="" />
-      <created>1669624037043</created>
+      <changelist id="a706a967-bfa9-4633-ba52-c83bc62c876b" name="Changes" comment="" />
+      <created>1670226531116</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669624037043</updated>
-      <workItem from="1669624038431" duration="592000" />
-      <workItem from="1669624735804" duration="1302000" />
-      <workItem from="1669635607676" duration="37000" />
-      <workItem from="1669708816919" duration="675000" />
-      <workItem from="1669714652902" duration="1087000" />
-      <workItem from="1669795032695" duration="188000" />
-      <workItem from="1669795271938" duration="2270000" />
-      <workItem from="1669795257868" duration="2264000" />
-      <workItem from="1669881785134" duration="3282000" />
-      <workItem from="1669889337774" duration="2269000" />
-<<<<<<< Updated upstream
-      <workItem from="1669968813552" duration="3483000" />
-      <workItem from="1669976145765" duration="3654000" />
-      <workItem from="1669979882855" duration="3813000" />
-=======
->>>>>>> Stashed changes
+      <updated>1670226531116</updated>
+      <workItem from="1670226533540" duration="2861000" />
     </task>
-    <task id="LOCAL-00001" summary="MyTunes">
-      <created>1669624339964</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1669624339964</updated>
-    </task>
-    <task id="LOCAL-00002" summary="MyTunes">
-      <created>1669625073988</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1669625073988</updated>
-    </task>
-    <task id="LOCAL-00003" summary="MyTunes">
-      <created>1669625100757</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1669625100757</updated>
-    </task>
-    <task id="LOCAL-00004" summary="MyTunes">
-      <created>1669625192515</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1669625192515</updated>
-    </task>
-    <task id="LOCAL-00005" summary="MyTunes">
-      <created>1669625639648</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1669625639648</updated>
-    </task>
-    <task id="LOCAL-00006" summary="MyTunes">
-      <created>1669625928426</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1669625928426</updated>
-    </task>
-    <task id="LOCAL-00007" summary="MyTunes">
-      <created>1669627552271</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1669627552271</updated>
-    </task>
-    <task id="LOCAL-00008" summary="MyTunes">
-      <created>1669714918744</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1669714918744</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Håber det virker">
-      <created>1669716819764</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1669716819764</updated>
-    </task>
-    <task id="LOCAL-00010" summary="MyTunes">
-      <created>1669889511747</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1669889511747</updated>
-    </task>
-    <task id="LOCAL-00011" summary="MyTunes">
-      <created>1669889517081</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1669889517081</updated>
-    </task>
-    <task id="LOCAL-00012" summary="MyTunes">
-      <created>1669891236137</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1669891236137</updated>
-    </task>
-    <task id="LOCAL-00013" summary="MyTunes">
-      <created>1669891247520</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1669891247520</updated>
-    </task>
-    <task id="LOCAL-00014" summary="MyTunes">
-      <created>1669891460582</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1669891460582</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Playlistmanager">
-      <created>1669971568806</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1669971568806</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Playlist">
-      <created>1669975654035</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1669975654035</updated>
-    </task>
-    <task id="LOCAL-00017" summary="model">
-      <created>1669975662397</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1669975662397</updated>
-    </task>
-    <task id="LOCAL-00018" summary="model">
-      <created>1669977341555</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1669977341555</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,27 +58,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Håber det virker" />
-    <MESSAGE value="MyTunes" />
-    <MESSAGE value="Playlistmanager" />
-    <MESSAGE value="Playlist" />
-    <MESSAGE value="model" />
-    <option name="LAST_COMMIT_MESSAGE" value="model" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

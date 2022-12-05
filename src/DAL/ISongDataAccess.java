@@ -15,5 +15,4 @@ public interface ISongDataAccess {
 
     public void deleteSong(Song song) throws Exception;
 
-
 }

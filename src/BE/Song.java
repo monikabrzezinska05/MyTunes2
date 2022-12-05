@@ -6,7 +6,6 @@ public class Song {
     private String title;
     private int time;
     private String artist;
-
     private String category;
     private String fPath;
 
@@ -42,11 +41,7 @@ public class Song {
 
     public void setArtist(String artist) {this.artist = artist;}
 
-    public String getFPath() {
-        return fPath;
-    }
+    public String getFPath() {return fPath;}
 
-    public void setFPath(String fPath) {
-        this.fPath = fPath;
-    }
+    public void setfPath(String fPath) {this.fPath = fPath;}
 }

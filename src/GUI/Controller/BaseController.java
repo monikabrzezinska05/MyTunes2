@@ -4,12 +4,12 @@ import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
 
 public abstract class BaseController {
-    protected SongModel songModel;
+    private SongModel model;
 
-    public void setModel(SongModel model){this.songModel = model;}
+    public void setModel(SongModel model){this.model = model;}
 
     public SongModel getModel(){
-        return songModel;
+        return model;
     }
 
 

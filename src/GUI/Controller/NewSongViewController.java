@@ -9,11 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import java.awt.Desktop;
 
 import java.io.File;
 import java.net.URL;
-import java.nio.file.Files;
 import java.util.ResourceBundle;
 
 public class NewSongViewController extends BaseController implements Initializable {
@@ -37,6 +35,7 @@ public class NewSongViewController extends BaseController implements Initializab
     private TextField txtFile;
     @FXML
     private ComboBox<String> categoryDropdown;
+    private String fPath;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -63,7 +62,9 @@ public class NewSongViewController extends BaseController implements Initializab
         String artist = txtArtist.getText();
         String category = categoryDropdown.getSelectionModel().getSelectedItem();
         int time = Integer.parseInt(txtTime.getText());
-        String fPath = txtFile.getText();
+
+        Stage stage = (Stage) saveSong.getScene().getWindow();
+        stage.close();
 
         try {
             songModel.createSong(title, artist, category, time, fPath);
@@ -72,13 +73,10 @@ public class NewSongViewController extends BaseController implements Initializab
         }
     }
 
-<<<<<<< Updated upstream
     public void handleChooseFile(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
         Stage stage = (Stage) cancelSong.getScene().getWindow();
         File f = fc.showOpenDialog(stage);
         txtFile.setText(f.getPath());
     }
-=======
->>>>>>> Stashed changes
 }

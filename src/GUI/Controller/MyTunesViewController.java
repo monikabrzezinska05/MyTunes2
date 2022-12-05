@@ -2,11 +2,8 @@ package GUI.Controller;
 
 import BE.Playlist;
 import BE.Song;
-<<<<<<< Updated upstream
 import GUI.Model.PlaylistModel;
-=======
 import BLL.PlaylistManager;
->>>>>>> Stashed changes
 import GUI.Model.SongModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -30,15 +27,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MyTunesViewController extends BaseController implements Initializable {
+public class MyTunesViewController<songPath> extends BaseController implements Initializable {
 
     @FXML
     private TextField searchBar;
 
     @FXML
     private TextField playingSong;
-    @FXML
-    private MediaView mediaView;
 
     @FXML
     private TableView<Song> table;
@@ -56,13 +51,27 @@ public class MyTunesViewController extends BaseController implements Initializab
     private TableColumn<Song, String> category;
 
     public ListView<Song> lstSongs;
+
+    @FXML
+    private TableView<Playlist> plTable;
+
+    @FXML
+    private TableColumn<Playlist, String> plTitle;
+
+    @FXML
+    private TableColumn<Playlist, Integer> plSongs;
+
+    @FXML
+    private TableColumn<Playlist, Integer> plTime;
+
+
+    //public ListView<Songs> lstSongs;
     //public ListView<SongsInPlaylist> lstSongsInPlaylist;
     //public ListView<Playlists> lstPlaylists;
 
     public Button newPlaylist;
     public Button editPlaylist;
     public Button deletePlaylist;
-
     public Button deleteSongInPlaylist;
     public Button newSong;
     public Button editSong;
@@ -72,12 +81,12 @@ public class MyTunesViewController extends BaseController implements Initializab
     public Button forwardBtn;
     public Button addSong;
     public Slider volumeSlider;
+    private SongModel songModel;
+    private MediaView mediaView;
     public MediaPlayer mediaPlayer;
 
 
-
-
-    public MyTunesViewController()  {
+    public MyTunesViewController() {
 
         try {
             songModel = new SongModel();
@@ -96,6 +105,13 @@ public class MyTunesViewController extends BaseController implements Initializab
         artist.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
 
         table.setItems(songModel.getObservableSongs());
+
+
+        plTitle.setCellValueFactory(new PropertyValueFactory<Playlist, String>("plTitle"));
+        plTime.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plTime"));
+        plSongs.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plSongs"));
+
+        plTable.setItems(playlistModel.getObservablePlaylist());
 
     }
 
@@ -122,8 +138,7 @@ public class MyTunesViewController extends BaseController implements Initializab
                 if (newValue != null) {
                     editSong.setDisable(false);
 
-                }
-                else
+                } else
                     editSong.setDisable(false);
             }
         });
@@ -133,10 +148,11 @@ public class MyTunesViewController extends BaseController implements Initializab
         if(mediaPlayer != null) {mediaPlayer.pause();
             mediaPlayer.stop();
         }
-            mediaPlayer = new MediaPlayer(mSong);
-            mediaView.setMediaPlayer(mediaPlayer);
-            mediaPlayer.play();
+        mediaPlayer = new MediaPlayer(mSong);
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaPlayer.play();
     }
+
 
     private void displayError(Throwable t) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -183,8 +199,7 @@ public class MyTunesViewController extends BaseController implements Initializab
 
     }
 
-<<<<<<< Updated upstream
-    public void handleEditSongs(ActionEvent actionEvent) throws IOException{
+    public void handleEditSongs(ActionEvent actionEvent) throws IOException {
 
         Song selectedSong = table.getSelectionModel().getSelectedItem();
         songModel.setSelectedSong(selectedSong);
@@ -200,65 +215,36 @@ public class MyTunesViewController extends BaseController implements Initializab
         Stage dialogWindow = new Stage();
         dialogWindow.setTitle("New / Edit song");
         dialogWindow.initModality(Modality.WINDOW_MODAL);
-        dialogWindow.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
+        dialogWindow.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
         Scene scene = new Scene(pane);
         dialogWindow.setScene(scene);
 
         dialogWindow.show();
-=======
-    public void handleEditSongs(ActionEvent actionEvent) {
-        try {
-            Song updatedSong = lstSongs.getSelectionModel().getSelectedItem();
-
-            updatedSong.setTitle(title.getText());
-            updatedSong.setArtist(artist.getText());
-            updatedSong.setCategory(category.getText());
-            updatedSong.setTime(Integer.parseInt(time.getText()));
-
-            songModel.updateSong(updatedSong);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
->>>>>>> Stashed changes
     }
+
 
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
-      try {
-        Song deletedSong = table.getSelectionModel().getSelectedItem();
-        songModel.deleteSong(deletedSong);
-    }
-      catch (Exception exc){
-          exc.printStackTrace();
-          throw new Exception("Could not delete song", exc);
-      }
+        try {
+            Song deletedSong = table.getSelectionModel().getSelectedItem();
+            songModel.deleteSong(deletedSong);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+            throw new Exception("Could not delete song", exc);
+        }
     }
 
     public void handleAddSongs(ActionEvent actionEvent) {
     }
 
-<<<<<<< Updated upstream
     public void handlePlayBtn(ActionEvent actionEvent) {
         /**if (mediaPlayer != null && mediaPlayer.getStatus().equals(MediaPlayer.Status.PLAYING) == false) {
-            mediaPlayer.play();}
-            else{
-                mediaPlayer.pause();
-            }*/
+         mediaPlayer.play();}
+         else{
+         mediaPlayer.pause();
+         }*/
 
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         playSong(songToPlay.getFPath());
 
-
     }
-=======
-    /*public void addPlaylist(Playlist playlist) {
-        try {
-            PlaylistManager.createPlaylist(playlist.getPlayListName());
-            reloadPlaylistTable();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-
->>>>>>> Stashed changes
 }

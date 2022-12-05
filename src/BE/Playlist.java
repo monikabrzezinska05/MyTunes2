@@ -1,40 +1,71 @@
 package BE;
 
+import java.util.ArrayList;
 import java.util.List;
 
-//constructer for Song class.
 public class Playlist {
     private int id;
-    private String title;
+    private String plTitle;
+    private int plSongs;
+
+    private int plTime;
+
+    private List<Song> songs;
 
 
-    public Playlist(int id, String title) {
+    public void setId(int id) {
         this.id = id;
-        this.title = title;
+    }
 
+    public String getPlTitle() {
+        return plTitle;
+    }
+
+    public void setPlTitle(String plTitle) {
+        this.plTitle = plTitle;
+    }
+
+    public int getPlTime() {
+        return plTime;
+    }
+
+    public int getPlSongs() {
+        return plSongs;
+    }
+
+    public void setPlSongs(int plSongs) {
+        this.plSongs = plSongs;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
+    }
+
+    public Playlist(String plTitle) {
+        this.id = id;
+        this.plTitle = plTitle;
+        this.plSongs = plSongs;
+        songs = new ArrayList<>();
     }
 
     public static List<Playlist> search(List<Playlist> allPlaylists, String query) {
         return allPlaylists;
     }
 
+    public List<Song> getSongsInPlaylist() {
+        return songs;
+    }
+
+    public void addSongToPlaylist(Song song) {
+        songs.add(song);
+    }
+
     public int getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-
-    @Override
-    public String toString()
-    {
-        return id + ": " + title;
-
-    }
 }
