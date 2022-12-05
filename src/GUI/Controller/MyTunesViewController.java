@@ -3,7 +3,10 @@ package GUI.Controller;
 import BE.Playlist;
 import BE.Song;
 import GUI.Model.PlaylistModel;
+<<<<<<< Updated upstream
 import BLL.PlaylistManager;
+=======
+>>>>>>> Stashed changes
 import GUI.Model.SongModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -29,6 +32,10 @@ import java.util.ResourceBundle;
 
 public class MyTunesViewController<songPath> extends BaseController implements Initializable {
 
+    public TableColumn<Playlist, Integer> plTime;
+    public TableColumn<Playlist, Integer> plSongs;
+
+    public TableColumn<Playlist, String> playlist;
     @FXML
     private TextField searchBar;
 
@@ -105,6 +112,13 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         artist.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
 
         table.setItems(songModel.getObservableSongs());
+        
+
+        plTime.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plTime"));
+        plSongs.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plSongs"));
+        playlist.setCellValueFactory(new PropertyValueFactory<Playlist, String>("playlist"));
+
+        table.setItems(playlistModel.getObservablePlaylist());
 
 
         plTitle.setCellValueFactory(new PropertyValueFactory<Playlist, String>("plTitle"));
@@ -199,7 +213,11 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     }
 
+<<<<<<< Updated upstream
     public void handleEditSongs(ActionEvent actionEvent) throws IOException {
+=======
+    public void handleEditSongs(ActionEvent actionEvent) throws IOException{
+>>>>>>> Stashed changes
 
         Song selectedSong = table.getSelectionModel().getSelectedItem();
         songModel.setSelectedSong(selectedSong);
@@ -220,6 +238,26 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         dialogWindow.setScene(scene);
 
         dialogWindow.show();
+<<<<<<< Updated upstream
+=======
+
+
+    public void handleEditSongs(ActionEvent actionEvent) {
+        try {
+            Song updatedSong = lstSongs.getSelectionModel().getSelectedItem();
+
+            updatedSong.setTitle(title.getText());
+            updatedSong.setArtist(artist.getText());
+            updatedSong.setCategory(category.getText());
+            updatedSong.setTime(Integer.parseInt(time.getText()));
+
+            songModel.updateSong(updatedSong);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+>>>>>>> Stashed changes
     }
 
 

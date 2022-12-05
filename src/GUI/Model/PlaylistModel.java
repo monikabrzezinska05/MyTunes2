@@ -1,8 +1,8 @@
 package GUI.Model;
 
 import BE.Playlist;
+import BE.Song;
 import BLL.PlaylistManager;
-import BLL.SongManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -21,7 +21,7 @@ public class PlaylistModel {
         playlist.addAll(plm.getPlaylist());
     }
 
-    public ObservableList<Playlist> getObservablePlaylist() {
+    public ObservableList<Song> getObservablePlaylist() {
         return playlist;
     }
 
