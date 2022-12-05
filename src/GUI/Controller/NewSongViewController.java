@@ -20,7 +20,7 @@ public class NewSongViewController extends BaseController implements Initializab
     private SongModel songModel;
 
     @FXML
-    private Button chooseFIle;
+    private Button chooseFile;
     @FXML
     private Button cancelSong;
     @FXML
@@ -62,6 +62,7 @@ public class NewSongViewController extends BaseController implements Initializab
         String artist = txtArtist.getText();
         String category = categoryDropdown.getSelectionModel().getSelectedItem();
         int time = Integer.parseInt(txtTime.getText());
+        String fPath = txtFile.getText();
 
         Stage stage = (Stage) saveSong.getScene().getWindow();
         stage.close();

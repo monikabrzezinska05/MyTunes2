@@ -21,7 +21,7 @@ public class PlaylistModel {
         playlist.addAll(plm.getPlaylist());
     }
 
-    public ObservableList<Song> getObservablePlaylist() {
+    public ObservableList<Playlist> getObservablePlaylist() {
         return playlist;
     }
 

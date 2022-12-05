@@ -16,7 +16,7 @@
       <TextField fx:id="txtArtist" layoutX="133.0" layoutY="107.0" prefHeight="25.0" prefWidth="272.0" />
       <TextField fx:id="txtTime" layoutX="133.0" layoutY="227.0" prefHeight="25.0" prefWidth="184.0" />
       <TextField fx:id="txtFile" layoutX="133.0" layoutY="283.0" prefHeight="26.0" prefWidth="225.0" />
-      <Button fx:id="chooseFIle" layoutX="362.0" layoutY="283.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Choose...." />
+      <Button fx:id="chooseFile" layoutX="362.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleChooseFile" prefHeight="26.0" prefWidth="74.0" text="Choose...." />
       <Button fx:id="cancelSong" layoutX="310.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleCancelSong" text="Cancel" />
       <Button fx:id="saveSong" layoutX="385.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleSaveSong" text="Save" />
       <ComboBox fx:id="categoryDropdown" layoutX="133.0" layoutY="168.0" prefWidth="150.0" />

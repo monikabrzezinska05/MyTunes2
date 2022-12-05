@@ -3,10 +3,7 @@ package GUI.Controller;
 import BE.Playlist;
 import BE.Song;
 import GUI.Model.PlaylistModel;
-<<<<<<< Updated upstream
 import BLL.PlaylistManager;
-=======
->>>>>>> Stashed changes
 import GUI.Model.SongModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -32,10 +29,6 @@ import java.util.ResourceBundle;
 
 public class MyTunesViewController<songPath> extends BaseController implements Initializable {
 
-    public TableColumn<Playlist, Integer> plTime;
-    public TableColumn<Playlist, Integer> plSongs;
-
-    public TableColumn<Playlist, String> playlist;
     @FXML
     private TextField searchBar;
 
@@ -116,17 +109,9 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         plTime.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plTime"));
         plSongs.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plSongs"));
-        playlist.setCellValueFactory(new PropertyValueFactory<Playlist, String>("playlist"));
-
-        table.setItems(playlistModel.getObservablePlaylist());
-
-
         plTitle.setCellValueFactory(new PropertyValueFactory<Playlist, String>("plTitle"));
-        plTime.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plTime"));
-        plSongs.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plSongs"));
 
         plTable.setItems(playlistModel.getObservablePlaylist());
-
     }
 
 
@@ -213,53 +198,30 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     }
 
-<<<<<<< Updated upstream
+
     public void handleEditSongs(ActionEvent actionEvent) throws IOException {
-=======
-    public void handleEditSongs(ActionEvent actionEvent) throws IOException{
->>>>>>> Stashed changes
-
-        Song selectedSong = table.getSelectionModel().getSelectedItem();
-        songModel.setSelectedSong(selectedSong);
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("GUI/View/NewSongView.fxml"));
-        AnchorPane pane = (AnchorPane) loader.load();
-
-        NewSongViewController controller = loader.getController();
-        controller.setModel(super.getModel());
-        controller.setup();
-
-        Stage dialogWindow = new Stage();
-        dialogWindow.setTitle("New / Edit song");
-        dialogWindow.initModality(Modality.WINDOW_MODAL);
-        dialogWindow.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
-        Scene scene = new Scene(pane);
-        dialogWindow.setScene(scene);
-
-        dialogWindow.show();
-<<<<<<< Updated upstream
-=======
 
 
-    public void handleEditSongs(ActionEvent actionEvent) {
-        try {
-            Song updatedSong = lstSongs.getSelectionModel().getSelectedItem();
+            Song selectedSong = table.getSelectionModel().getSelectedItem();
+            songModel.setSelectedSong(selectedSong);
 
-            updatedSong.setTitle(title.getText());
-            updatedSong.setArtist(artist.getText());
-            updatedSong.setCategory(category.getText());
-            updatedSong.setTime(Integer.parseInt(time.getText()));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("GUI/View/NewSongView.fxml"));
+            AnchorPane pane = (AnchorPane) loader.load();
 
-            songModel.updateSong(updatedSong);
+            NewSongViewController controller = loader.getController();
+            controller.setModel(super.getModel());
+            controller.setup();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            Stage dialogWindow = new Stage();
+            dialogWindow.setTitle("New / Edit song");
+            dialogWindow.initModality(Modality.WINDOW_MODAL);
+            dialogWindow.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
+            Scene scene = new Scene(pane);
+            dialogWindow.setScene(scene);
 
->>>>>>> Stashed changes
+            dialogWindow.show();
     }
-
 
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
         try {
