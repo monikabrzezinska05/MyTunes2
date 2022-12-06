@@ -3,6 +3,7 @@ package DAL.db;
 import BE.Song;
 import DAL.ISongDataAccess;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
+import javafx.beans.property.StringProperty;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,8 +12,14 @@ import java.util.List;
 public class SongDAO_DB implements ISongDataAccess{
 
     private DatabaseConnector databaseConnector;
+    private static StringProperty fPath;
+
     public SongDAO_DB(){
         databaseConnector = new DatabaseConnector();
+    }
+
+    public static String getFpath() {
+        return fPath.get();
     }
 
     public List<Song> getSongs() throws SQLServerException {

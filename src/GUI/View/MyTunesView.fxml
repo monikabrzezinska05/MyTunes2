@@ -92,5 +92,6 @@
       <Button fx:id="searchButton" layoutX="870.0" layoutY="44.0" mnemonicParsing="false" text="Search" />
       <Button layoutX="870.0" layoutY="44.0" mnemonicParsing="false" text="Search" />
       <Label layoutX="407.0" layoutY="67.0" text="Label" />
+      <TextField fx:id="volumeSliderField" layoutX="296.0" layoutY="87.0" />
    </children>
 </AnchorPane>
