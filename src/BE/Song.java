@@ -9,6 +9,8 @@ public class Song {
     private String category;
     private String fPath;
 
+    private Song song;
+
 
     public Song(int id, String title, String artist, String category, int time, String fPath) {
         this.id = id;
@@ -17,6 +19,14 @@ public class Song {
         this.category = category;
         this.time = time;
         this.fPath = fPath;
+    }
+
+    public Song getSong() {
+        return song;
+    }
+
+    public void setSong(Song song) {
+        this.song = song;
     }
 
     public int getId() { return id; }

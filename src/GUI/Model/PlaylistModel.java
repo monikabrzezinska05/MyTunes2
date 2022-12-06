@@ -13,13 +13,13 @@ import java.util.List;
 public class PlaylistModel {
 
     private ObservableList<Playlist> playlist;
-    private PlaylistManager plm;
+    private PlaylistManager playlistManager;
     private Playlist selectedPlaylist;
 
     public PlaylistModel() throws Exception {
-        plm = new PlaylistManager();
+        playlistManager = new PlaylistManager();
         playlist = FXCollections.observableArrayList();
-        playlist.addAll(plm.getPlaylist());
+        playlist.addAll(playlistManager.getPlaylist());
     }
 
     public ObservableList<Playlist> getObservablePlaylist() {
@@ -27,26 +27,26 @@ public class PlaylistModel {
     }
 
     public void searchPlaylist(String query) throws Exception {
-        List<Playlist> searchResults = plm.search(query);
+        List<Playlist> searchResults = playlistManager.search(query);
         playlist.clear();
         playlist.addAll(searchResults);
     }
 
     public void createPlaylist(String plTitle) throws Exception {
-        Playlist p = plm.createPlaylist(plTitle);
+        Playlist p = playlistManager.createPlaylist(plTitle);
 
         playlist.add(p);
     }
 
     public void updatePlaylist(Playlist updatedPlaylist) throws Exception {
-        plm.updatePlaylist(updatedPlaylist);
+        playlistManager.updatePlaylist(updatedPlaylist);
         playlist.clear();
-        playlist.addAll(plm.getPlaylist());
+        playlist.addAll(playlistManager.getPlaylist());
     }
     public void deletePlaylist(Playlist deletedPlaylist) throws Exception {
-        plm.deletePlaylist(deletedPlaylist);
+        playlistManager.deletePlaylist(deletedPlaylist);
         playlist.clear();
-        playlist.addAll(plm.getPlaylist());
+        playlist.addAll(playlistManager.getPlaylist());
     }
     public void setSelectedPlaylist(Playlist selectedPlaylist) {
         this.selectedPlaylist = selectedPlaylist;

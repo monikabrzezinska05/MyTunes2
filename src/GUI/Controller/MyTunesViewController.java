@@ -47,9 +47,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public Button reverseBtn;
     public Button forwardBtn;
     public Button addSong;
-
-
-    //public ListView<Songs> lstSongs;
     //public ListView<SongsInPlaylist> lstSongsInPlaylist;
     //public ListView<Playlists> lstPlaylists;
     public Slider volumeSlider;
@@ -81,6 +78,9 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private TextField volumeSliderField;
     private double volumePercentage;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
+
+    private Parent root;
+
 
     public MyTunesViewController() {
 
@@ -196,31 +196,23 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         controller.setup();
 
         stage.setScene(new Scene(root));
-        stage.setTitle("New / Edit Song");
+        stage.setTitle("New Song");
         stage.show();
-
     }
 
     public void handleEditSongs(ActionEvent actionEvent) throws IOException {
-        Song selectedSong = table.getSelectionModel().getSelectedItem();
-        songModel.setSelectedSong(selectedSong);
+        
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EditSongView.fxml"));
+        Parent root = loader.load();
 
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("GUI/View/NewSongView.fxml"));
-        AnchorPane pane = (AnchorPane) loader.load();
-
-        NewSongViewController controller = loader.getController();
-        controller.setModel(super.getModel());
+        EditSongViewController controller = loader.getController();
+        controller.setModel(songModel);
         controller.setup();
 
-        Stage dialogWindow = new Stage();
-        dialogWindow.setTitle("New / Edit song");
-        dialogWindow.initModality(Modality.WINDOW_MODAL);
-        dialogWindow.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
-        Scene scene = new Scene(pane);
-        dialogWindow.setScene(scene);
-
-        dialogWindow.show();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Edit Song");
+        stage.show();
     }
 
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
