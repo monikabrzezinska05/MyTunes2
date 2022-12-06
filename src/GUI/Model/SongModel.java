@@ -59,4 +59,15 @@ public class SongModel {
     public void setSelectedSong(Song selectedSong) {
         this.selectedSong = selectedSong;
     }
+
+    /*public void search(String query) {
+        if (query.isEmpty()) {
+            songs.clear();
+            songs.addAll(songManager.getSongs());
+        }
+        else {
+            songs.clear();
+            songs.addAll(songManager.search(query));
+        }
+    }*/
 }

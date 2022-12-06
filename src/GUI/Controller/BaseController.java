@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import BE.Song;
 import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
 
@@ -20,4 +21,7 @@ public abstract class BaseController {
     public PlaylistModel getPlaylistModel(){ return playlistModel; }
 
     public abstract void setup();
+
+    protected void setSong(Song selectedItem) {
+    }
 }
