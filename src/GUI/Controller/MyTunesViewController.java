@@ -27,6 +27,7 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -144,16 +145,26 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             }
         });
     }
-    private void playSong(String songPath){
-        Media mSong = new Media(songPath);
-        if(mediaPlayer != null) {mediaPlayer.pause();
+    private void playSong(String songPath) throws Exception {
+        File file = new File(songPath);
+        Media mSong = new Media(file.getAbsoluteFile().toURI().toString());
+        if(mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+        {
             mediaPlayer.stop();
         }
-        mediaPlayer = new MediaPlayer(mSong);
-        mediaView.setMediaPlayer(mediaPlayer);
-        mediaPlayer.play();
+        try{
+            mediaPlayer = new MediaPlayer(mSong);
+            mediaPlayer.play();
+        }catch (Exception exc) {
+            exc.printStackTrace();
+            throw new Exception("Could not play song", exc);
+        }
+
     }
 
+
+
+        //    mediaPlayer.getTotalDuration().toMinutes();
 
     private void displayError(Throwable t) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -240,7 +251,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handleAddSongs(ActionEvent actionEvent) {
     }
 
-    public void handlePlayBtn(ActionEvent actionEvent) {
+    public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         playSong(songToPlay.getFPath());
     }
