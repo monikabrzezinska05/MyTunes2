@@ -1,5 +1,6 @@
 package GUI.Controller;
 
+import BE.MusicPlayer;
 import BE.Playlist;
 import BE.Song;
 import GUI.Model.PlaylistModel;
@@ -77,7 +78,9 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private TableColumn<Playlist, Integer> plTime;
     private SongModel songModel;
     private MediaView mediaView;
-
+    private TextField volumeSliderField;
+    private double volumePercentage;
+    private static final MusicPlayer musicPlayer = new MusicPlayer();
 
     public MyTunesViewController() {
 
@@ -271,5 +274,32 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                         return times;
                     }
                 });
+    }
+    private void volumeSliderField() {
+        volumeSlider.setValue(25);
+        volumeSliderField.setText(String.format("%.0f", volumeSlider.getValue()));
+
+        volumeSliderField.textProperty().addListener(
+                (observableValue, oldValue, newValue) -> {
+                    try {
+                        if (newValue.contains(","))
+                            newValue = newValue.replaceAll(",", ".");
+                        volumeSlider.setValue(Integer.parseInt(newValue));
+                        musicPlayer.setVolume(volumePercentage / 100);
+                    } catch (IllegalArgumentException e) {
+
+                    }
+                }
+        );
+        volumeSlider.valueProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    volumePercentage = newValue.doubleValue();
+                    volumeSliderField.setText(String.format("%.0f", volumePercentage));
+                    musicPlayer.setVolume(volumePercentage / 100);
+                }
+        );
+    }
+    public double getVolumePercentage() {
+        return volumeSlider.getValue() / 100;
     }
 }
