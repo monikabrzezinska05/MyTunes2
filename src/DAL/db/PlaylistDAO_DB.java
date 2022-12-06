@@ -27,10 +27,11 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
 
             while (rs.next()) {
 
-                int id = rs.getInt("ID");
+                int id = rs.getInt("Id");
                 String title = rs.getString("Title");
 
                 Playlist playlist = new Playlist(title);
+                playlist.setId(id);
                 allPlaylists.add(playlist);
             }
             return allPlaylists;
@@ -88,8 +89,9 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
         int id = playlist.getId();
         try(Connection connection = databaseConnector.getConnection()){
 
-            String sql = "DELETE FROM Playlist WHERE Id = " + id + ";";
+            String sql = "DELETE FROM Playlist WHERE Id = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, playlist.getId());
 
             statement.executeUpdate();
         }
