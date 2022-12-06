@@ -173,6 +173,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         stage.setScene(new Scene(root));
         stage.setTitle("New Playlist");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
         stage.show();
     }
 
@@ -203,6 +205,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         stage.setScene(new Scene(root));
         stage.setTitle("New Song");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
         stage.show();
     }
 
