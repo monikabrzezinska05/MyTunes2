@@ -24,6 +24,7 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -147,22 +148,14 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         });
     }
     private void playSong(String songPath) throws Exception {
-        /**Media mSong = new Media(songPath);
-        if(mediaPlayer != null) {mediaPlayer.pause();
-            mediaPlayer.stop();
-        }
-        mediaPlayer = new MediaPlayer(mSong);
-        mediaView.setMediaPlayer(mediaPlayer);
-        mediaPlayer.play();
-    }*/
-        Media mSong = new Media(songPath.replace('\\', '/'));
+        File file = new File(songPath);
+        Media mSong = new Media(file.getAbsoluteFile().toURI().toString());
         if(mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
         {
             mediaPlayer.stop();
         }
         try{
             mediaPlayer = new MediaPlayer(mSong);
-            insertnamehere();
             mediaPlayer.play();
         }catch (Exception exc) {
             exc.printStackTrace();
@@ -171,6 +164,9 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     }
 
+
+
+        //    mediaPlayer.getTotalDuration().toMinutes();
 
     private void displayError(Throwable t) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
