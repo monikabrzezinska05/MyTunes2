@@ -206,19 +206,25 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         stage.show();
     }
 
-    public void handleEditSongs(ActionEvent actionEvent) throws IOException {
-        
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EditSongView.fxml"));
-        Parent root = loader.load();
+    public void handleEditSongs(ActionEvent actionEvent) throws Exception {
+        try {
+            Song selectedItem = table.getSelectionModel().getSelectedItem();
+            if (selectedItem == null) return;
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EditSongView.fxml"));
+            Parent root = loader.load();
 
-        EditSongViewController controller = loader.getController();
-        controller.setModel(songModel);
-        controller.setup();
+            EditSongViewController controller = loader.getController();
+            controller.setModel(songModel);
+            controller.setup();
 
-        stage.setScene(new Scene(root));
-        stage.setTitle("Edit Song");
-        stage.show();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Edit Song");
+            stage.show();
+        } catch (Exception exc) {
+            exc.printStackTrace();
+            throw new Exception("Choose a song", exc);
+        }
     }
 
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
