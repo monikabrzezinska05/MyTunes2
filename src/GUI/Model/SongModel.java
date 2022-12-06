@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 // Project imports
 import BLL.SongManager;
 import BE.Song;
+import javafx.fxml.FXML;
 
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class SongModel {
         songs.clear();
         songs.addAll(songManager.getSongs());
     }
-
+    @FXML
     public void deleteSong(Song deletedSong) throws Exception {
         songManager.deleteSong(deletedSong);
         songs.clear();

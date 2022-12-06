@@ -146,14 +146,29 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             }
         });
     }
-    private void playSong(String songPath){
-        Media mSong = new Media(songPath);
+    private void playSong(String songPath) throws Exception {
+        /**Media mSong = new Media(songPath);
         if(mediaPlayer != null) {mediaPlayer.pause();
             mediaPlayer.stop();
         }
         mediaPlayer = new MediaPlayer(mSong);
         mediaView.setMediaPlayer(mediaPlayer);
         mediaPlayer.play();
+    }*/
+        Media mSong = new Media(songPath);
+        if(mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+        {
+            mediaPlayer.stop();
+        }
+        try{
+            mediaPlayer = new MediaPlayer(mSong);
+            insertnamehere();
+            mediaPlayer.play();
+        }catch (Exception exc) {
+            exc.printStackTrace();
+            throw new Exception("Could not play song", exc);
+        }
+
     }
 
 
@@ -187,7 +202,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
              playlistModel.deletePlaylist(deletedPlaylist);
         } catch (Exception exc) {
             exc.printStackTrace();
-            throw new Exception("Could not delete song", exc);
+            throw new Exception("Could not delete playlist", exc);
         }
     }
 
@@ -244,7 +259,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handleAddSongs(ActionEvent actionEvent) {
     }
 
-    public void handlePlayBtn(ActionEvent actionEvent) {
+    public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         playSong(songToPlay.getFPath());
     }
