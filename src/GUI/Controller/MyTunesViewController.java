@@ -203,6 +203,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handleEditSongs(ActionEvent actionEvent) throws Exception {
         try {
             Song selectedItem = table.getSelectionModel().getSelectedItem();
+
             if (selectedItem == null) return;
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EditSongView.fxml"));

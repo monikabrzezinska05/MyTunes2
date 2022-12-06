@@ -12,6 +12,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -39,6 +40,21 @@ public class EditSongViewController extends BaseController implements Initializa
                 "Hard Style", "Metal", "Alternative", "Classic", "Country", "R&B", "Soul", "Dødstramp");
         categoryDropdown.getSelectionModel().selectFirst();
     }
+
+    public void updateSong(ActionEvent actionEvent) throws Exception {
+        String updateTitle = txtTitle.getText();
+        String updateArtist = txtArtist.getText();
+        int updateTime = Integer.parseInt(txtTime.getText());
+        String updateCategory = categoryDropdown.getSelectionModel().getSelectedItem().toString();
+        String updateUrl = txtFile.getText();
+
+
+        //Song song = updateSong(updateTitle, updateArtist, updateTime, updateCategory, updateUrl);
+       // songModel.updateSong(song);
+
+        //Song selectedItem = table.getSelectionModel().getSelectedItem();
+    }
+
 
     public void handleChooseFile(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
