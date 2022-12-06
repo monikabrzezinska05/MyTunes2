@@ -155,7 +155,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         mediaView.setMediaPlayer(mediaPlayer);
         mediaPlayer.play();
     }*/
-        Media mSong = new Media(songPath);
+        Media mSong = new Media(songPath.replace('\\', '/'));
         if(mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
         {
             mediaPlayer.stop();
