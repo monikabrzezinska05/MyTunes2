@@ -43,5 +43,5 @@ public class Song {
 
     public String getFPath() {return fPath;}
 
-    public void setfPath(String fPath) {this.fPath = fPath;}
+    public void setFPath(String fPath) {this.fPath = fPath;}
 }

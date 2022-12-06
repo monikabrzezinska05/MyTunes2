@@ -40,7 +40,7 @@
       <Button fx:id="deletePlaylist" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeletePlaylist" text="Delete" />
       <Text layoutX="334.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist" />
       <Text layoutX="572.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
-      <TextField fx:id="searchBar" layoutX="709.0" layoutY="44.0" onKeyPressed="#search" />
+      <TextField fx:id="searchBar" layoutX="709.0" layoutY="44.0" />
       <Button fx:id="deleteSongInPlaylist" layoutX="489.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSongsInPlaylist" text="Delete" />
       <Button fx:id="newSong" layoutX="565.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewSongs" text="New" />
       <Button fx:id="editSong" layoutX="669.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditSongs" text="Edit" />
@@ -64,10 +64,9 @@
             <ListView fx:id="listview" prefHeight="283.0" prefWidth="268.0" />
          </children>
       </GridPane>
-      <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="82.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="97.0" layoutY="80.0">
          <image>
-            <Image url="@../../../Resource/Images/pngwing.com.png" />
+            <Image url="@Images/pngwing.com.png" />
          </image>
       </ImageView>
       <Text layoutX="14.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlists" wrappingWidth="60.6015625" />
@@ -90,6 +89,8 @@
          </children>
       </GridPane>
       <Label layoutX="392.0" layoutY="39.0" prefHeight="34.0" prefWidth="193.0" />
-      <Button fx:id="searchButton" layoutX="870.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleSearch" text="Search" />
+      <Button fx:id="searchButton" layoutX="870.0" layoutY="44.0" mnemonicParsing="false" text="Search" />
+      <Button layoutX="870.0" layoutY="44.0" mnemonicParsing="false" text="Search" />
+      <Label layoutX="407.0" layoutY="67.0" text="Label" />
    </children>
 </AnchorPane>
