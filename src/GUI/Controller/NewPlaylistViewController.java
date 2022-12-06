@@ -17,8 +17,6 @@ import java.util.ResourceBundle;
 
 public class NewPlaylistViewController extends BaseController implements Initializable {
 
-    public Label alertLabel;
-
     public Button cancelPlaylist;
     public Button savePlaylist;
     @FXML
