@@ -9,6 +9,7 @@ import GUI.Model.SongModel;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,7 +79,12 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private TextField volumeSliderField;
     private double volumePercentage;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
-
+    private Playlist selectedPlaylist;
+    private Song selectedSong;
+    private ObservableList<Playlist> playlists;
+    private ObservableList<Song> playlistSongs;
+    private static final PlaylistManager playlistManager = new PlaylistManager();
+    private Song songPlaying;
     private Parent root;
 
 
@@ -94,7 +100,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //editSong.setDisable(true);
+        setup();
         title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         time.setCellValueFactory(new PropertyValueFactory<Song, Integer>("time"));
         category.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
@@ -134,7 +140,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                     editSong.setDisable(false);
 
                 } else
-                    editSong.setDisable(false);
+                    editSong.setDisable(true);
             }
         });
     }
@@ -167,6 +173,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         stage.setScene(new Scene(root));
         stage.setTitle("New Playlist");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
         stage.show();
     }
 
@@ -197,6 +205,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         stage.setScene(new Scene(root));
         stage.setTitle("New Song");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
         stage.show();
     }
 
@@ -215,6 +225,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
             stage.setScene(new Scene(root));
             stage.setTitle("Edit Song");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
             stage.show();
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -301,4 +313,26 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public double getVolumePercentage() {
         return volumeSlider.getValue() / 100;
     }
+
+    /*private void selectedPlaylist() {
+        this.plTable.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
+            this.selectedPlaylist = (Playlist) newValue;
+            if (selectedPlaylist != null) {
+                try {
+                    if (playlistManager.)
+                }
+            }
+        }));
+    }*/
+
+    /*private void selectedSong() {
+        this.table.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
+            this.selectedSong = (Song) newValue;
+            if (selectedSong != null) {
+                currentSong.setText(selectedSong.getTitle());
+                songPlaying = selectedSong;
+                this.
+            }
+        }));
+    }*/
 }
