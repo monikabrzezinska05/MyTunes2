@@ -29,7 +29,6 @@ public class EditSongViewController extends BaseController implements Initializa
     public TextField txtArtist;
     public TextField txtTime;
     public TextField txtFile;
-
     public ComboBox<String> categoryDropdown;
 
     @Override
