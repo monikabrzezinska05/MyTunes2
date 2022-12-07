@@ -79,7 +79,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private SongModel songModel;
     private MediaView mediaView;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
-
+    public Playlist currentPlaylist;
 
     public MyTunesViewController() {
 
@@ -256,12 +256,9 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     public void handleAddSongs(ActionEvent actionEvent) {
-        /*if (selectedPlaylist != null)
-            try {
-                for (Song song : Collection.unmodifiableList(playlistManager.getPlaylist(selectedPlaylist.getId()))) {
-                    if (song.getId() == table.getItems().size())
-                }
-            }*/
+        currentPlaylist = plTable.getSelectionModel().getSelectedItem();
+        Song addSong = table.getSelectionModel().getSelectedItem();
+        currentPlaylist.addSongToPlaylist(addSong);
     }
 
     public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
@@ -294,7 +291,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                 });
 
     }
-
 
     public static String getTimers(double millis){
         millis /=1000;
