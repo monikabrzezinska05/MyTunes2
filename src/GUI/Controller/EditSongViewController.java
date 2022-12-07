@@ -50,7 +50,7 @@ public class EditSongViewController extends BaseController implements Initializa
 
 
         //Song song = updateSong(updateTitle, updateArtist, updateTime, updateCategory, updateUrl);
-       // songModel.updateSong(song);
+        //songModel.updateSong(song);
 
         //Song selectedItem = table.getSelectionModel().getSelectedItem();
     }
