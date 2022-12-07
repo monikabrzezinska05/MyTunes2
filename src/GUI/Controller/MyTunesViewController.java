@@ -118,14 +118,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         //songModel = getModel().getSongModel();
 
         editSong.setDisable(true);
-
         volumeSlider.setValue(musicPlayer.getVolume() * 100);
-        volumeSlider.valueProperty().addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable observable) {
-                mediaPlayer.setVolume(volumeSlider.getValue() / 100);
-            }
-        });
+        volumeSlider.valueProperty().addListener(observable -> mediaPlayer.setVolume(volumeSlider.getValue() / 100));
 
         table.setItems(songModel.getObservableSongs());
         //lstSongs.setItems(songModel.getObservableSongs());
@@ -265,6 +259,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         currentPlaylist = plTable.getSelectionModel().getSelectedItem();
         Song addSong = table.getSelectionModel().getSelectedItem();
         currentPlaylist.addSongToPlaylist(addSong);
+        plTable.refresh();
     }
 
     public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
