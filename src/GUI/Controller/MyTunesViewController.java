@@ -37,7 +37,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     @FXML
     private Label label;
 
-    public ListView<Song> lstSongs;
+    //public ListView<Song> lstSongs;
     public Button newPlaylist;
     public Button editPlaylist;
     public Button deletePlaylist;
@@ -77,6 +77,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private TableColumn<Playlist, Integer> plTime;
     private SongModel songModel;
     private MediaView mediaView;
+    @FXML
     private TextField volumeSliderField;
     private double volumePercentage;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
@@ -127,6 +128,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         //volumeSlider.setValue(musicPlayer.getVolume());
 
         table.setItems(songModel.getObservableSongs());
+        //lstSongs.setItems(songModel.getObservableSongs());
 
         searchBar.textProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
@@ -163,8 +165,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         }
 
     }
-
-
 
         //    mediaPlayer.getTotalDuration().toMinutes();
 
@@ -224,26 +224,26 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     public void handleEditSongs(ActionEvent actionEvent) throws Exception {
-        try {
-            Song selectedItem = table.getSelectionModel().getSelectedItem();
+        Song selectedSong = table.getSelectionModel().getSelectedItem();
+        if (selectedSong != null) {
 
-            if (selectedItem == null) return;
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/EditSongView.fxml"));
+            songModel.setSelectedSong(selectedSong);
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/GUI/View/EditSongView.fxml"));
             Parent root = loader.load();
 
             EditSongViewController controller = loader.getController();
             controller.setModel(songModel);
             controller.setup();
 
-            stage.setScene(new Scene(root));
-            stage.setTitle("Edit Song");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
-            stage.show();
-        } catch (Exception exc) {
-            exc.printStackTrace();
-            throw new Exception("Choose a song", exc);
+            Stage dialogWindow = new Stage();
+            dialogWindow.setTitle("Edit Movie");
+            dialogWindow.initModality(Modality.WINDOW_MODAL);
+            dialogWindow.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
+            Scene scene = new Scene(root);
+            dialogWindow.setScene(scene);
+            dialogWindow.showAndWait();
         }
     }
 

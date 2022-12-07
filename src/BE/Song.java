@@ -18,6 +18,14 @@ public class Song {
         this.fPath = fPath;
     }
 
+    public Song(String updateTitle, String updateArtist, int updateTime, String updateCategory, String updateFPath) {
+        this.title = updateTitle;
+        this.artist = updateArtist;
+        this.time = updateTime;
+        this.category = updateCategory;
+        this.fPath = updateFPath;
+    }
+
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }
