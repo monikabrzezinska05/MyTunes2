@@ -37,10 +37,9 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 public class MyTunesViewController<songPath> extends BaseController implements Initializable {
-    @FXML
-    private Label label;
 
-    //public ListView<Song> lstSongs;
+    @FXML
+    public Label currentlyPlayingSong;
     public Button newPlaylist;
     public Button editPlaylist;
     public Button deletePlaylist;
@@ -59,8 +58,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public MediaPlayer mediaPlayer;
     @FXML
     private TextField searchBar;
-    @FXML
-    private TextField playingSong;
     @FXML
     private TableView<Song> table;
     @FXML
@@ -115,14 +112,11 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     @Override
     public void setup() {
-        //songModel = getModel().getSongModel();
-
         editSong.setDisable(true);
         volumeSlider.setValue(musicPlayer.getVolume() * 100);
         volumeSlider.valueProperty().addListener(observable -> mediaPlayer.setVolume(volumeSlider.getValue() / 100));
 
         table.setItems(songModel.getObservableSongs());
-        //lstSongs.setItems(songModel.getObservableSongs());
 
         searchBar.textProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
@@ -269,7 +263,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     private void insertnamehere()
     {
-        label.textProperty().bind(
+        currentlyPlayingSong.textProperty().bind(
                 new StringBinding()
                 {
                     {

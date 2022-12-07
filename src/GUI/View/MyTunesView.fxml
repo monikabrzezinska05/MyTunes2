@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="591.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MyTunesViewController">
@@ -35,21 +36,27 @@
             </TableView>
          </children>
       </GridPane>
-      <Button fx:id="newPlaylist" layoutX="14.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewPlaylist" text="New" />
-      <Button fx:id="editPlaylist" layoutX="91.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditPlaylist" text="Edit" />
+      <Button fx:id="newPlaylist" layoutX="6.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewPlaylist" text="New" />
+      <Button fx:id="editPlaylist" layoutX="55.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditPlaylist" text="Edit" />
       <Button fx:id="deletePlaylist" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeletePlaylist" text="Delete" />
-      <Text layoutX="378.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist" />
-      <Text layoutX="722.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" />
-      <TextField fx:id="searchBar" layoutX="709.0" layoutY="44.0" />
+      <Text layoutX="317.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs in playlist">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Text layoutX="558.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Songs" wrappingWidth="100.6455078125">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <TextField fx:id="searchBar" layoutX="709.0" layoutY="44.0" prefHeight="26.0" prefWidth="146.0" />
       <Button fx:id="deleteSongInPlaylist" layoutX="489.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSongsInPlaylist" text="Delete" />
-      <Button fx:id="newSong" layoutX="565.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewSongs" text="New" />
-      <Button fx:id="editSong" layoutX="669.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditSongs" text="Edit" />
-      <Button fx:id="playBtn" layoutX="175.0" layoutY="16.0" mnemonicParsing="false" onAction="#handlePlayBtn" prefHeight="53.0" prefWidth="52.0" style="-fx-background-radius: 100;" text="Play" />
-      <Button fx:id="deleteSong" layoutX="858.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSong" text="Delete" />
-      <Button fx:id="reverseBtn" layoutX="113.0" layoutY="26.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&lt;&lt;" />
-      <Button fx:id="forwardBtn" layoutX="252.0" layoutY="27.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" text="&gt;&gt;" />
-      <Button fx:id="addSong" layoutX="765.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleAddSongs" text="Add" />
-      <Slider fx:id="volumeSlider" layoutX="131.0" layoutY="85.0" value="100.0" />
+      <Button fx:id="newSong" layoutX="558.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleNewSongs" text="New" />
+      <Button fx:id="editSong" layoutX="608.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleEditSongs" text="Edit" />
+      <Button fx:id="playBtn" layoutX="129.0" layoutY="30.0" mnemonicParsing="false" onAction="#handlePlayBtn" prefHeight="53.0" prefWidth="52.0" style="-fx-background-radius: 100;" />
+      <Button fx:id="deleteSong" layoutX="863.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleDeleteSong" text="Delete" />
+      <Button fx:id="reverseBtn" layoutX="65.0" layoutY="44.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" />
+      <Button fx:id="forwardBtn" layoutX="207.0" layoutY="44.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" style="-fx-background-radius: 100;" />
+      <Button fx:id="addSong" layoutX="669.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleAddSongs" text="Add" />
+      <Slider fx:id="volumeSlider" layoutX="85.0" layoutY="98.0" value="100.0" />
       <GridPane layoutX="317.0" layoutY="155.0" prefHeight="350.0" prefWidth="227.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="268.0" />
@@ -64,12 +71,6 @@
             <ListView fx:id="listview" prefHeight="283.0" prefWidth="268.0" />
          </children>
       </GridPane>
-      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="97.0" layoutY="80.0">
-         <image>
-            <Image url="@Images/pngwing.com.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="124.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlists" wrappingWidth="60.6015625" />
       <GridPane layoutX="558.0" layoutY="155.0" prefHeight="350.0" prefWidth="360.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -88,10 +89,32 @@
             </TableView>
          </children>
       </GridPane>
-      <Label layoutX="392.0" layoutY="39.0" prefHeight="34.0" prefWidth="193.0" />
-      <Button fx:id="searchButton" layoutX="870.0" layoutY="44.0" mnemonicParsing="false" text="Search" />
-      <Button layoutX="870.0" layoutY="44.0" mnemonicParsing="false" text="Search" />
-      <Label fx:id="label" layoutX="407.0" layoutY="67.0" text="Label" />
-      <TextField fx:id="volumeSliderField" blendMode="OVERLAY" layoutX="345.0" layoutY="93.0" />
+     <Label fx:id="currentlyPlayingSong" layoutX="334.0" layoutY="39.0" prefHeight="34.0" prefWidth="193.0" />
+      <Button fx:id="searchButton" layoutX="862.0" layoutY="44.0" mnemonicParsing="false" text="Search" />
+      <ImageView fitHeight="24.0" fitWidth="37.0" layoutX="207.0" layoutY="50.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Images/next.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="68.0" layoutY="49.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Images/previous.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="53.0" layoutY="93.0" mouseTransparent="true">
+         <image>
+            <Image url="@/Images/pngwing.com.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="52.0" layoutX="129.0" layoutY="31.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/Images/play-button.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="6.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlists" wrappingWidth="64.76953125">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
