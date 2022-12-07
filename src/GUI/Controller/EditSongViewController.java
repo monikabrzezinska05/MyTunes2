@@ -4,6 +4,7 @@ import BE.Song;
 import GUI.Model.SongModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
@@ -16,22 +17,30 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static java.lang.String.valueOf;
+
 public class EditSongViewController extends BaseController implements Initializable {
 
-    public ListView<Song> lstSong;
+    public Button editFile;
+    public Button cancelEdit;
+    public Button editSave;
     private SongModel songModel;
     public TextField txtTitle;
     public TextField txtArtist;
     public TextField txtTime;
     public TextField txtFile;
-    public Button cancelSong;
-    public Button chooseFile;
-    public Button saveSong;
+
     public ComboBox<String> categoryDropdown;
 
     @Override
     public void setup() {
-        SongModel songModel = getModel();
+        songModel = getModel();
+
+        txtTitle.setText(songModel.getSelectedSong().getTitle());
+        txtArtist.setText(songModel.getSelectedSong().getArtist());
+        txtTime.setText(String.valueOf(songModel.getSelectedSong().getTime()));
+        txtFile.setText(songModel.getSelectedSong().getFPath());
+        categoryDropdown.getSelectionModel().getSelectedItem();
     }
 
     @Override
@@ -41,48 +50,33 @@ public class EditSongViewController extends BaseController implements Initializa
         categoryDropdown.getSelectionModel().selectFirst();
     }
 
-    public void updateSong(ActionEvent actionEvent) throws Exception {
-        String updateTitle = txtTitle.getText();
-        String updateArtist = txtArtist.getText();
-        int updateTime = Integer.parseInt(txtTime.getText());
-        String updateCategory = categoryDropdown.getSelectionModel().getSelectedItem().toString();
-        String updateUrl = txtFile.getText();
-
-
-        //Song song = updateSong(updateTitle, updateArtist, updateTime, updateCategory, updateUrl);
-       // songModel.updateSong(song);
-
-        //Song selectedItem = table.getSelectionModel().getSelectedItem();
-    }
-
-
-    public void handleChooseFile(ActionEvent actionEvent) {
+    public void handleEditFile(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
-        Stage stage = (Stage) cancelSong.getScene().getWindow();
+        Stage stage = (Stage) cancelEdit.getScene().getWindow();
         File f = fc.showOpenDialog(stage);
         txtFile.setText(f.getPath());
     }
 
-    public void handleCancelSong(ActionEvent actionEvent) {
-        Stage stage = (Stage) cancelSong.getScene().getWindow();
+    public void handleCancelEdit(ActionEvent actionEvent) {
+        Stage stage = (Stage) cancelEdit.getScene().getWindow();
         stage.close();
     }
 
-    public void handleSaveSong(ActionEvent actionEvent) {
-        String title = txtTitle.getText();
-        String artist = txtArtist.getText();
-        String category = categoryDropdown.getSelectionModel().getSelectedItem();
-        int time = Integer.parseInt(txtTime.getText());
-        String fPath = txtFile.getText();
+    public void handleEditSong(ActionEvent actionEvent) throws Exception {
+        String updatedTitle = txtTitle.getText();
+        String updatedArtist = txtArtist.getText();
+        String updatedCategory = categoryDropdown.getSelectionModel().getSelectedItem().toString();
 
-        Stage stage = (Stage) saveSong.getScene().getWindow();
+        Song songToBeUpdated = songModel.getSelectedSong();
+
+        songToBeUpdated.setTitle(updatedTitle);
+        songToBeUpdated.setArtist(updatedArtist);
+        songToBeUpdated.setCategory(updatedCategory);
+
+        songModel.updateSong(songToBeUpdated);
+
+        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.close();
-
-        try {
-            songModel.createSong(title, artist, category, time, fPath);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }
