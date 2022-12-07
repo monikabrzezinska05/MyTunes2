@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/EditSongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/EditSongViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a706a967-bfa9-4633-ba52-c83bc62c876b" name="Changes" comment="" />
+      <changelist id="9a424b03-9e79-44ea-bcf5-ec9ccccec3e4" name="Changes" comment="delete not working" />
       <created>1670226531116</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -98,6 +99,7 @@
       <workItem from="1670231641305" duration="2829000" />
       <workItem from="1670234842455" duration="5249000" />
       <workItem from="1670313201603" duration="1327000" />
+      <workItem from="1670400454880" duration="7396000" />
     </task>
     <task id="LOCAL-00001" summary="fixed">
       <created>1670316903300</created>
