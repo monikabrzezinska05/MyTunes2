@@ -22,8 +22,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -82,17 +80,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private TableColumn<Playlist, Integer> plTime;
     private SongModel songModel;
     private MediaView mediaView;
-    @FXML
-    private TextField volumeSliderField;
-    private double volumePercentage;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
-    private Playlist selectedPlaylist;
-    private Song selectedSong;
-    private ObservableList<Playlist> playlists;
-    private ObservableList<Song> playlistSongs;
-    private static final PlaylistManager playlistManager = new PlaylistManager();
-    private Song songPlaying;
-    private Parent root;
 
 
     public MyTunesViewController() {
@@ -281,16 +269,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         playSong(songToPlay.getFPath());
     }
-
-    /*public void search(KeyEvent keyEvent) {
-        try {
-            String query = Search.getText().trim();
-            songModel.search(query);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 
     private void insertnamehere()
     {
