@@ -6,10 +6,13 @@ import BE.Song;
 import GUI.Model.PlaylistModel;
 import BLL.PlaylistManager;
 import GUI.Model.SongModel;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,17 +22,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collection;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
@@ -50,6 +53,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public Button addSong;
     //public ListView<SongsInPlaylist> lstSongsInPlaylist;
     //public ListView<Playlists> lstPlaylists;
+    @FXML
     public Slider volumeSlider;
     public MediaPlayer mediaPlayer;
     @FXML
@@ -74,13 +78,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private TableColumn<Playlist, Integer> plTime;
     private SongModel songModel;
     private MediaView mediaView;
-    @FXML
-    private TextField volumeSliderField;
-    private double volumePercentage;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
-    private ObservableList<Playlist> playlists;
-    private ObservableList<Song> playlistSongs;
-    private static final PlaylistManager playlistManager = new PlaylistManager();
 
 
     public MyTunesViewController() {
@@ -116,6 +114,14 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void setup() {
         editSong.setDisable(true);
 
+        volumeSlider.setValue(musicPlayer.getVolume() * 100);
+        volumeSlider.valueProperty().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                mediaPlayer.setVolume(volumeSlider.getValue() / 100);
+            }
+        });
+
         table.setItems(songModel.getObservableSongs());
 
         searchBar.textProperty().addListener((observableValue, oldValue, newValue) -> {
@@ -140,12 +146,16 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private void playSong(String songPath) throws Exception {
         File file = new File(songPath);
         Media mSong = new Media(file.getAbsoluteFile().toURI().toString());
+        //Label lTime = new Label();
         if(mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
         {
             mediaPlayer.stop();
         }
         try{
             mediaPlayer = new MediaPlayer(mSong);
+            //double total = mediaPlayer.getTotalDuration().toMillis();
+            //double current = mediaPlayer.getCurrentTime().toMillis();
+            //lTime.setText(getTimers(current) + "/" + getTimers(total));
             mediaPlayer.play();
         }catch (Exception exc) {
             exc.printStackTrace();
@@ -246,22 +256,18 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     public void handleAddSongs(ActionEvent actionEvent) {
+        /*if (selectedPlaylist != null)
+            try {
+                for (Song song : Collection.unmodifiableList(playlistManager.getPlaylist(selectedPlaylist.getId()))) {
+                    if (song.getId() == table.getItems().size())
+                }
+            }*/
     }
 
     public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         playSong(songToPlay.getFPath());
     }
-
-    /*public void search(KeyEvent keyEvent) {
-        try {
-            String query = Search.getText().trim();
-            songModel.search(query);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 
     private void insertnamehere()
     {
@@ -286,54 +292,25 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                         return times;
                     }
                 });
-    }
-    private void volumeSliderField() {
-        volumeSlider.setValue(25);
-        volumeSliderField.setText(String.format("%.0f", volumeSlider.getValue()));
 
-        volumeSliderField.textProperty().addListener(
-                (observableValue, oldValue, newValue) -> {
-                    try {
-                        if (newValue.contains(","))
-                            newValue = newValue.replaceAll(",", ".");
-                        volumeSlider.setValue(Integer.parseInt(newValue));
-                        musicPlayer.setVolume(volumePercentage / 100);
-                    } catch (IllegalArgumentException e) {
-
-                    }
-                }
-        );
-        volumeSlider.valueProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    volumePercentage = newValue.doubleValue();
-                    volumeSliderField.setText(String.format("%.0f", volumePercentage));
-                    musicPlayer.setVolume(volumePercentage / 100);
-                }
-        );
-    }
-    public double getVolumePercentage() {
-        return volumeSlider.getValue() / 100;
     }
 
-    /*private void selectedPlaylist() {
-        this.plTable.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
-            this.selectedPlaylist = (Playlist) newValue;
-            if (selectedPlaylist != null) {
-                try {
-                    if (playlistManager.)
-                }
-            }
-        }));
-    }*/
 
-    /*private void selectedSong() {
-        this.table.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
-            this.selectedSong = (Song) newValue;
-            if (selectedSong != null) {
-                currentSong.setText(selectedSong.getTitle());
-                songPlaying = selectedSong;
-                this.
-            }
-        }));
-    }*/
+    public static String getTimers(double millis){
+        millis /=1000;
+        String sec = formatTime(millis %60);
+        millis /= 60;
+        String min = formatTime(millis %60);
+        millis /= 60;
+        String hour = formatTime(millis %24);
+        return hour + ":" + min + ":" + sec;
+    }
+
+    public static String formatTime(double time){
+        int t = (int)time;
+        if (t > 9) {
+            return String.valueOf(t);
+        }
+        return "0" +t;
+    }
 }
