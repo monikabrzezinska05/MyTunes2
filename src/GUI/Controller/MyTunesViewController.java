@@ -124,6 +124,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         editSong.setDisable(true);
 
+        //volumeSlider.setValue(musicPlayer.getVolume());
+
         table.setItems(songModel.getObservableSongs());
 
         searchBar.textProperty().addListener((observableValue, oldValue, newValue) -> {
@@ -297,8 +299,16 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                     }
                 });
     }
-    private void volumeSliderField() {
-        volumeSlider.setValue(25);
+    private void volumeSlider() {
+        volumeSlider.setValue(musicPlayer.getVolume());
+        volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                musicPlayer.setVolume(volumeSlider.getValue() / 100);
+            }
+        });
+
+        /*volumeSlider.setValue(25);
         volumeSliderField.setText(String.format("%.0f", volumeSlider.getValue()));
 
         volumeSliderField.textProperty().addListener(
@@ -319,7 +329,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                     volumeSliderField.setText(String.format("%.0f", volumePercentage));
                     musicPlayer.setVolume(volumePercentage / 100);
                 }
-        );
+        );*/
     }
     public double getVolumePercentage() {
         return volumeSlider.getValue() / 100;
