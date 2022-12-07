@@ -22,8 +22,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -83,17 +81,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private TableColumn<Playlist, Integer> plTime;
     private SongModel songModel;
     private MediaView mediaView;
-    @FXML
-    private TextField volumeSliderField;
-    private double volumePercentage;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
-    private Playlist selectedPlaylist;
-    private Song selectedSong;
-    private ObservableList<Playlist> playlists;
-    private ObservableList<Song> playlistSongs;
-    private static final PlaylistManager playlistManager = new PlaylistManager();
-    private Song songPlaying;
-    private Parent root;
 
 
     public MyTunesViewController() {
@@ -287,16 +275,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         playSong(songToPlay.getFPath());
     }
 
-    /*public void search(KeyEvent keyEvent) {
-        try {
-            String query = Search.getText().trim();
-            songModel.search(query);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-/**
     private void insertnamehere()
     {
         label.textProperty().bind(
@@ -321,56 +299,9 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                     }
                 });
 
-    }*/
-    private void volumeSliderField() {
-        volumeSlider.setValue(25);
-        volumeSliderField.setText(String.format("%.0f", volumeSlider.getValue()));
-
-        volumeSliderField.textProperty().addListener(
-                (observableValue, oldValue, newValue) -> {
-                    try {
-                        if (newValue.contains(","))
-                            newValue = newValue.replaceAll(",", ".");
-                        volumeSlider.setValue(Integer.parseInt(newValue));
-                        musicPlayer.setVolume(volumePercentage / 100);
-                    } catch (IllegalArgumentException e) {
-
-                    }
-                }
-        );
-        volumeSlider.valueProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    volumePercentage = newValue.doubleValue();
-                    volumeSliderField.setText(String.format("%.0f", volumePercentage));
-                    musicPlayer.setVolume(volumePercentage / 100);
-                }
-        );
-    }
-    public double getVolumePercentage() {
-        return volumeSlider.getValue() / 100;
     }
 
-    /*private void selectedPlaylist() {
-        this.plTable.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
-            this.selectedPlaylist = (Playlist) newValue;
-            if (selectedPlaylist != null) {
-                try {
-                    if (playlistManager.)
-                }
-            }
-        }));
-    }*/
 
-    /*private void selectedSong() {
-        this.table.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
-            this.selectedSong = (Song) newValue;
-            if (selectedSong != null) {
-                currentSong.setText(selectedSong.getTitle());
-                songPlaying = selectedSong;
-                this.
-            }
-        }));
-    }*/
     public static String getTimers(double millis){
         millis /=1000;
         String sec = formatTime(millis %60);
