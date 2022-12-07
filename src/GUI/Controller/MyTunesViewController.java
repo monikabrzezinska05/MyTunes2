@@ -27,6 +27,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
@@ -151,12 +152,16 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private void playSong(String songPath) throws Exception {
         File file = new File(songPath);
         Media mSong = new Media(file.getAbsoluteFile().toURI().toString());
+        //Label lTime = new Label();
         if(mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
         {
             mediaPlayer.stop();
         }
         try{
             mediaPlayer = new MediaPlayer(mSong);
+            //double total = mediaPlayer.getTotalDuration().toMillis();
+            //double current = mediaPlayer.getCurrentTime().toMillis();
+            //lTime.setText(getTimers(current) + "/" + getTimers(total));
             mediaPlayer.play();
         }catch (Exception exc) {
             exc.printStackTrace();
@@ -293,5 +298,25 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                         return times;
                     }
                 });
+
+    }
+
+
+    public static String getTimers(double millis){
+        millis /=1000;
+        String sec = formatTime(millis %60);
+        millis /= 60;
+        String min = formatTime(millis %60);
+        millis /= 60;
+        String hour = formatTime(millis %24);
+        return hour + ":" + min + ":" + sec;
+    }
+
+    public static String formatTime(double time){
+        int t = (int)time;
+        if (t > 9) {
+            return String.valueOf(t);
+        }
+        return "0" +t;
     }
 }
