@@ -257,8 +257,10 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         playSong(songToPlay.getFPath());
+        playingTimer();
     }
-    private void insertnamehere()
+
+    private void playingTimer()
     {
         currentlyPlayingSong.textProperty().bind(
                 new StringBinding()
@@ -281,24 +283,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                         return times;
                     }
                 });
-    }
-
-    public static String getTimers(double millis){
-        millis /=1000;
-        String sec = formatTime(millis %60);
-        millis /= 60;
-        String min = formatTime(millis %60);
-        millis /= 60;
-        String hour = formatTime(millis %24);
-        return hour + ":" + min + ":" + sec;
-    }
-
-    public static String formatTime(double time){
-        int t = (int)time;
-        if (t > 9) {
-            return String.valueOf(t);
-        }
-        return "0" +t;
     }
 
     public void confirmationAlert() {
