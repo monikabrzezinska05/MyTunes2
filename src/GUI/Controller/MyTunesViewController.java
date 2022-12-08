@@ -198,7 +198,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     // Pressing the new button opens the New Song window where you have to set title, artist, time, category
-    // and chose a file from your hard drive or resource folder
+    // and choose a file from your hard drive or resource folder
     public void handleNewSongs(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewSongView.fxml"));
