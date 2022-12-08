@@ -86,6 +86,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         try {
             songModel = new SongModel();
             playlistModel = new PlaylistModel();
+            playlistSongModel = new PlaylistSongModel;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -246,10 +247,9 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     public void handleAddSongs(ActionEvent actionEvent) {
-        currentPlaylist = plTable.getSelectionModel().getSelectedItem();
-        Song addSong = table.getSelectionModel().getSelectedItem();
-        currentPlaylist.addSongToPlaylist(addSong);
-        plTable.refresh();
+        if(plTable.getSelectionModel().getSelectedIndex() != -1 && table.getSelectionModel().getSelectedIndex() != -1){
+            playlistSongModel.addSongToPlaylist(plTable.getSelectionModel().getSelectedItem(), table.getSelectionModel().getSelectedItem());
+        }
     }
 
     public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
@@ -279,23 +279,5 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                         return times;
                     }
                 });
-    }
-
-    public static String getTimers(double millis){
-        millis /=1000;
-        String sec = formatTime(millis %60);
-        millis /= 60;
-        String min = formatTime(millis %60);
-        millis /= 60;
-        String hour = formatTime(millis %24);
-        return hour + ":" + min + ":" + sec;
-    }
-
-    public static String formatTime(double time){
-        int t = (int)time;
-        if (t > 9) {
-            return String.valueOf(t);
-        }
-        return "0" +t;
     }
 }

@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb8b3499-6548-419c-9937-1e84f42e1817" name="Changes" comment="delete not working">
-      <change afterPath="$PROJECT_DIR$/src/BLL/PlaylistSongManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistSongDAO_DB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BE/PlaylistSong.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DAL/IPlaylistSongDataAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/Model/PlaylistSongModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BE/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Playlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BLL/SongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/SongManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/PlaylistSongManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/PlaylistSongManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/db/PlaylistSongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistSongDAO_DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -42,14 +44,26 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.JavaFX"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="GUI.Model" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Resource/Images" />
       <recent name="$PROJECT_DIR$/Resource" />
@@ -92,6 +106,8 @@
       <workItem from="1670313201603" duration="1327000" />
       <workItem from="1670401404434" duration="3063000" />
       <workItem from="1670485861552" duration="9318000" />
+      <workItem from="1670501511882" duration="102000" />
+      <workItem from="1670501633756" duration="3585000" />
     </task>
     <task id="LOCAL-00001" summary="fixed">
       <created>1670316903300</created>

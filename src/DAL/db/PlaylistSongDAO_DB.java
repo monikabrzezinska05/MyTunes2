@@ -2,16 +2,20 @@ package DAL.db;
 
 import BE.Playlist;
 import BE.Song;
-import com.microsoft.sqlserver.jdbc.SQLServerException;
+import DAL.IPlaylistSongDataAccess;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class PlaylistSongDAO_DB {
+public class PlaylistSongDAO_DB implements IPlaylistSongDataAccess {
     private DatabaseConnector databaseConnector;
 
-    public void addSongToPlaylist(Playlist playlist, Song song) throws Exception {
+    public PlaylistSongDAO_DB() {
+        databaseConnector = new DatabaseConnector();
+    }
+
+    public Song addSongToPlaylist(Playlist playlist, Song song) {
         try(Connection connection = databaseConnector.getConnection()){
             String sql = "INSERT INTO PlaylistSongs(PlaylistId, SongId) VALUES (?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -23,8 +27,9 @@ public class PlaylistSongDAO_DB {
         }
         catch (SQLException exc){
             exc.printStackTrace();
-            throw new Exception("Could not add song to playlist", exc);
+
         }
+        return song;
     }
     public void removeSongFromPlaylist(Playlist selectedPlist, Song selectedSong) throws Exception {
         try (Connection connection = databaseConnector.getConnection()){
