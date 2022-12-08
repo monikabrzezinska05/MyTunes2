@@ -6,7 +6,6 @@ import BE.Song;
 import GUI.Model.PlaylistModel;
 import BLL.PlaylistManager;
 import GUI.Model.SongModel;
-import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.value.ChangeListener;
@@ -29,6 +28,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -147,12 +147,12 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         }
         try{
             mediaPlayer = new MediaPlayer(mSong);
+            playingTimer();
             mediaPlayer.play();
         }catch (Exception exc) {
             exc.printStackTrace();
             throw new Exception("Could not play song", exc);
         }
-
     }
 
         //mediaPlayer.getTotalDuration().toMinutes();
@@ -185,8 +185,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     public void handleDeletePlaylist(ActionEvent actionEvent) throws Exception {
         try {
-            Playlist deletedPlaylist = plTable.getSelectionModel().getSelectedItem();
-            playlistModel.deletePlaylist(deletedPlaylist);
+            confirmationAlertPlaylist();
         } catch (Exception exc) {
             exc.printStackTrace();
             throw new Exception("Could not delete playlist", exc);
@@ -238,9 +237,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
         try {
-            Song deletedSong = table.getSelectionModel().getSelectedItem();
-            confirmationAlert();
-            songModel.deleteSong(deletedSong);
+            confirmationAlertSong();
         } catch (Exception exc) {
             exc.printStackTrace();
             throw new Exception("Could not delete song", exc);
@@ -257,7 +254,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         playSong(songToPlay.getFPath());
-        playingTimer();
     }
 
     private void playingTimer()
@@ -285,14 +281,29 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                 });
     }
 
-    public void confirmationAlert() {
+    public void confirmationAlertSong() throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("You are about to delete a song");
+        alert.setHeaderText("You are about to delete a song/playlist");
         alert.setContentText("Are you sure you want to delete?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
+            Song deletedSong = table.getSelectionModel().getSelectedItem();
+            songModel.deleteSong(deletedSong);
+        } else {
 
+        }
+    }
+
+    public void confirmationAlertPlaylist() throws Exception {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("You are about to delete a song/playlist");
+        alert.setContentText("Are you sure you want to delete?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            Playlist deletedPlaylist = plTable.getSelectionModel().getSelectedItem();
+            playlistModel.deletePlaylist(deletedPlaylist);
         } else {
 
         }
