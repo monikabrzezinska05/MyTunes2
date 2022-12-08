@@ -141,16 +141,12 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private void playSong(String songPath) throws Exception {
         File file = new File(songPath);
         Media mSong = new Media(file.getAbsoluteFile().toURI().toString());
-        //Label lTime = new Label();
         if(mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
         {
             mediaPlayer.stop();
         }
         try{
             mediaPlayer = new MediaPlayer(mSong);
-            //double total = mediaPlayer.getTotalDuration().toMillis();
-            //double current = mediaPlayer.getCurrentTime().toMillis();
-            //lTime.setText(getTimers(current) + "/" + getTimers(total));
             mediaPlayer.play();
         }catch (Exception exc) {
             exc.printStackTrace();
@@ -159,7 +155,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     }
 
-        //    mediaPlayer.getTotalDuration().toMinutes();
+        //mediaPlayer.getTotalDuration().toMinutes();
 
     private void displayError(Throwable t) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -262,7 +258,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         playSong(songToPlay.getFPath());
     }
-
     private void insertnamehere()
     {
         currentlyPlayingSong.textProperty().bind(
@@ -286,7 +281,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                         return times;
                     }
                 });
-
     }
 
     public static String getTimers(double millis){
