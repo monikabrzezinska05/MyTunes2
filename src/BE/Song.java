@@ -51,4 +51,9 @@ public class Song {
     public String getFPath() {return fPath;}
 
     public void setFPath(String fPath) {this.fPath = fPath;}
+
+    @Override
+    public String toString() {
+        return title;
+    }
 }
