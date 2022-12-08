@@ -33,6 +33,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
@@ -242,6 +243,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
         try {
             Song deletedSong = table.getSelectionModel().getSelectedItem();
+            confirmationAlert();
             songModel.deleteSong(deletedSong);
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -303,5 +305,18 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             return String.valueOf(t);
         }
         return "0" +t;
+    }
+
+    public void confirmationAlert() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("You are about to delete a song");
+        alert.setContentText("Are you sure you want to delete?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+
+        } else {
+
+        }
     }
 }
