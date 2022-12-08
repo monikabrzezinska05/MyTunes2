@@ -110,7 +110,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         plTable.setItems(playlistModel.getObservablePlaylist());
     }
 
-
+    // Disables the Edit button until a song or playlist has been selected. Volume slider to change the volume
     @Override
     public void setup() {
         editSong.setDisable(true);
@@ -164,6 +164,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         alert.showAndWait();
     }
 
+    // Pressing the New button open the New Playlist window where you chose the name for your playlist
     public void handleNewPlaylist(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewPlaylistView.fxml"));
@@ -183,6 +184,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handleEditPlaylist(ActionEvent actionEvent) {
     }
 
+    // Select a playlist to be deleted which pops up a confirmation window
     public void handleDeletePlaylist(ActionEvent actionEvent) throws Exception {
         try {
             confirmationAlertPlaylist();
@@ -195,6 +197,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void handleDeleteSongsInPlaylist(ActionEvent actionEvent) {
     }
 
+    // Pressing the new button opens the New Song window where you have to set title, artist, time, category
+    // and chose a file from your hard drive or resource folder
     public void handleNewSongs(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewSongView.fxml"));
@@ -211,6 +215,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         stage.show();
     }
 
+    // Select a song to be edited which pops up the edit window
     public void handleEditSongs(ActionEvent actionEvent) throws Exception {
         Song selectedSong = table.getSelectionModel().getSelectedItem();
         if (selectedSong != null) {
@@ -235,6 +240,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         }
     }
 
+    // Select a song to be deleted which pops up a confirmation window
     public void handleDeleteSong(ActionEvent actionEvent) throws Exception {
         try {
             confirmationAlertSong();
@@ -256,6 +262,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         playSong(songToPlay.getFPath());
     }
 
+    // Actively shows how long the song has been playing in seconds and minutes
     private void playingTimer()
     {
         currentlyPlayingSong.textProperty().bind(
@@ -281,6 +288,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                 });
     }
 
+    // Confirmation popup when trying to delete song and deletes when pressing OK
     public void confirmationAlertSong() throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
@@ -295,6 +303,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         }
     }
 
+    // Confirmation popup when trying to delete playlist and deletes when pressing OK
     public void confirmationAlertPlaylist() throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
