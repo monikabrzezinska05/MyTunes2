@@ -55,18 +55,11 @@ public class EditSongViewController extends BaseController implements Initializa
         int updateTime = Integer.parseInt(txtTime.getText());
         String updateCategory = categoryDropdown.getSelectionModel().getSelectedItem().toString();
         String updateUrl = txtFile.getText();
-
-
-        //Song song = updateSong(updateTitle, updateArtist, updateTime, updateCategory, updateUrl);
-        //songModel.updateSong(song);
-
-        //Song selectedItem = table.getSelectionModel().getSelectedItem();
     }
-
 
     public void handleChooseFile(ActionEvent actionEvent) {
-
     }
+
     public void handleEditFile(ActionEvent actionEvent) {
 
         FileChooser fc = new FileChooser();

@@ -18,8 +18,6 @@ public class PlaylistManager {
         playlistSongDao = new PlaylistSongDAO_DB();
     }
 
-
-
     public void deletePlaylist(Playlist deletedPlaylist) throws Exception {
         playlistDAO.deletePlaylist(deletedPlaylist);
     }

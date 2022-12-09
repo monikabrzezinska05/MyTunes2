@@ -16,7 +16,7 @@ public abstract class BaseController {
 
     PlaylistModel playlistModel;
 
-    public void setPlaylistModelModel(PlaylistModel model){this.playlistModel = model;}
+    public void setPlaylistModel(PlaylistModel model){this.playlistModel = model;}
 
     public PlaylistModel getPlaylistModel(){ return playlistModel; }
 
@@ -24,4 +24,5 @@ public abstract class BaseController {
 
     protected void setSong(Song selectedItem) {
     }
+
 }

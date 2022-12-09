@@ -155,8 +155,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         }
     }
 
-        //mediaPlayer.getTotalDuration().toMinutes();
-
     private void displayError(Throwable t) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Something went wrong");
@@ -171,7 +169,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         Parent root = loader.load();
 
         NewPlaylistViewController controller = loader.getController();
-        controller.setPlaylistModelModel(playlistModel);
+        controller.setPlaylistModel(playlistModel);
         controller.setup();
 
         stage.setScene(new Scene(root));
@@ -181,7 +179,28 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         stage.show();
     }
 
-    public void handleEditPlaylist(ActionEvent actionEvent) {
+    public void handleEditPlaylist(ActionEvent actionEvent) throws IOException {
+        Playlist selectedPlaylist = plTable.getSelectionModel().getSelectedItem();
+        if (selectedPlaylist != null) {
+
+            playlistModel.setSelectedPlaylist(selectedPlaylist);
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/GUI/View/EditPlaylistView.fxml"));
+            Parent root = loader.load();
+
+            EditPlaylistViewController controller = loader.getController();
+            controller.setPlaylistModel(playlistModel);
+            controller.setup();
+
+            Stage dialogWindow = new Stage();
+            dialogWindow.setTitle("Edit Playlist");
+            dialogWindow.initModality(Modality.WINDOW_MODAL);
+            dialogWindow.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
+            Scene scene = new Scene(root);
+            dialogWindow.setScene(scene);
+            dialogWindow.showAndWait();
+        }
     }
 
     // Select a playlist to be deleted which pops up a confirmation window
@@ -231,7 +250,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             controller.setup();
 
             Stage dialogWindow = new Stage();
-            dialogWindow.setTitle("Edit Movie");
+            dialogWindow.setTitle("Edit Song");
             dialogWindow.initModality(Modality.WINDOW_MODAL);
             dialogWindow.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
             Scene scene = new Scene(root);

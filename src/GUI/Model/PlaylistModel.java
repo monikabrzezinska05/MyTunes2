@@ -5,7 +5,6 @@ import BE.Song;
 import BLL.PlaylistManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ListView;
 
 import java.util.List;
 
@@ -55,6 +54,12 @@ public class PlaylistModel {
     public void setSelectedPlaylist(Playlist selectedPlaylist) {
         this.selectedPlaylist = selectedPlaylist;
     }
+
+    public Playlist getSelectedPlaylist() {
+        this.selectedPlaylist = selectedPlaylist;
+        return selectedPlaylist;
+    }
+
     public void addSongToPlaylist(Playlist sTPlaylist, Song song) throws Exception {
         playlistManager.addSongToPlaylist(sTPlaylist, song);
         playlist.clear();
@@ -65,7 +70,7 @@ public class PlaylistModel {
         selectedPlaylistSongs.clear();
         selectedPlaylistSongs.addAll(playlistManager.loadSongsFromPlaylist(lSPlaylist));
     }
-    //OSPS = ObservableSelectedPlaylistSongs
+
     public ObservableList<Song> getOSPS() {
         return selectedPlaylistSongs;
     }

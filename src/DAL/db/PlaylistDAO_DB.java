@@ -74,6 +74,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setString(1, playlist.getPlTitle());
+            statement.setInt(2, playlist.getId());
 
             statement.executeUpdate();
         }
