@@ -370,9 +370,18 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     public void buttonSongUp(ActionEvent actionEvent) {
-       // int index = song
+       int index = listview.getSelectionModel().getSelectedIndex();
+        if (index != 0) {
+           listview.getItems().add(index - 1, listview.getItems().remove(index));
+           listview.getSelectionModel().clearAndSelect(index - 1);
+        }
     }
 
     public void buttonSongDown(ActionEvent actionEvent) {
+        int index = listview.getSelectionModel().getSelectedIndex();
+            if (index != 0) {
+                listview.getItems().add(index + 1, listview.getItems().remove(index));
+                listview.getSelectionModel().clearAndSelect(index + 1);
+            }
     }
 }
