@@ -114,10 +114,13 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     @Override
     public void setup() {
         editSong.setDisable(true);
+        editPlaylist.setDisable(true);
+
         volumeSlider.setValue(musicPlayer.getVolume() * 100);
         volumeSlider.valueProperty().addListener(observable -> mediaPlayer.setVolume(volumeSlider.getValue() / 100));
 
         table.setItems(songModel.getObservableSongs());
+        plTable.setItems(playlistModel.getObservablePlaylist());
 
         searchBar.textProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
@@ -127,15 +130,19 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             }
         });
 
+        plTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Playlist>() {
+            @Override
+            public void changed(ObservableValue<? extends Playlist> observable, Playlist oldValue, Playlist newValue) {
+                editPlaylist.setDisable(newValue == null);
+            }
+        });
+
         table.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>() {
             @Override
             public void changed(ObservableValue<? extends Song> observable, Song oldValue, Song newValue) {
-                if (newValue != null) {
-                    editSong.setDisable(false);
-
-                } else
-                    editSong.setDisable(true);
+                editSong.setDisable(newValue == null);
             }
+
         });
     }
     private void playSong(String songPath) throws Exception {
