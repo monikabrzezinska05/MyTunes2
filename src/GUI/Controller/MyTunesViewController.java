@@ -292,7 +292,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void confirmationAlertSong() throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("You are about to delete a song/playlist");
+        alert.setHeaderText("You are about to delete a Song");
         alert.setContentText("Are you sure you want to delete?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
@@ -307,7 +307,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void confirmationAlertPlaylist() throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("You are about to delete a song/playlist");
+        alert.setHeaderText("You are about to delete a Playlist");
         alert.setContentText("Are you sure you want to delete?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
@@ -323,5 +323,11 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             playlistModel.loadSongsFromPlaylist(plTable.getSelectionModel().getSelectedItem());
 
         }
+    }
+
+    public void buttonSongUp(ActionEvent actionEvent) {
+    }
+
+    public void buttonSongDown(ActionEvent actionEvent) {
     }
 }
