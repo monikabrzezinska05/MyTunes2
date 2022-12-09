@@ -278,8 +278,12 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
    public void handleAddSongs(ActionEvent actionEvent) throws Exception {
         if(plTable.getSelectionModel().getSelectedIndex() != -1 && table.getSelectionModel().getSelectedIndex() != -1){
-            playlistModel.addSongToPlaylist(plTable.getSelectionModel().getSelectedItem(), table.getSelectionModel().getSelectedItem());
 
+            Playlist currentPlaylist = plTable.getSelectionModel().getSelectedItem();
+            Song songToBeAdded = table.getSelectionModel().getSelectedItem();
+
+            playlistModel.addSongToPlaylist(currentPlaylist, songToBeAdded);
+            listview.getItems().add(songToBeAdded);
         }
     }
 
@@ -344,6 +348,20 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         }
     }
 
+   /* public void confirmationAlertSongInPlaylist() throws Exception {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("You are about to delete a Song in a Playlist");
+        alert.setContentText("Are you sure you want to delete?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            Playlist deletedPlaylist = plTable.getSelectionModel().getSelectedItem();
+            playlistModel.deletePlaylist(deletedPlaylist);
+        } else {
+
+        }
+    }*/
+
     public void plClicker(MouseEvent mouseEvent) {
         if(plTable.getSelectionModel().getSelectedIndex() != -1){
             playlistModel.loadSongsFromPlaylist(plTable.getSelectionModel().getSelectedItem());
@@ -352,6 +370,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     public void buttonSongUp(ActionEvent actionEvent) {
+       // int index = song
     }
 
     public void buttonSongDown(ActionEvent actionEvent) {

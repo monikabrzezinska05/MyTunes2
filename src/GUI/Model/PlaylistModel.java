@@ -61,7 +61,10 @@ public class PlaylistModel {
     }
 
     public void addSongToPlaylist(Playlist sTPlaylist, Song song) throws Exception {
+        // Add Song to Playlist in DB
         playlistManager.addSongToPlaylist(sTPlaylist, song);
+
+        //
         playlist.clear();
         playlist.addAll(playlistManager.getPlaylist());
     }
