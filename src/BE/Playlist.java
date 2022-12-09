@@ -12,6 +12,9 @@ public class Playlist {
 
     private List<Song> songs;
 
+    public int getId() {
+        return id;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -64,8 +67,6 @@ public class Playlist {
         songs.add(song);
     }
 
-    public int getId() {
-        return id;
-    }
+
 
 }

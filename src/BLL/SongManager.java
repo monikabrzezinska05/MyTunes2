@@ -1,5 +1,6 @@
 package BLL;
 
+import BE.Playlist;
 import BE.Song;
 import BLL.util.SongSearcher;
 import DAL.ISongDataAccess;
@@ -39,4 +40,7 @@ public class SongManager {
     public Song createSong(String title, String artist, String category, int time, String fPath) throws Exception {
         return songDAO.createSong(title, artist, category, time, fPath);
     }
+    /**public void songToPlaylist(Song songToPlaylist) throws Exception{
+        songDAO.songToPlaylist(songToPlaylist);
+    }*/
 }

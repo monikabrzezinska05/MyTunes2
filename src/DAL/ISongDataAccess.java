@@ -1,5 +1,6 @@
 package DAL;
 
+import BE.Playlist;
 import BE.Song;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 

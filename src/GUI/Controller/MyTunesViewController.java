@@ -4,14 +4,12 @@ import BE.MusicPlayer;
 import BE.Playlist;
 import BE.Song;
 import GUI.Model.PlaylistModel;
-import BLL.PlaylistManager;
 import GUI.Model.SongModel;
-import javafx.beans.Observable;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,19 +19,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
-import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collection;
+
 import java.util.Optional;
+
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
@@ -57,6 +55,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     @FXML
     public Slider volumeSlider;
     public MediaPlayer mediaPlayer;
+    public ListView<Song> listview;
     @FXML
     private TextField searchBar;
     @FXML
@@ -96,18 +95,19 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setup();
         title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
-        time.setCellValueFactory(new PropertyValueFactory<Song, Integer>("time"));
         category.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
         artist.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
+        time.setCellValueFactory(new PropertyValueFactory<Song, Integer>("time"));
 
         table.setItems(songModel.getObservableSongs());
-        
 
+        plTitle.setCellValueFactory(new PropertyValueFactory<Playlist, String>("plTitle"));
         plTime.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plTime"));
         plSongs.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plSongs"));
-        plTitle.setCellValueFactory(new PropertyValueFactory<Playlist, String>("plTitle"));
 
         plTable.setItems(playlistModel.getObservablePlaylist());
+        listview.setItems(playlistModel.getOSPS());
+
     }
 
     // Disables the Edit button until a song or playlist has been selected. Volume slider to change the volume
@@ -250,11 +250,11 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         }
     }
 
-    public void handleAddSongs(ActionEvent actionEvent) {
-        currentPlaylist = plTable.getSelectionModel().getSelectedItem();
-        Song addSong = table.getSelectionModel().getSelectedItem();
-        currentPlaylist.addSongToPlaylist(addSong);
-        plTable.refresh();
+   public void handleAddSongs(ActionEvent actionEvent) throws Exception {
+        if(plTable.getSelectionModel().getSelectedIndex() != -1 && table.getSelectionModel().getSelectedIndex() != -1){
+            playlistModel.addSongToPlaylist(plTable.getSelectionModel().getSelectedItem(), table.getSelectionModel().getSelectedItem());
+
+        }
     }
 
     public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
@@ -314,6 +314,13 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             Playlist deletedPlaylist = plTable.getSelectionModel().getSelectedItem();
             playlistModel.deletePlaylist(deletedPlaylist);
         } else {
+
+        }
+    }
+
+    public void plClicker(MouseEvent mouseEvent) {
+        if(plTable.getSelectionModel().getSelectedIndex() != -1){
+            playlistModel.loadSongsFromPlaylist(plTable.getSelectionModel().getSelectedItem());
 
         }
     }
