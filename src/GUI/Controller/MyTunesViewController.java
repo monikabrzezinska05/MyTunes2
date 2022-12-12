@@ -3,6 +3,7 @@ package GUI.Controller;
 import BE.MusicPlayer;
 import BE.Playlist;
 import BE.Song;
+import DAL.db.SongDAO_DB;
 import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
 import javafx.beans.binding.StringBinding;
@@ -11,6 +12,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,12 +21,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +38,8 @@ import java.util.Optional;
 
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
+import GUI.Controller.NewSongViewController;
+import DAL.db.SongDAO_DB;
 
 public class MyTunesViewController<songPath> extends BaseController implements Initializable {
 
@@ -76,10 +82,14 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private TableColumn<Playlist, Integer> plSongs;
     @FXML
     private TableColumn<Playlist, Integer> plTime;
+    @FXML
+    private Slider progressBar;
     private SongModel songModel;
     private MediaView mediaView;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
     public Playlist currentPlaylist;
+    private String path;
+
 
     public MyTunesViewController() {
 
@@ -93,6 +103,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         setup();
         title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         category.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
@@ -118,7 +129,9 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         volumeSlider.setValue(musicPlayer.getVolume() * 100);
         volumeSlider.valueProperty().addListener(observable -> mediaPlayer.setVolume(volumeSlider.getValue() / 100));
-
+        if (path != null) {
+            //progressBar();
+        }
         table.setItems(songModel.getObservableSongs());
         plTable.setItems(playlistModel.getObservablePlaylist());
 
@@ -293,7 +306,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     // Actively shows how long the song has been playing in seconds and minutes
-    private void playingTimer()
+   private void playingTimer()
     {
         currentlyPlayingSong.textProperty().bind(
                 new StringBinding()
@@ -384,4 +397,77 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                 listview.getSelectionModel().clearAndSelect(index + 1);
             }
     }
+
+    public void handleDrag(MouseEvent mouseEvent) {
+        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+            @Override
+            public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
+                progressBar.setValue(newValue.toSeconds());
+            }
+        });
+        progressBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mediaPlayer.seek(Duration.seconds(progressBar.getValue()));
+            }
+        });
+        mediaPlayer.setOnReady(new Runnable() {
+            @Override
+            public void run() {
+                if(path != null) {
+                    Media media = new Media(path);
+                    javafx.util.Duration total = media.getDuration();
+                    progressBar.setMax(total.toSeconds());
+                }
+            }
+        });
+    }
+
+    public void handlePress(MouseEvent mouseEvent) {
+        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+            @Override
+            public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
+                progressBar.setValue(newValue.toSeconds());
+            }
+        });
+
+        progressBar.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mediaPlayer.seek(Duration.seconds(progressBar.getValue()));
+            }
+        });
+        mediaPlayer.setOnReady(new Runnable() {
+            @Override
+            public void run() {
+                if (path != null) {
+                    Media media = new Media(path);
+                    javafx.util.Duration total = media.getDuration();
+                    progressBar.setMax(total.toSeconds());
+                }
+            }
+        });
+    }
+
+    /*public void progressBar() {
+            mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+        @Override
+        public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
+            progressBar.setValue(newValue.toSeconds());
+        }
+    });
+        progressBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            mediaPlayer.seek(Duration.seconds(progressBar.getValue()));
+        }
+    });
+        progressBar.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mediaPlayer.seek(Duration.seconds(progressBar.getValue()));
+            }
+        });
+
+    }*/
 }

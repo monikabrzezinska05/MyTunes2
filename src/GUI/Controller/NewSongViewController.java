@@ -35,7 +35,9 @@ public class NewSongViewController extends BaseController implements Initializab
     private TextField txtFile;
     @FXML
     private ComboBox<String> categoryDropdown;
-    private String fPath;
+    public static String path;
+    public FileChooser fc;
+    public File f;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -78,6 +80,6 @@ public class NewSongViewController extends BaseController implements Initializab
         FileChooser fc = new FileChooser();
         Stage stage = (Stage) cancelSong.getScene().getWindow();
         File f = fc.showOpenDialog(stage);
-        txtFile.setText(f.getPath());
+        path = f.toURI().toString();
     }
 }

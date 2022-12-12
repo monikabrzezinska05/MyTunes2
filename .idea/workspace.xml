@@ -7,6 +7,8 @@
     <list default="true" id="9a424b03-9e79-44ea-bcf5-ec9ccccec3e4" name="Changes" comment="delete not working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,13 +37,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.JavaFX"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Resource/Images" />
@@ -85,6 +87,7 @@
       <workItem from="1670313201603" duration="1327000" />
       <workItem from="1670401404434" duration="3063000" />
       <workItem from="1670486547464" duration="8866000" />
+      <workItem from="1670831919689" duration="15487000" />
     </task>
     <task id="LOCAL-00001" summary="fixed">
       <created>1670316903300</created>
