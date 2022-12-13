@@ -80,6 +80,6 @@ public class NewSongViewController extends BaseController implements Initializab
         FileChooser fc = new FileChooser();
         Stage stage = (Stage) cancelSong.getScene().getWindow();
         File f = fc.showOpenDialog(stage);
-        path = f.toURI().toString();
+        txtFile.setText(f.getPath());
     }
 }

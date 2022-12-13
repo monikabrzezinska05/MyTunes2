@@ -89,6 +89,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private static final MusicPlayer musicPlayer = new MusicPlayer();
     public Playlist currentPlaylist;
     private String path;
+    public songPath sp;
 
 
     public MyTunesViewController() {
@@ -103,7 +104,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //progressBar.setMax(240);
         setup();
         title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         category.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
@@ -129,9 +130,11 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         volumeSlider.setValue(musicPlayer.getVolume() * 100);
         volumeSlider.valueProperty().addListener(observable -> mediaPlayer.setVolume(volumeSlider.getValue() / 100));
-        if (path != null) {
-            //progressBar();
-        }
+        /*if (path != null) {
+            Media media = new Media(path);
+            mediaPlayer = new MediaPlayer(media);
+            progressBar();
+        }*/
         table.setItems(songModel.getObservableSongs());
         plTable.setItems(playlistModel.getObservablePlaylist());
 
@@ -399,16 +402,16 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     public void handleDrag(MouseEvent mouseEvent) {
-        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<javafx.util.Duration>() {
             @Override
-            public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
+            public void changed(ObservableValue<? extends javafx.util.Duration> observable, javafx.util.Duration oldValue, javafx.util.Duration newValue) {
                 progressBar.setValue(newValue.toSeconds());
             }
         });
         progressBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                mediaPlayer.seek(Duration.seconds(progressBar.getValue()));
+                mediaPlayer.seek(javafx.util.Duration.seconds(progressBar.getValue()));
             }
         });
         mediaPlayer.setOnReady(new Runnable() {
@@ -424,9 +427,9 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     public void handlePress(MouseEvent mouseEvent) {
-        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<javafx.util.Duration>() {
             @Override
-            public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
+            public void changed(ObservableValue<? extends javafx.util.Duration> observable, javafx.util.Duration oldValue, javafx.util.Duration newValue) {
                 progressBar.setValue(newValue.toSeconds());
             }
         });
@@ -434,7 +437,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         progressBar.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                mediaPlayer.seek(Duration.seconds(progressBar.getValue()));
+                mediaPlayer.seek(javafx.util.Duration.seconds(progressBar.getValue()));
             }
         });
         mediaPlayer.setOnReady(new Runnable() {
@@ -450,24 +453,36 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     /*public void progressBar() {
-            mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+        mediaPlayer.currentTimeProperty().addListener(new ChangeListener<javafx.util.Duration>() {
         @Override
         public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
             progressBar.setValue(newValue.toSeconds());
         }
     });
-        progressBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
+        progressBar.setOnMousePressed(new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             mediaPlayer.seek(Duration.seconds(progressBar.getValue()));
         }
     });
-        progressBar.setOnMousePressed(new EventHandler<MouseEvent>() {
+        progressBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 mediaPlayer.seek(Duration.seconds(progressBar.getValue()));
             }
         });
+        if (path != null) {
+            Media media = new Media(path);
+            mediaPlayer = new MediaPlayer(media);
 
-    }*/
+        mediaPlayer.setOnReady(new Runnable() {
+            @Override
+            public void run() {
+                javafx.util.Duration total = media.getDuration();
+                progressBar.setMax(total.toSeconds());
+            }
+        });
+
+        mediaPlayer.play();
+    }}*/
 }
