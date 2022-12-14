@@ -31,13 +31,13 @@ public class PlaylistSongDAO_DB implements IPlaylistSongDataAccess {
         }
     }
 
-    public void removeSongFromPlaylist(Playlist selectedPlist, Song selectedSong) throws Exception {
+    public void removeSongFromPlaylist(Playlist rSPlaylist, Song Song) throws Exception {
         try (Connection connection = databaseConnector.getConnection()) {
-            String sql = "DELETE FROM PlaylistSong WHERE PlaylistID = ? and SongId = ?;";
+            String sql = "DELETE FROM PlaylistSongs WHERE PlaylistId = ? and SongId = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setInt(1, selectedPlist.getId());
-            statement.setInt(2, selectedSong.getId());
+            statement.setInt(1, rSPlaylist.getId());
+            statement.setInt(2, Song.getId());
 
             statement.executeUpdate();
         } catch (SQLException exc) {

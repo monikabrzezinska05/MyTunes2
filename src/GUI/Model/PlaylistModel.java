@@ -46,11 +46,13 @@ public class PlaylistModel {
         playlist.clear();
         playlist.addAll(playlistManager.getPlaylist());
     }
+
     public void deletePlaylist(Playlist deletedPlaylist) throws Exception {
         playlistManager.deletePlaylist(deletedPlaylist);
         playlist.clear();
         playlist.addAll(playlistManager.getPlaylist());
     }
+
     public void setSelectedPlaylist(Playlist selectedPlaylist) {
         this.selectedPlaylist = selectedPlaylist;
     }
@@ -68,14 +70,27 @@ public class PlaylistModel {
         playlist.clear();
         playlist.addAll(playlistManager.getPlaylist());
     }
-    public void loadSongsFromPlaylist(Playlist lSPlaylist){
+
+    public void loadSongsFromPlaylist(Playlist lSPlaylist) {
         playlistManager.loadSongsFromPlaylist(lSPlaylist);
         selectedPlaylistSongs.clear();
         selectedPlaylistSongs.addAll(playlistManager.loadSongsFromPlaylist(lSPlaylist));
+    }
+
+    public void removeSongFromPlaylist(Playlist selectedPlaylist, Song selectedSong) throws Exception {
+        playlistManager.removeSongFromPlaylist(selectedPlaylist, selectedSong);
+        selectedPlaylist.removeSongFromPlaylist(selectedSong);
+        //selectedPlaylistSongs.clear();
+        //selectedPlaylistSongs.addAll(selectedPlaylist.getSongs());
+
     }
 
     public ObservableList<Song> getOSPS() {
         return selectedPlaylistSongs;
     }
 
+
 }
+
+    //public void removeSongFromPlaylist(Song removeSongFromPlaylist) {
+   // }3

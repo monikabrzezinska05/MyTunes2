@@ -46,7 +46,6 @@ public class SongModel {
         songs.clear();
         songs.addAll(songManager.getSongs());
     }
-    @FXML
     public void deleteSong(Song deletedSong) throws Exception {
         songManager.deleteSong(deletedSong);
         songs.clear();

@@ -67,6 +67,10 @@ public class Playlist {
         songs.add(song);
     }
 
+    public void removeSongFromPlaylist(Song song){
+        songs.remove(song);
+    }
+
 
 
 }

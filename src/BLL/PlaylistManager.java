@@ -42,5 +42,8 @@ public class PlaylistManager {
     public List<Song> loadSongsFromPlaylist(Playlist playlist){
         return playlistSongDao.loadSongsFromPlaylist(playlist);
     }
+    public void removeSongFromPlaylist(Playlist rSPlaylist, Song Song) throws Exception {
+        playlistSongDao.removeSongFromPlaylist(rSPlaylist, Song);
+    }
 
 }

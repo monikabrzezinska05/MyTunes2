@@ -9,4 +9,6 @@ public interface IPlaylistSongDataAccess {
     void addSongToPlaylist(Playlist playlist, Song song);
 
     public List<Song> loadSongsFromPlaylist(Playlist playlist);
+
+    void removeSongFromPlaylist(Playlist rSPlaylist, Song Song) throws Exception;
 }

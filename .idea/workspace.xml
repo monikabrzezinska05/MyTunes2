@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9a424b03-9e79-44ea-bcf5-ec9ccccec3e4" name="Changes" comment="delete not working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BE/Playlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BE/Playlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/PlaylistManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/PlaylistManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/IPlaylistSongDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/IPlaylistSongDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAL/db/PlaylistSongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistSongDAO_DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Model/PlaylistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/PlaylistModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Model/SongModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Model/SongModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +45,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "preferences.JavaFX"
   }
@@ -85,6 +94,7 @@
       <workItem from="1670313201603" duration="1327000" />
       <workItem from="1670401404434" duration="3063000" />
       <workItem from="1670486547464" duration="8866000" />
+      <workItem from="1671005463361" duration="7916000" />
     </task>
     <task id="LOCAL-00001" summary="fixed">
       <created>1670316903300</created>

@@ -8,8 +8,6 @@ import GUI.Model.SongModel;
 import javafx.beans.binding.StringBinding;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -219,12 +217,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             throw new Exception("Could not delete playlist", exc);
         }
     }
-
-    public void handleDeleteSongsInPlaylist(ActionEvent actionEvent) {
-    }
-
-    // Pressing the new button opens the New Song window where you have to set title, artist, time, category
-    // and choose a file from your hard drive or resource folder
     public void handleNewSongs(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewSongView.fxml"));
@@ -348,19 +340,27 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         }
     }
 
-   /* public void confirmationAlertSongInPlaylist() throws Exception {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("You are about to delete a Song in a Playlist");
-        alert.setContentText("Are you sure you want to delete?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            Playlist deletedPlaylist = plTable.getSelectionModel().getSelectedItem();
-            playlistModel.deletePlaylist(deletedPlaylist);
-        } else {
+   public void confirmationAlertSongInPlaylist() throws Exception {
+       Playlist playlistChoice = plTable.getSelectionModel().getSelectedItem();
+       if (playlistChoice != null) {
+           Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+           alert.setTitle("Confirmation Dialog");
+           alert.setHeaderText("You are about to delete a Song in a Playlist");
+           alert.setContentText("Are you sure you want to delete?");
+           Optional<ButtonType> result = alert.showAndWait();
+           if (result.get() == ButtonType.OK) {
+               Playlist selectedPlaylist = plTable.getSelectionModel().getSelectedItem();
+               Song selectedSong = listview.getSelectionModel().getSelectedItem();
+               playlistModel.removeSongFromPlaylist(selectedPlaylist, selectedSong);
+               //plTable.getSelectionModel().select(selectedPlaylist);
+               listview.getItems().remove(selectedSong);
 
-        }
-    }*/
+
+           } else {
+
+           }
+       }
+   }
 
     public void plClicker(MouseEvent mouseEvent) {
         if(plTable.getSelectionModel().getSelectedIndex() != -1){
@@ -382,6 +382,15 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             if (index != 0) {
                 listview.getItems().add(index + 1, listview.getItems().remove(index));
                 listview.getSelectionModel().clearAndSelect(index + 1);
+            }
+    }
+
+    public void handleDeleteSongInPlaylist(ActionEvent actionEvent) throws Exception {
+            try {
+                confirmationAlertSongInPlaylist();
+            } catch (Exception exc) {
+                exc.printStackTrace();
+                throw new Exception("Could not delete song", exc);
             }
     }
 }
