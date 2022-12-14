@@ -35,11 +35,18 @@ public class SongModel {
         songs.add(s);
     }
 
-    public void searchSong(String query) throws Exception {
-        List<Song> searchResults = songManager.search(query);
-        songs.clear();
-        songs.addAll(searchResults);
+    public ObservableList<Song> searchedSongs(String search) {
+        ObservableList<Song> searchedSongs = FXCollections.observableArrayList();
+        for (Song song : songs) {
+            if (song.getTitle().toLowerCase().contains(search)) {
+                searchedSongs.add(song);
+            } else if (song.getArtist().toLowerCase().contains(search)) {
+                searchedSongs.add(song);
+            }
+        }
+        return searchedSongs;
     }
+
 
     public void updateSong(Song updatedSong) throws Exception {
         songManager.updateSong(updatedSong);

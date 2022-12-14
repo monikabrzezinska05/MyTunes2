@@ -55,6 +55,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public MediaPlayer mediaPlayer;
     public ListView<Song> listview;
     @FXML
+    public Button searchButton;
+    @FXML
     private TextField searchBar;
     @FXML
     private TableView<Song> table;
@@ -122,14 +124,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         plTable.setItems(playlistModel.getObservablePlaylist());
         listview.setItems(playlistModel.getOSPS());
 
-        searchBar.textProperty().addListener((observableValue, oldValue, newValue) -> {
-            try {
-                songModel.searchSong(newValue);
-            } catch (Exception e) {
-                displayError(e);
-            }
-        });
-
         listview.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>() {
             @Override
             public void changed(ObservableValue<? extends Song> observable, Song oldValue, Song newValue) {
@@ -152,6 +146,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         });
     }
+
     private void playSong(String songPath) throws Exception {
         File file = new File(songPath);
         Media mSong = new Media(file.getAbsoluteFile().toURI().toString());
@@ -401,5 +396,19 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                 exc.printStackTrace();
                 throw new Exception("Could not delete song", exc);
             }
+    }
+
+    public void handleSearchButton(ActionEvent actionEvent) {
+        if (searchButton.getText().equals("Search")) {
+            if (searchBar.getText() != null) {
+                String search = searchBar.getText().toLowerCase();
+                table.setItems(songModel.searchedSongs(search));
+            }
+            searchButton.setText("Clear");
+        } else if (searchButton.getText().equals("Clear")) {
+            searchBar.clear();
+            table.setItems(songModel.getObservableSongs());
+            searchButton.setText("Search");
+        }
     }
 }

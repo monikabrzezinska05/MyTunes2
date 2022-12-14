@@ -49,14 +49,6 @@ public class EditSongViewController extends BaseController implements Initializa
         categoryDropdown.getSelectionModel().selectFirst();
     }
 
-    public void updateSong(ActionEvent actionEvent) throws Exception {
-        String updateTitle = txtTitle.getText();
-        String updateArtist = txtArtist.getText();
-        int updateTime = Integer.parseInt(txtTime.getText());
-        String updateCategory = categoryDropdown.getSelectionModel().getSelectedItem().toString();
-        String updateUrl = txtFile.getText();
-    }
-
     public void handleChooseFile(ActionEvent actionEvent) {
     }
 
