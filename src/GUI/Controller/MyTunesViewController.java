@@ -113,18 +113,27 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     public void setup() {
         editSong.setDisable(true);
         editPlaylist.setDisable(true);
+        deleteSongInPlaylist.setDisable(true);
 
         volumeSlider.setValue(musicPlayer.getVolume() * 100);
         volumeSlider.valueProperty().addListener(observable -> mediaPlayer.setVolume(volumeSlider.getValue() / 100));
 
         table.setItems(songModel.getObservableSongs());
         plTable.setItems(playlistModel.getObservablePlaylist());
+        listview.setItems(playlistModel.getOSPS());
 
         searchBar.textProperty().addListener((observableValue, oldValue, newValue) -> {
             try {
                 songModel.searchSong(newValue);
             } catch (Exception e) {
                 displayError(e);
+            }
+        });
+
+        listview.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>() {
+            @Override
+            public void changed(ObservableValue<? extends Song> observable, Song oldValue, Song newValue) {
+                deleteSongInPlaylist.setDisable(newValue == null);
             }
         });
 
