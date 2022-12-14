@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a424b03-9e79-44ea-bcf5-ec9ccccec3e4" name="Changes" comment="delete not working">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

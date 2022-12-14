@@ -114,6 +114,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         editSong.setDisable(true);
         editPlaylist.setDisable(true);
         deleteSongInPlaylist.setDisable(true);
+        deletePlaylist.setDisable(true);
+        deleteSong.setDisable(true);
 
         volumeSlider.setValue(musicPlayer.getVolume() * 100);
         volumeSlider.valueProperty().addListener(observable -> mediaPlayer.setVolume(volumeSlider.getValue() / 100));
@@ -137,6 +139,19 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             }
         });
 
+        table.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Song>() {
+            @Override
+            public void changed(ObservableValue<? extends Song> observable, Song oldValue, Song newValue) {
+                deleteSong.setDisable(newValue == null);
+            }
+        });
+        plTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Playlist>() {
+            @Override
+            public void changed(ObservableValue<? extends Playlist> observable, Playlist oldValue, Playlist newValue) {
+                deletePlaylist.setDisable(newValue == null);
+            }
+        });
+
         plTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Playlist>() {
             @Override
             public void changed(ObservableValue<? extends Playlist> observable, Playlist oldValue, Playlist newValue) {
@@ -151,6 +166,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             }
 
         });
+
+
     }
     private void playSong(String songPath) throws Exception {
         File file = new File(songPath);
