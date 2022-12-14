@@ -11,7 +11,7 @@ public class SongSearcher {
         List<Song> searchResult = new ArrayList<>();
 
         for(Song song : searchBase){
-            if(compareSongTitles(query, song))
+            if(compareSongTitles(query, song) || compareSongArtist(query, song))
             {
                 searchResult.add(song);
             }
@@ -21,5 +21,9 @@ public class SongSearcher {
 
     private boolean compareSongTitles(String query, Song song){
         return song.getTitle().toLowerCase().contains(query.toLowerCase());
+    }
+
+    private boolean compareSongArtist(String query, Song song){
+        return song.getArtist().toLowerCase().contains(query.toLowerCase());
     }
 }
