@@ -8,8 +8,6 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
-
-
 public class PlaylistModel {
 
     private ObservableList<Playlist> playlist;
@@ -80,8 +78,7 @@ public class PlaylistModel {
     public void removeSongFromPlaylist(Playlist selectedPlaylist, Song selectedSong) throws Exception {
         playlistManager.removeSongFromPlaylist(selectedPlaylist, selectedSong);
         selectedPlaylist.removeSongFromPlaylist(selectedSong);
-        //selectedPlaylistSongs.clear();
-        //selectedPlaylistSongs.addAll(selectedPlaylist.getSongs());
+
 
     }
 
@@ -89,8 +86,5 @@ public class PlaylistModel {
         return selectedPlaylistSongs;
     }
 
-
 }
 
-    //public void removeSongFromPlaylist(Song removeSongFromPlaylist) {
-   // }3

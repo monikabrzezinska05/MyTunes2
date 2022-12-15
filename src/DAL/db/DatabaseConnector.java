@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class DatabaseConnector {
 
     private SQLServerDataSource dataSource;
-    public DatabaseConnector()
+    public DatabaseConnector()//The constructor of our DatabaseConnector, with the code used to connect to our database.
     {
         dataSource = new SQLServerDataSource();
         dataSource.setServerName("10.176.111.31");
@@ -18,11 +18,11 @@ public class DatabaseConnector {
         dataSource.setTrustServerCertificate(true);
         dataSource.setPortNumber(1433);
     }
-
+    //getConnection, a method used in other methods, to connect to our database.
     public Connection getConnection() throws SQLServerException {
         return dataSource.getConnection();
     }
-
+    //main, used to check if there's a connection to the database.
     public static void main(String[] args) throws SQLException {
         DatabaseConnector dbCon = new DatabaseConnector();
 

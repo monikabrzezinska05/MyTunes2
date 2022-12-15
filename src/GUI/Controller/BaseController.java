@@ -22,7 +22,4 @@ public abstract class BaseController {
 
     public abstract void setup();
 
-    protected void setSong(Song selectedItem) {
-    }
-
 }

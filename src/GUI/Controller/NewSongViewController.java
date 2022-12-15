@@ -1,7 +1,6 @@
 package GUI.Controller;
 
 import BE.Song;
-import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,7 +34,7 @@ public class NewSongViewController extends BaseController implements Initializab
     private TextField txtFile;
     @FXML
     private ComboBox<String> categoryDropdown;
-    private String fPath;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
