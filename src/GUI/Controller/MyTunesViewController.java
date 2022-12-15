@@ -80,6 +80,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     private MediaView mediaView;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
     public Playlist currentPlaylist;
+    private boolean playing;
 
     public MyTunesViewController() {
 
@@ -172,6 +173,10 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         if(mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
         {//if the media player isn't null, and the media player is playing, it'll stop.
             mediaPlayer.stop();
+        }
+        else if (playing == true) {
+            mediaPlayer.stop();
+            playing(false);
         }
         try{
             mediaPlayer = new MediaPlayer(mSong);//sets mediaPlayer = to MediaPlayer mSong
@@ -293,6 +298,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
             playlistModel.addSongToPlaylist(currentPlaylist, songToBeAdded);
             listview.getItems().add(songToBeAdded);
+            table.getSelectionModel().clearSelection();
         }
     }
     //Button to start playing a song, calls the method playSong.
@@ -300,10 +306,15 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         if (songToPlay != null) {
             playSong(songToPlay.getFPath());
+            playing(true);
         } else {
             Song songsToPlay = listview.getSelectionModel().getSelectedItem();
             playSong(songsToPlay.getFPath());
+            playing(true);
         }
+    }
+
+    private void playing(boolean b) {
     }
 
     // Actively shows how long the song has been playing in seconds and minutes
@@ -451,6 +462,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             Song songToPlay = listview.getSelectionModel().getSelectedItem();
             if (songToPlay != null) {
                 playSong(songToPlay.getFPath());
+                playing(true);
             }
         }
     }

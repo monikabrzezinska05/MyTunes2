@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a424b03-9e79-44ea-bcf5-ec9ccccec3e4" name="Changes" comment="delete not working">
+    <list default="true" id="9a424b03-9e79-44ea-bcf5-ec9ccccec3e4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/IPlaylistDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/IPlaylistDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/IPlaylistSongDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/IPlaylistSongDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/ISongDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistDAO_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/db/PlaylistSongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/PlaylistSongDAO_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/EditPlaylistViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/EditPlaylistViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/EditSongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/EditSongViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewPlaylistViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewPlaylistViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
