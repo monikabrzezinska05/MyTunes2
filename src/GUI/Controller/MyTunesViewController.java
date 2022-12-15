@@ -302,7 +302,12 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
         Song songToPlay = table.getSelectionModel().getSelectedItem();
-        playSong(songToPlay.getFPath());
+        if (songToPlay != null) {
+            playSong(songToPlay.getFPath());
+        } else {
+            Song songsToPlay = listview.getSelectionModel().getSelectedItem();
+            playSong(songsToPlay.getFPath());
+        }
     }
 
     // Actively shows how long the song has been playing in seconds and minutes
@@ -426,6 +431,30 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             searchBar.clear();
             table.setItems(songModel.getObservableSongs());
             searchButton.setText("Search");
+        }
+    }
+
+    public void handleNextSong(ActionEvent actionEvent) throws Exception {
+        int index = listview.getSelectionModel().getSelectedIndex();
+        if (index != 0) {
+            listview.getItems().add(index + 1, listview.getItems().remove(index + 1));
+            listview.getSelectionModel().clearAndSelect(index + 1);
+            Song songToPlay = listview.getSelectionModel().getSelectedItem();
+            if (songToPlay != null) {
+                playSong(songToPlay.getFPath());
+            }
+        }
+    }
+
+    public void handleLastSong(ActionEvent actionEvent) throws Exception {
+        int index = listview.getSelectionModel().getSelectedIndex();
+        if (index != 0) {
+            listview.getItems().add(index - 1, listview.getItems().remove(index - 1));
+            listview.getSelectionModel().clearAndSelect(index - 1);
+            Song songToPlay = listview.getSelectionModel().getSelectedItem();
+            if (songToPlay != null) {
+                playSong(songToPlay.getFPath());
+            }
         }
     }
 }
