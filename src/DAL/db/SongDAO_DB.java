@@ -22,7 +22,7 @@ public class SongDAO_DB implements ISongDataAccess{
     public static String getFpath() {
         return fPath.get();
     }
-    
+    //a list of all the songs in our songs table.
     public List<Song> getSongs() throws SQLServerException {
         ArrayList<Song> allSongs = new ArrayList<>();
 
@@ -50,7 +50,8 @@ public class SongDAO_DB implements ISongDataAccess{
             throw new RuntimeException(e);
         }
     }
-
+    //a method that connects to the database, and uses a SQL string to add a song to the song table,
+    //with the given values title, artist, category, time and songPath
     @Override
     public Song createSong(String title, String artist, String category, int time, String fPath) throws Exception {
         String sql = "INSERT INTO Song (title, artist, category, time, songPath)VALUES (?,?,?,?,?);";
@@ -82,7 +83,8 @@ public class SongDAO_DB implements ISongDataAccess{
 
         }
     }
-
+    //a method that connects to the database, and uses a SQL string to update the title, artist, category of a song,
+    //with a specified id on the song table.
     @Override
     public void updateSong(Song song) throws Exception {
         try(Connection connection = databaseConnector.getConnection()){
@@ -103,7 +105,7 @@ public class SongDAO_DB implements ISongDataAccess{
         }
 
     }
-
+    //a method that connects to the database, and uses a SQL string to delete a song with a specified Id.
     @Override
     public void deleteSong(Song song) throws Exception {
         try(Connection connection = databaseConnector.getConnection()){
