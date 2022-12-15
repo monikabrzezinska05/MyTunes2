@@ -9,6 +9,8 @@ public class Song {
     private String category;
     private String fPath;
 
+
+    // Making a constructer for our Song class, with the variables that we need.
     public Song(int id, String title, String artist, String category, int time, String fPath) {
         this.id = id;
         this.artist = artist;
@@ -18,6 +20,7 @@ public class Song {
         this.fPath = fPath;
     }
 
+    // Making a new constructer for Song, that can be used to edit songs in our mucisplayer.
     public Song(String updateTitle, String updateArtist, int updateTime, String updateCategory, String updateFPath) {
         this.title = updateTitle;
         this.artist = updateArtist;
@@ -26,6 +29,8 @@ public class Song {
         this.fPath = updateFPath;
     }
 
+
+    //Making a bunch of get and set methods for our variables.
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }
@@ -48,6 +53,7 @@ public class Song {
 
     public void setArtist(String artist) {this.artist = artist;}
 
+    //Filepath is stored in our database, then we use that filepath to play songs that are on your computer locally.
     public String getFPath() {return fPath;}
 
     public void setFPath(String fPath) {this.fPath = fPath;}

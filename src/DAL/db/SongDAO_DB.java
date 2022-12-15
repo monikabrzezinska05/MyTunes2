@@ -21,12 +21,14 @@ public class SongDAO_DB implements ISongDataAccess{
     public static String getFpath() {
         return fPath.get();
     }
+
     //a list of all the songs in our songs table.
     public List<Song> getSongs() throws SQLServerException {
         ArrayList<Song> allSongs = new ArrayList<>();
 
         try (Connection connection = databaseConnector.getConnection())
         {
+            //sql statement to get data from database.
             String sql = "SELECT * FROM Song;";
 
             Statement statement = connection.createStatement();
@@ -34,6 +36,7 @@ public class SongDAO_DB implements ISongDataAccess{
 
             while(rs.next()) {
 
+                //getting the values we want for our variables.
                 int id = rs.getInt("ID");
                 String title = rs.getString("Title");
                 String artist = rs.getString("Artist");
@@ -52,6 +55,7 @@ public class SongDAO_DB implements ISongDataAccess{
     //a method that connects to the database, and uses a SQL string to add a song to the song table,
     //with the given values title, artist, category, time and songPath
     @Override
+    //Method used create a Song. Used sql statement to add it to our database.
     public Song createSong(String title, String artist, String category, int time, String fPath) throws Exception {
         String sql = "INSERT INTO Song (title, artist, category, time, songPath)VALUES (?,?,?,?,?);";
 
@@ -65,7 +69,7 @@ public class SongDAO_DB implements ISongDataAccess{
             statement.setString(5, fPath);
 
             statement.executeUpdate();
-
+            //giving an ID value to the song we create.
             ResultSet rs = statement.getGeneratedKeys();
             int id = 0;
 
@@ -82,12 +86,14 @@ public class SongDAO_DB implements ISongDataAccess{
 
         }
     }
+
     //a method that connects to the database, and uses a SQL string to update the title, artist, category of a song,
     //with a specified id on the song table.
     @Override
     public void updateSong(Song song) throws Exception {
         try(Connection connection = databaseConnector.getConnection()){
 
+            //the sql statement we use to update database.
             String sql = "UPDATE Song SET Title = ?, Artist = ?, Category = ? WHERE Id = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
 
@@ -104,6 +110,7 @@ public class SongDAO_DB implements ISongDataAccess{
         }
 
     }
+
     //a method that connects to the database, and uses a SQL string to delete a song with a specified Id.
     @Override
     public void deleteSong(Song song) throws Exception {

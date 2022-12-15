@@ -18,6 +18,7 @@ public class DatabaseConnector {
         dataSource.setTrustServerCertificate(true);
         dataSource.setPortNumber(1433);
     }
+
     //getConnection, a method used in other methods, to connect to our database.
     public Connection getConnection() throws SQLServerException {
         return dataSource.getConnection();

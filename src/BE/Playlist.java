@@ -12,6 +12,7 @@ public class Playlist {
 
     private List<Song> songs;
 
+    // A bunch of get and set methods for our playlist class.
     public int getId() {
         return id;
     }
@@ -40,6 +41,7 @@ public class Playlist {
         this.plSongs = plSongs;
     }
 
+    // get method for our list of songs.
     public List<Song> getSongs() {
         return songs;
     }
@@ -48,6 +50,7 @@ public class Playlist {
         this.songs = songs;
     }
 
+    //constructor for our Playlist class. With variables.
     public Playlist(String plTitle) {
         this.id = id;
         this.plTitle = plTitle;
@@ -55,14 +58,17 @@ public class Playlist {
         songs = new ArrayList<>();
     }
 
+    //search list of playlist.
     public static List<Playlist> search(List<Playlist> allPlaylists, String query) {
         return allPlaylists;
     }
 
+    //used to return list of songs in a specific playlist.
     public List<Song> getSongsInPlaylist() {
         return songs;
     }
 
+    //adding a song to a playlist
     public void addSongToPlaylist(Song song) {
         songs.add(song);
     }
