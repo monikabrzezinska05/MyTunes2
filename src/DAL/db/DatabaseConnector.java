@@ -19,6 +19,7 @@ public class DatabaseConnector {
         dataSource.setPortNumber(1433);
     }
 
+    //Get connection method used to connect our program to our database.
     public Connection getConnection() throws SQLServerException {
         return dataSource.getConnection();
     }
