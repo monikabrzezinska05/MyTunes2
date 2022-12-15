@@ -49,13 +49,13 @@ public class NewSongViewController extends BaseController implements Initializab
     public void setup() {
         songModel = getModel();
     }
-
+    //a cancel song that closes down the new song view controller.
     public void handleCancelSong(ActionEvent actionEvent) {
         Stage stage = (Stage) cancelSong.getScene().getWindow();
         stage.close();
     }
 
-
+    //a button that saves the new song added to the song table.
     public void handleSaveSong(ActionEvent actionEvent) {
 
         String title = txtTitle.getText();
@@ -73,7 +73,7 @@ public class NewSongViewController extends BaseController implements Initializab
             e.printStackTrace();
         }
     }
-
+    //a choose button, to choose a local filepath.
     public void handleChooseFile(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
         Stage stage = (Stage) cancelSong.getScene().getWindow();

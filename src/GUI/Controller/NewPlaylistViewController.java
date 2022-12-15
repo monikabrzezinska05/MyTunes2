@@ -31,12 +31,12 @@ public class NewPlaylistViewController extends BaseController implements Initial
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
+    //a cancel button, for closing the playlist view controller, without updating.
     public void handleCancelPlaylist(ActionEvent actionEvent) {
         Stage stage = (Stage) cancelPlaylist.getScene().getWindow();
         stage.close();
     }
-
+    //a save button, to save a playlist.
     public void handleSavePlaylist(ActionEvent actionEvent) throws Exception {
         try {
             playlistModel.createPlaylist(txtPlaylistTitle.getText());

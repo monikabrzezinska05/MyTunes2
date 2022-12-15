@@ -16,6 +16,7 @@ public class PlaylistSongDAO_DB implements IPlaylistSongDataAccess {
         databaseConnector = new DatabaseConnector();
     }
 
+    //a method that connects to the database, and uses a SQL string to add a playlistId and a songId to the playlistSongs table
     public void addSongToPlaylist(Playlist playlist, Song song) {
         try (Connection connection = databaseConnector.getConnection()) {
             String sql = "INSERT INTO PlaylistSongs(PlaylistId, SongId) VALUES (?,?)";
@@ -30,7 +31,7 @@ public class PlaylistSongDAO_DB implements IPlaylistSongDataAccess {
 
         }
     }
-
+    //a method that connects to the database, and uses a SQL string to delete a song from a specified playlist through the playlistSongs table
     public void removeSongFromPlaylist(Playlist rSPlaylist, Song Song) throws Exception {
         try (Connection connection = databaseConnector.getConnection()) {
             String sql = "DELETE FROM PlaylistSongs WHERE PlaylistId = ? and SongId = ?;";
@@ -45,7 +46,8 @@ public class PlaylistSongDAO_DB implements IPlaylistSongDataAccess {
             throw new Exception("could not delete song from playlist");
         }
     }
-
+    //a method that connects to the database, and uses a SQL string where it selects all from the song table.
+    //then joins the two tables, giving us the title in our MyTunes controller, rather than just having Ids.
     public List<Song> loadSongsFromPlaylist(Playlist playlist) {
         ArrayList<Song> allSongs = new ArrayList<>();
 

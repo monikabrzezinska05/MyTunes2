@@ -48,23 +48,20 @@ public class EditSongViewController extends BaseController implements Initializa
                 "Hard Style", "Metal", "Alternative", "Classic", "Country", "R&B", "Soul", "Dødstramp");
         categoryDropdown.getSelectionModel().selectFirst();
     }
-
-    public void handleChooseFile(ActionEvent actionEvent) {
-    }
-
+    //"Choose" button in the edit song controller.
     public void handleEditFile(ActionEvent actionEvent) {
-
+        //Makes it possible to choose a local file, for songPath.
         FileChooser fc = new FileChooser();
         Stage stage = (Stage) cancelEdit.getScene().getWindow();
         File f = fc.showOpenDialog(stage);
         txtFile.setText(f.getPath());
     }
-
+    //Cancel button to close the edit song controller.
     public void handleCancelEdit(ActionEvent actionEvent) {
         Stage stage = (Stage) cancelEdit.getScene().getWindow();
         stage.close();
     }
-
+    //Button to edit the song, saving the changes.
     public void handleEditSong(ActionEvent actionEvent) throws Exception {
         String updatedTitle = txtTitle.getText();
         String updatedArtist = txtArtist.getText();

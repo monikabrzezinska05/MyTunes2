@@ -39,7 +39,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
             throw new RuntimeException(e);
         }
     }
-
+    //a method that connects to the database, and uses a SQL string to insert a title, to the playlist table
     @Override
     public Playlist createPlaylist(String plTitle) throws Exception {
         String sql = "INSERT INTO Playlist (Title)VALUES (?);";
@@ -65,7 +65,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
             throw new Exception("Could not create playlist", exc);
         }
     }
-
+    //a method that connects to the database, and uses a SQL string to update a title in the playlist table, with a specified Id.
     @Override
     public void updatePlaylist(Playlist playlist) throws Exception {
         try(Connection connection = databaseConnector.getConnection()){
@@ -84,7 +84,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
         }
 
     }
-
+    //a method that connects to the database, and uses a SQL string to delete a specified Id from the playlist table.
     @Override
     public void deletePlaylist(Playlist playlist) throws Exception {
         int id = playlist.getId();

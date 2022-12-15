@@ -5,7 +5,7 @@ import BE.Song;
 
 import java.util.List;
 
-public interface IPlaylistSongDataAccess {
+public interface IPlaylistSongDataAccess {//The interface used for PlaylistSongDAO_DB
     void addSongToPlaylist(Playlist playlist, Song song);
 
     public List<Song> loadSongsFromPlaylist(Playlist playlist);
