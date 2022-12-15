@@ -294,6 +294,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
             playlistModel.addSongToPlaylist(currentPlaylist, songToBeAdded);
             listview.getItems().add(songToBeAdded);
+            table.getSelectionModel().clearSelection();
         }
     }
     //Button to start playing a song, calls the method playSong.
