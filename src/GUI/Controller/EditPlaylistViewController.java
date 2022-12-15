@@ -18,12 +18,12 @@ public class EditPlaylistViewController extends BaseController implements Initia
     public Button cancelEditedPlaylist;
     public Button saveEditedPlaylist;
 
-    public void handleCancelEditPlaylist(ActionEvent actionEvent) {
+    public void handleCancelEditPlaylist(ActionEvent actionEvent) {//Cancel button to close the edit playlist window.
         Stage stage = (Stage) cancelEditedPlaylist.getScene().getWindow();
         stage.close();
     }
 
-    public void handleSaveEditedPlaylist(ActionEvent actionEvent) throws Exception {
+    public void handleSaveEditedPlaylist(ActionEvent actionEvent) throws Exception {//Button to save the edited playlist in edit playlist window.
         String updatedPlTitle = txtPlaylistTitle.getText();
 
         Playlist playlistToBeUpdated = playlistModel.getSelectedPlaylist();

@@ -5,7 +5,7 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 
 import java.util.List;
 
-public interface IPlaylistDataAccess {
+public interface IPlaylistDataAccess {//The interface used for PlaylistDAO_DB
 
     public List<Playlist> getPlaylist() throws Exception;
 

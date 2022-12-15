@@ -92,7 +92,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {//Sets up the playlist table column and the song table column.
+        //Making them interactable.
         setup();
         title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         category.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
@@ -165,27 +166,21 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     private void playSong(String songPath) throws Exception {
-        File file = new File(songPath);
-        Media mSong = new Media(file.getAbsoluteFile().toURI().toString());
+        File file = new File(songPath);//Creates a new file with the parameter songPath
+        Media mSong = new Media(file.getAbsoluteFile().toURI().toString());//creates a new media with the name mSong,
+        //takes the previous file, gets an abstract pathname, changes it to URI and then to string, so the program can read it.
         if(mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
-        {
+        {//if the media player isn't null, and the media player is playing, it'll stop.
             mediaPlayer.stop();
         }
         try{
-            mediaPlayer = new MediaPlayer(mSong);
-            playingTimer();
-            mediaPlayer.play();
+            mediaPlayer = new MediaPlayer(mSong);//sets mediaPlayer = to MediaPlayer mSong
+            playingTimer();//Changes to a hour:minutes:seconds time format
+            mediaPlayer.play();//starts the song
         }catch (Exception exc) {
             exc.printStackTrace();
             throw new Exception("Could not play song", exc);
         }
-    }
-
-    private void displayError(Throwable t) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Something went wrong");
-        alert.setHeaderText(t.getMessage());
-        alert.showAndWait();
     }
 
     // Pressing the New button open the New Playlist window where you chose the name for your playlist
@@ -204,7 +199,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
         stage.show();
     }
-
+    //Pressing the edit button opens the edit playlist window where you edit the name of your playlist.
     public void handleEditPlaylist(ActionEvent actionEvent) throws IOException {
         Playlist selectedPlaylist = plTable.getSelectionModel().getSelectedItem();
         if (selectedPlaylist != null) {
@@ -238,6 +233,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             throw new Exception("Could not delete playlist", exc);
         }
     }
+    //Pressing the new song button, opens the window for adding a new song to the Songs table in the database.
     public void handleNewSongs(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/NewSongView.fxml"));
@@ -288,7 +284,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             throw new Exception("Could not delete song", exc);
         }
     }
-
+    //Adds a song to a playlist, through the MyTunes view controller.
    public void handleAddSongs(ActionEvent actionEvent) throws Exception {
         if(plTable.getSelectionModel().getSelectedIndex() != -1 && table.getSelectionModel().getSelectedIndex() != -1){
 
@@ -299,7 +295,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             listview.getItems().add(songToBeAdded);
         }
     }
-
+    //Button to start playing a song, calls the method playSong.
     public void handlePlayBtn(ActionEvent actionEvent) throws Exception {
         Song songToPlay = table.getSelectionModel().getSelectedItem();
         if (songToPlay != null) {
@@ -365,7 +361,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
         }
     }
-
+    // Confirmation popup when trying to delete a song from a playlist, and deletes when pressing OK.
    public void confirmationAlertSongInPlaylist() throws Exception {
        Playlist playlistChoice = plTable.getSelectionModel().getSelectedItem();
        if (playlistChoice != null) {
@@ -387,14 +383,14 @@ public class MyTunesViewController<songPath> extends BaseController implements I
            }
        }
    }
-
+    //a mouseEvent that makes your clicks interact with the playlist table.
     public void plClicker(MouseEvent mouseEvent) {
         if(plTable.getSelectionModel().getSelectedIndex() != -1){
             playlistModel.loadSongsFromPlaylist(plTable.getSelectionModel().getSelectedItem());
 
         }
     }
-
+    //a button to make a song move a spot up on the playlist
     public void buttonSongUp(ActionEvent actionEvent) {
        int index = listview.getSelectionModel().getSelectedIndex();
         if (index != 0) {
@@ -402,7 +398,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
            listview.getSelectionModel().clearAndSelect(index - 1);
         }
     }
-
+    //a button to make a song move down a spot on the playlist
     public void buttonSongDown(ActionEvent actionEvent) {
         int index = listview.getSelectionModel().getSelectedIndex();
             if (index != 0) {
@@ -410,7 +406,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                 listview.getSelectionModel().clearAndSelect(index + 1);
             }
     }
-
+    //a button to delete a song from a playlist.
     public void handleDeleteSongInPlaylist(ActionEvent actionEvent) throws Exception {
             try {
                 confirmationAlertSongInPlaylist();
@@ -419,7 +415,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                 throw new Exception("Could not delete song", exc);
             }
     }
-
+    //a button to search through the songs table, finding either a song name or a playlist.
+    //also changes the "Search" button to a "Clear" button, and clears your previous search.
     public void handleSearchButton(ActionEvent actionEvent) {
         if (searchButton.getText().equals("Search")) {
             if (searchBar.getText() != null) {
