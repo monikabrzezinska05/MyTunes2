@@ -93,7 +93,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {//Sets up the playlist table column and the song table column.
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Sets up the playlist table column and the song table column. Giving the columns the value property we want to present.
         //Making them interactable.
         setup();
         title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
