@@ -178,6 +178,28 @@ public class MyTunesViewController<songPath> extends BaseController implements I
             mediaPlayer = new MediaPlayer(mSong);//sets mediaPlayer = to MediaPlayer mSong
             playingTimer();//Changes to a hour:minutes:seconds time format
             mediaPlayer.play();//starts the song
+            mediaPlayer.setOnEndOfMedia(()->{
+                Song song;
+                if(table.getSelectionModel().getSelectedIndex() != -1){
+                    int nextSongIndex = table.getSelectionModel().getSelectedIndex() +1;
+                    table.getSelectionModel().select(nextSongIndex);
+                    song = table.getSelectionModel().getSelectedItem();
+
+                }else if(listview.getSelectionModel().getSelectedIndex() != -1){
+                    int nextSongIndex = listview.getSelectionModel().getSelectedIndex() +1;
+                    listview.getSelectionModel().select(nextSongIndex);
+                    song = listview.getSelectionModel().getSelectedItem();
+                }else{
+                    return;
+                }
+                try {
+                    playSong(song.getFPath());
+
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+
+            });
         }catch (Exception exc) {
             exc.printStackTrace();
             throw new Exception("Could not play song", exc);
@@ -386,10 +408,10 @@ public class MyTunesViewController<songPath> extends BaseController implements I
        }
    }
     //a mouseEvent that makes your clicks interact with the playlist table.
+    //Updating the listview, with the songs of the playlist.
     public void plClicker(MouseEvent mouseEvent) {
         if(plTable.getSelectionModel().getSelectedIndex() != -1){
             playlistModel.loadSongsFromPlaylist(plTable.getSelectionModel().getSelectedItem());
-
         }
     }
     //a button to make a song move a spot up on the playlist
@@ -455,5 +477,13 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                 playSong(songToPlay.getFPath());
             }
         }
+    }
+
+    public void deselectSong(MouseEvent mouseEvent) {
+        table.getSelectionModel().clearSelection();
+    }
+
+    public void deselectLV(MouseEvent mouseEvent) {
+        listview.getSelectionModel().clearSelection();
     }
 }

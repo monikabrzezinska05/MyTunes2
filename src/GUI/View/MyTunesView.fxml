@@ -67,7 +67,7 @@
           <RowConstraints maxHeight="350.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView fx:id="listview" prefHeight="350.0" prefWidth="146.0" />
+            <ListView fx:id="listview" onMouseClicked="#deselectSong" prefHeight="350.0" prefWidth="146.0" />
          </children>
       </GridPane>
       <GridPane layoutX="558.0" layoutY="155.0" prefHeight="350.0" prefWidth="360.0">
@@ -78,7 +78,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="table" onMouseClicked="#deselectLV" prefHeight="200.0" prefWidth="200.0">
               <columns>
                 <TableColumn fx:id="title" prefWidth="96.0" text="Title" />
                 <TableColumn fx:id="artist" prefWidth="82.0" text="Artist" />

@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9a424b03-9e79-44ea-bcf5-ec9ccccec3e4" name="Changes" comment="delete not working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/db/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/DatabaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAL/db/SongDAO_DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/EditPlaylistViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/EditPlaylistViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/NewSongViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Controller/MyTunesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/View/MyTunesView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +36,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.JavaFX"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Resource/Images" />
@@ -93,6 +97,7 @@
       <workItem from="1670486547464" duration="8866000" />
       <workItem from="1671005463361" duration="7916000" />
       <workItem from="1671091381038" duration="6372000" />
+      <workItem from="1671217719549" duration="3626000" />
     </task>
     <task id="LOCAL-00001" summary="fixed">
       <created>1670316903300</created>
