@@ -77,11 +77,8 @@ public class PlaylistModel {
 
     public void removeSongFromPlaylist(Playlist selectedPlaylist, Song selectedSong) throws Exception {
         playlistManager.removeSongFromPlaylist(selectedPlaylist, selectedSong);
-        selectedPlaylist.removeSongFromPlaylist(selectedSong);
-
-
     }
-
+    //OSPS = Observable playlist song
     public ObservableList<Song> getOSPS() {
         return selectedPlaylistSongs;
     }

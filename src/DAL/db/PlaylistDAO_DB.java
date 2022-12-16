@@ -20,7 +20,12 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
         ArrayList<Playlist> allPlaylists = new ArrayList<>();
 
         try (Connection connection = databaseConnector.getConnection()) {
-            String sql = "SELECT * FROM Playlist;";
+            String sql = "SELECT *,(SELECT COUNT (*) FROM PlaylistSongs \n" +
+                    "WHERE PlaylistId = Playlist.Id) \n" +
+                    "AS songCount, \n" +
+                    "\n" +
+                    "(SELECT SUM(Time) FROM PlaylistSongs JOIN Song on SongId = Song.Id WHERE PlaylistId = Playlist.Id) \n" +
+                    "AS totalSongLength FROM Playlist ";
 
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(sql);
@@ -32,6 +37,8 @@ public class PlaylistDAO_DB implements IPlaylistDataAccess {
 
                 Playlist playlist = new Playlist(title);
                 playlist.setId(id);
+                playlist.setPlSongs(rs.getInt("songCount"));
+                playlist.setPlTime(rs.getInt("totalSongLength"));
                 allPlaylists.add(playlist);
             }
             return allPlaylists;

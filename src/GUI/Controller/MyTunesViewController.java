@@ -77,9 +77,8 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     @FXML
     private TableColumn<Playlist, Integer> plTime;
     private SongModel songModel;
-    private MediaView mediaView;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
-    public Playlist currentPlaylist;
+
 
     public MyTunesViewController() {
 
@@ -100,6 +99,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         category.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
         artist.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
         time.setCellValueFactory(new PropertyValueFactory<Song, Integer>("time"));
+
 
         table.setItems(songModel.getObservableSongs());
 
