@@ -6,6 +6,7 @@ import BE.Song;
 import GUI.Model.PlaylistModel;
 import GUI.Model.SongModel;
 import javafx.beans.binding.StringBinding;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -61,7 +62,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     @FXML
     private TableView<Song> table;
     @FXML
-    private TableColumn<Song, Integer> time;
+    private TableColumn<Song, String> time;
     @FXML
     private TableColumn<Song, String> title;
     @FXML
@@ -75,7 +76,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
     @FXML
     private TableColumn<Playlist, Integer> plSongs;
     @FXML
-    private TableColumn<Playlist, Integer> plTime;
+    private TableColumn<Playlist, String> plTime;
     private SongModel songModel;
     private static final MusicPlayer musicPlayer = new MusicPlayer();
 
@@ -98,13 +99,13 @@ public class MyTunesViewController<songPath> extends BaseController implements I
         title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         category.setCellValueFactory(new PropertyValueFactory<Song, String>("category"));
         artist.setCellValueFactory(new PropertyValueFactory<Song, String>("artist"));
-        time.setCellValueFactory(new PropertyValueFactory<Song, Integer>("time"));
+        time.setCellValueFactory(t -> new SimpleStringProperty(t.getValue().getTimeStamp()));
 
 
         table.setItems(songModel.getObservableSongs());
 
         plTitle.setCellValueFactory(new PropertyValueFactory<Playlist, String>("plTitle"));
-        plTime.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plTime"));
+        plTime.setCellValueFactory(t -> new SimpleStringProperty(t.getValue().getTimeStamp()));
         plSongs.setCellValueFactory(new PropertyValueFactory<Playlist, Integer>("plSongs"));
 
         plTable.setItems(playlistModel.getObservablePlaylist());

@@ -56,8 +56,15 @@ public class Playlist {
         return allPlaylists;
     }
 
-    //used to return list of songs in a specific playlist.
-
-
-
+    public String getTimeStamp(){
+        int minutes = plTime /60;
+        int seconds = plTime %60;
+        String textSeconds;
+        if(seconds <= 9){
+            textSeconds = "0" + seconds;
+        }else{
+            textSeconds = ""+ seconds;
+        }
+        return minutes + ":" + textSeconds;
+    }
 }

@@ -62,4 +62,16 @@ public class Song {
     public String toString() {
         return title;
     }
+
+    public String getTimeStamp(){
+        int minutes = time /60;
+        int seconds = time %60;
+        String textSeconds;
+        if(seconds <= 9){
+            textSeconds = "0" + seconds;
+        }else{
+            textSeconds = ""+ seconds;
+        }
+        return minutes + ":" + textSeconds;
+    }
 }
