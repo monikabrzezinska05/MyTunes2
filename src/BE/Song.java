@@ -62,7 +62,7 @@ public class Song {
     public String toString() {
         return title;
     }
-
+    //Converts int time to a string, with calculated minutes and seconds.
     public String getTimeStamp(){
         int minutes = time /60;
         int seconds = time %60;

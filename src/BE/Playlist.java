@@ -55,7 +55,7 @@ public class Playlist {
     public static List<Playlist> search(List<Playlist> allPlaylists, String query) {
         return allPlaylists;
     }
-
+    //Converts int time to a string, with calculated minutes and seconds.
     public String getTimeStamp(){
         int minutes = plTime /60;
         int seconds = plTime %60;

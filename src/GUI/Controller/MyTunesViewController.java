@@ -343,16 +343,16 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
                     @Override
                     protected String computeValue() {
-                        String times = String.format("%d min, %d sec",
-                                TimeUnit.MILLISECONDS.toMinutes((long)mediaPlayer.getCurrentTime().toMillis()),
-                                TimeUnit.MILLISECONDS.toSeconds((long)mediaPlayer.getCurrentTime().toMillis()) -
-                                        TimeUnit.MINUTES.toSeconds(
-                                                TimeUnit.MILLISECONDS.toMinutes(
-                                                        (long)mediaPlayer.getCurrentTime().toMillis()
-                                                )
-                                        )
-                        );
-                        return times;
+                        int time = (int) (mediaPlayer.getCurrentTime().toMillis()/1000);
+                        int minutes = time /60;
+                        int seconds = time %60;
+                        String textSeconds;
+                        if(seconds <= 9){
+                            textSeconds = "0" + seconds;
+                        }else{
+                            textSeconds = ""+ seconds;
+                        }
+                        return minutes + ":" + textSeconds;
                     }
                 });
     }
