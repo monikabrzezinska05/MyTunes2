@@ -67,14 +67,5 @@ public class SongModel {
         this.selectedSong = selectedSong;
     }
 
-    /*public void search(String query) {
-        if (query.isEmpty()) {
-            songs.clear();
-            songs.addAll(songManager.getSongs());
-        }
-        else {
-            songs.clear();
-            songs.addAll(songManager.search(query));
-        }
-    }*/
+
 }

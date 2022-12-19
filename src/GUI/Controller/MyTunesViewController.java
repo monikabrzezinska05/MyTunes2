@@ -113,7 +113,7 @@ public class MyTunesViewController<songPath> extends BaseController implements I
 
     }
 
-    // Disables the Edit button until a song or playlist has been selected. Volume slider to change the volume
+    // Disables the Edit/Delete button until a song or playlist has been selected. Volume slider to change the volume
     @Override
     public void setup() {
         editSong.setDisable(true);
@@ -401,10 +401,6 @@ public class MyTunesViewController<songPath> extends BaseController implements I
                playlistModel.removeSongFromPlaylist(selectedPlaylist, selectedSong);
                //plTable.getSelectionModel().select(selectedPlaylist);
                listview.getItems().remove(selectedSong);
-
-
-           } else {
-
            }
        }
    }
